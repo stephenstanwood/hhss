@@ -10,29 +10,97 @@ export const metadata: Metadata = {
 
 const TIMELINE = [
   {
-    year: "2013",
-    title: "A research trip changes everything.",
-    body: "Gabriel — a Lost Boy of Sudan and Justice Studies student at San Jose State — visits refugee camp settlements in Uganda as part of his research. He sees children living the same way he did as a refugee in Kenya, and recognizes a calling.",
+    year: "1983",
+    title: "Born near the Nile.",
+    body: "Gabriel Akim Nyok is born in a clinic in South Sudan. The middle name Akim — \"doctor\" in Dinka — comes from the rarity of being born in a clinic at all.",
+  },
+  {
+    year: "~1985",
+    title: "Carried out of South Sudan.",
+    body: "At two or three years old, Gabriel is among the Lost Boys and Girls of Sudan — over 20,000 children separated from their families by the civil war. Red Cross volunteers carry him from a displaced-persons camp in South Sudan to a UNHCR camp in Northern Kenya. He grows up there as an orphan with his brother.",
+  },
+  {
+    year: "2006",
+    title: "Resettled in California.",
+    body: "After earning a UNICEF scholarship to attend school in Kenya — and then teaching at the camp himself — Gabriel is among the South Sudanese refugees brought to the U.S. by the U.S. government. He lands in the Bay Area and enrolls at De Anza College.",
+  },
+  {
+    year: "2011",
+    title: "First trip back to Africa.",
+    body: "Gabriel visits South Sudanese refugee settlements in Uganda. Seeing children living the same way he had a few years earlier, he resolves to make a difference. He starts personally sending refugee children to school each year through his own donations.",
   },
   {
     year: "Feb 2018",
     title: "Helping Hands is founded.",
-    body: "Gabriel and a small group of fellow Lost Boys file for nonprofit status. The IRS grants 501(c)(3) exemption with an effective date of February 26, 2018. The mission: provide education scholarships to South Sudanese children living in exile.",
+    body: "Gabriel and a group of fellow former Lost Boys file for 501(c)(3) status. The IRS grants exemption with an effective date of February 26, 2018. The same year, Gabriel earns his BS from San Jose State — Justice Studies major, Human Rights minor.",
   },
   {
-    year: "Today",
-    title: "Six schools, still volunteer-run.",
-    body: "We support six partner schools across South Sudan and Uganda. Operating expenses run about 1% — the rest of every donation funds tuition, uniforms, books, and meals. Gabriel still travels back to walk the schools and meet the kids.",
+    year: "Sep 2022",
+    title: "Family moves back to Africa.",
+    body: "After 16 years in the U.S. and five children born in California, Gabriel and Roda move the family to Kampala, Uganda — closer to the schools, the camps, and the work. He returns to the U.S. periodically for speaking and fundraising.",
+  },
+  {
+    year: "2023",
+    title: "Two new schools in Juba.",
+    body: "HHSS helps build the Juba Integrated Elementary School and the Juba Integrated High School. By 2024, the org is supporting roughly 750 children at the Juba schools alone.",
+  },
+  {
+    year: "2025",
+    title: "1,500 students at six schools.",
+    body: "Across South Sudan and Uganda, HHSS sponsors 1,500 students at six partner schools. The board is still all volunteer. Gabriel still takes no income from donations.",
   },
 ];
 
 const BOARD = [
-  { name: "Gabriel Nyok", role: "Founder", img: "/photos/board/gabriel-nyok.jpg" },
-  { name: "Connie Maurer", role: "Board Member", img: "/photos/board/connie-maurer.jpg" },
-  { name: "Brenda Costanzo", role: "Board Member", img: "/photos/board/brenda-costanzo.webp" },
-  { name: "David Garang", role: "Board Member", img: "/photos/board/david-garang.jpg" },
-  { name: "Ron Dickel", role: "Board Member", img: "/photos/board/ron-dickel.jpg" },
-  { name: "Rev. David Watermulder", role: "Board Member", img: "/photos/board/david-watermulder.jpg" },
+  {
+    name: "Gabriel Akim Nyok",
+    role: "Founder & Chairman",
+    img: "/photos/board/gabriel-nyok.jpg",
+    bio: "Founded HHSS in 2018. Lives in Kampala. Takes no income from donations.",
+  },
+  {
+    name: "Ron Dickel",
+    role: "Secretary / Treasurer",
+    img: "/photos/board/ron-dickel.jpg",
+    bio: "Retired tax VP from Intel. Former Treasurer at Presbyterian Church of Los Gatos and director at Pittsburgh Theological Seminary.",
+  },
+  {
+    name: "Constance Maurer",
+    role: "Board Member",
+    img: "/photos/board/connie-maurer.jpg",
+    bio: "Retired sales pro from Honeywell. 20+ years on the board of Friends for Youth in Redwood City. Past president, Woodside Terrace Kiwanis.",
+  },
+  {
+    name: "Brenda Costanzo",
+    role: "Board Member",
+    img: "/photos/board/brenda-costanzo.webp",
+    bio: "Retired engineering director from Lockheed Martin. 2020 Silicon Valley Business Journal Woman of Influence. Tutors math; chairs Adult Ed at PCLG.",
+  },
+];
+
+const ADVISORS = [
+  {
+    name: "Rev. Dr. David G. Watermulder",
+    role: "Advisor",
+    img: "/photos/board/david-watermulder.jpg",
+    bio: "Pastor & Head of Staff at Presbyterian Church of Los Gatos. Peace Corps West Africa. Princeton Theological Seminary, Doctorate from Portland Seminary. Has traveled to Africa with the team multiple times.",
+  },
+  {
+    name: "David Anyieth",
+    role: "Advisor",
+    img: "/photos/board/david-garang.jpg",
+    bio: "Former Lost Boy of Sudan.",
+  },
+  { name: "Garang Bol", role: "Advisor", bio: "Former Lost Boy of Sudan." },
+  { name: "Paul Kuai", role: "Advisor", bio: "Former Lost Boy of Sudan." },
+  { name: "Sri Narasimhan", role: "Advisor", bio: "Former Lost Boy of Sudan." },
+];
+
+const SS_VOLUNTEERS = [
+  "Isaiah Mayen",
+  "Michael Kui",
+  "Taban Agau",
+  "Samuel Ayuen",
 ];
 
 export default function OurStory() {
@@ -154,36 +222,123 @@ export default function OurStory() {
           <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-12">
             All volunteers.
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {BOARD.map((p, i) => {
-              const tilt = [-1.2, 0.8, -0.6, 1.0, -0.8, 0.6][i] ?? 0;
+              const tilt = [-1.0, 0.6, -0.5, 0.8][i] ?? 0;
               return (
                 <article
                   key={p.name}
-                  className="polaroid"
+                  className="bg-paper border-2 border-ink shadow-[5px_5px_0_var(--ink)] overflow-hidden"
                   style={{ transform: `rotate(${tilt}deg)` }}
                 >
-                  <div className="relative aspect-[4/5] bg-ink/10 overflow-hidden">
+                  <div className="relative aspect-[4/5] bg-ink/10">
                     <Image
                       src={p.img}
                       alt={p.name}
                       fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
                     />
                   </div>
-                  <div className="mt-1.5 text-center">
-                    <div className="font-display uppercase tracking-tight text-base leading-tight">
+                  <div className="p-4">
+                    <div className="font-display uppercase tracking-tight text-lg leading-tight">
                       {p.name}
                     </div>
-                    <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple mt-0.5">
+                    <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple mt-1 mb-3">
                       {p.role}
                     </div>
+                    <p className="text-[13px] text-ink-soft leading-relaxed">
+                      {p.bio}
+                    </p>
                   </div>
                 </article>
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ADVISORS */}
+      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-4">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                Advisors
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-4xl md:text-5xl leading-[0.95] mb-5">
+                People keeping us honest.
+              </h2>
+              <p className="text-ink-soft leading-relaxed">
+                Several of our advisors are themselves former Lost Boys and
+                Girls of Sudan — they made it out, made lives in the U.S., and
+                turned around to help the next generation.
+              </p>
+            </div>
+            <div className="md:col-span-8 grid sm:grid-cols-2 gap-5">
+              {ADVISORS.map((a) => (
+                <article
+                  key={a.name}
+                  className="bg-paper border-2 border-ink p-5 flex gap-4"
+                >
+                  {a.img ? (
+                    <div className="relative w-16 h-16 shrink-0 bg-ink/10">
+                      <Image
+                        src={a.img}
+                        alt={a.name}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 shrink-0 bg-ink/10 flex items-center justify-center font-display uppercase text-xl text-ink-muted">
+                      {a.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-display uppercase tracking-tight text-base leading-tight">
+                      {a.name}
+                    </div>
+                    <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple mt-0.5 mb-1.5">
+                      {a.role}
+                    </div>
+                    <p className="text-[13px] text-ink-soft leading-relaxed">
+                      {a.bio}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOUTH SUDANESE VOLUNTEERS */}
+      <section className="py-16 md:py-20 border-b-2 border-ink">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+            On the ground
+          </div>
+          <h2 className="font-display uppercase tracking-tight text-4xl md:text-5xl leading-[0.95] mb-6">
+            South Sudanese volunteers.
+          </h2>
+          <p className="text-lg text-ink-soft max-w-2xl mb-8 leading-relaxed">
+            We're based in California, so it matters to have feet on the ground
+            in the communities we're trying to help. These volunteers handle
+            day-to-day coordination — and we're grateful for them.
+          </p>
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {SS_VOLUNTEERS.map((name, i) => (
+              <li
+                key={name}
+                className="bg-paper border-2 border-ink p-5 font-display uppercase tracking-tight text-lg leading-tight"
+                style={{ transform: `rotate(${[-0.5, 0.4, -0.3, 0.5][i]}deg)` }}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

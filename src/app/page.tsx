@@ -3,17 +3,19 @@ import Link from "next/link";
 import { Marquee } from "@/components/marquee";
 
 const STATS = [
+  { num: "1,500", label: "Students in 2025" },
   { num: "6", label: "Partner schools" },
   { num: "2", label: "Countries" },
-  { num: "1%", label: "Operating overhead" },
-  { num: "2018", label: "Founded" },
+  { num: "Est. 2018", label: "Volunteer-run" },
 ];
 
 const SCHOOLS = [
-  { name: "Juba Integrated Schools", country: "South Sudan", img: "/photos/schools/juba.jpg" },
-  { name: "Gulu Schools", country: "Uganda", img: "/photos/schools/gulu.jpg" },
-  { name: "Broader Vision School", country: "Entebbe, Uganda", img: "/photos/schools/broader-vision.jpg" },
-  { name: "St. Gracious Secondary", country: "Lira, Uganda", img: "/photos/schools/st-gracious.jpg" },
+  { name: "Juba Integrated Primary", country: "South Sudan", img: "/photos/schools/juba.jpg" },
+  { name: "Juba Integrated High", country: "South Sudan", img: "/photos/schools/juba.jpg" },
+  { name: "Gulu Primary", country: "Uganda", img: "/photos/schools/gulu.jpg" },
+  { name: "Gulu Central High", country: "Uganda", img: "/photos/schools/gulu.jpg" },
+  { name: "Broader Vision School", country: "Uganda", img: "/photos/schools/broader-vision.jpg" },
+  { name: "St. Gracious Secondary", country: "Uganda", img: "/photos/schools/st-gracious.jpg" },
 ];
 
 const RECENT = [
@@ -161,7 +163,7 @@ export default function Home() {
               {
                 kicker: "we fund",
                 title: "Tuition, uniforms, books",
-                body: "The core costs that keep a child in class. A year of primary school at our Juba partner runs about $300; a year of secondary at Gulu runs about $500.",
+                body: "The full cost of school for one child runs about $500/year — tuition, uniform, books, transportation, exam fees, and meals.",
                 color: "bg-purple text-paper",
               },
               {
@@ -171,9 +173,9 @@ export default function Home() {
                 color: "bg-paper border-2 border-ink",
               },
               {
-                kicker: "we visit",
-                title: "Trips every couple of years",
-                body: "Founder Gabriel returns to walk the schools, meet the kids, and bring back a real read on what's working.",
+                kicker: "we live there",
+                title: "Founder on the ground",
+                body: "Gabriel moved his family back to Kampala in 2022 to be closer to the work. He visits the schools regularly and personally confirms head counts for tuition.",
                 color: "bg-red text-paper",
               },
             ].map((card) => (
@@ -216,19 +218,19 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
             {SCHOOLS.map((s, i) => (
               <article
                 key={s.name}
                 className="bg-paper border-2 border-ink overflow-hidden hover:translate-y-[-3px] transition-transform"
-                style={{ transform: `rotate(${i % 2 === 0 ? "-0.6deg" : "0.6deg"})` }}
+                style={{ transform: `rotate(${i % 2 === 0 ? "-0.4deg" : "0.4deg"})` }}
               >
                 <div className="aspect-[4/3] relative bg-ink/10">
                   <Image
                     src={s.img}
                     alt={s.name}
                     fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover"
                   />
                 </div>
@@ -251,6 +253,51 @@ export default function Home() {
             >
               Meet the schools and the people behind them →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* GIRLS' EDUCATION FOCUS */}
+      <section className="py-20 md:py-28 border-b-2 border-ink relative overflow-hidden">
+        <div className="absolute -right-20 top-10 w-[420px] h-[420px] rounded-full bg-orange/10 blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                This year's focus
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-6">
+                More girls<br />
+                <span className="text-purple">in school.</span>
+              </h2>
+              <p className="text-lg text-ink-soft max-w-xl leading-relaxed mb-6">
+                When a family in South Sudan can only send one kid to school,
+                they usually choose the boy. So girls are the most under-educated
+                group in the country. We're flipping that — sending more girls
+                than boys this year.
+              </p>
+              <blockquote className="border-l-4 border-purple pl-5 font-hand text-2xl md:text-3xl text-ink leading-snug italic">
+                "Educate a man, you educate an individual.<br />
+                Educate a woman, you educate a nation."
+                <span className="block font-body not-italic text-sm text-ink-muted mt-3 tracking-wider uppercase">
+                  — African proverb
+                </span>
+              </blockquote>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative max-w-sm mx-auto lg:ml-auto">
+                <div className="polaroid" style={{ transform: "rotate(-3deg)" }}>
+                  <div className="tape -top-3 right-10" />
+                  <Image
+                    src="/photos/day_of_thanks_2024/03.jpg"
+                    alt="Students at a partner school"
+                    width={600}
+                    height={750}
+                    className="w-full h-auto block"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -309,15 +356,16 @@ export default function Home() {
         </div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="font-display uppercase tracking-tight text-6xl md:text-8xl leading-[0.85] mb-6">
-            $300 funds a year<br />
+            $500 sends a child<br />
             <span className="outline-text" style={{ WebkitTextStroke: "2px var(--paper)" }}>
-              at Juba Primary.
-            </span>
+              to school
+            </span>{" "}
+            for a year.
           </h2>
           <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto mb-10">
-            $500 covers a year at Gulu. We're a volunteer-run 501(c)(3) — our
-            operating expenses run about 1%, so the rest funds tuition,
-            uniforms, books, and meals.
+            That covers tuition, books, uniform, meals — the works. $35 covers
+            just a uniform. $25 covers a term of school supplies. Pick whatever
+            works for you. We're an all-volunteer 501(c)(3) with about 1% overhead.
           </p>
           <Link
             href="/donate"

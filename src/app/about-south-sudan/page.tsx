@@ -10,27 +10,27 @@ export const metadata: Metadata = {
 const FACTS = [
   {
     n: "01",
-    label: "Newest nation",
+    label: "An impoverished nation",
     title: "Independent since 2011.",
-    body: "South Sudan became the world's newest country after a 2011 referendum. Two years later, civil war broke out — and a country still finding its footing was thrown back into crisis.",
+    body: "South Sudan broke away from Sudan in 2011 — the world's newest country. Population is around 12 million; the majority are Christian. Most villages don't have electricity, running water, or paved roads.",
   },
   {
     n: "02",
     label: "Years of conflict",
-    title: "Decades of war.",
-    body: "From the second Sudanese civil war through the 2013–2018 South Sudanese civil war, generations have grown up with displacement as the default. An estimated 4 million people have been forced from their homes.",
+    title: "Africa's largest refugee crisis.",
+    body: "Civil war and ethnic violence have driven powerful groups to fight for control of the country and its resources — from oil to grazing land. Nearly 4 million people have been forced to flee their homes. It's the largest refugee crisis on the continent and a full humanitarian emergency.",
   },
   {
     n: "03",
     label: "Limited resources",
-    title: "Among the lowest literacy rates on earth.",
-    body: "Roughly 1 in 4 adults in South Sudan can read. For girls and rural communities, the numbers are even lower. Schools that exist often lack books, desks, electricity, and trained teachers.",
+    title: "Crowded camps, no schools.",
+    body: "Exiled South Sudanese families have sought peace in refugee camps inside and outside the country's borders. Conditions are crowded, resources are short, and there's almost no formal education available for the children who land there.",
   },
   {
     n: "04",
     label: "Children in need",
-    title: "Half the country is under 18.",
-    body: "More than 2 million school-age children are out of school. The cost of bringing one of them into a classroom is small — usually under $200 per year. The cost of leaving them out is generational.",
+    title: "A generation without classrooms.",
+    body: "The kids in these camps — many of whom have lost their parents — have little to no access to school. Donations are what put them in a classroom. We can't end a war. We can keep one kid in school for another year.",
   },
 ];
 

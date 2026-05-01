@@ -29,15 +29,32 @@ export default function Contact() {
             </div>
             <div className="lg:col-span-5">
               <div className="bg-paper border-2 border-ink p-6 md:p-8 shadow-[8px_8px_0_var(--ink)]">
-                <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-4">
+                <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
                   Direct
                 </div>
                 <a
                   href="mailto:helpinghandsforsouthsudan@gmail.com"
-                  className="font-display uppercase tracking-tight text-lg md:text-xl leading-tight break-all hover:text-purple"
+                  className="font-display uppercase tracking-tight text-base md:text-lg leading-tight break-all hover:text-purple block"
                 >
                   helpinghandsforsouthsudan@gmail.com
                 </a>
+                <a
+                  href="tel:+14155399769"
+                  className="font-display uppercase tracking-tight text-base md:text-lg leading-tight hover:text-purple block mt-1"
+                >
+                  (415) 539-9769
+                </a>
+
+                <div className="dotted-rule my-5" />
+
+                <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-2">
+                  Mail
+                </div>
+                <p className="text-[15px] leading-relaxed">
+                  Helping Hands for South Sudan<br />
+                  16575 Shannon Road<br />
+                  Los Gatos, CA 95032
+                </p>
 
                 <div className="dotted-rule my-5" />
 

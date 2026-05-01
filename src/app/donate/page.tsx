@@ -7,14 +7,17 @@ export const metadata: Metadata = {
     "99% of every donation reaches the children. Helping Hands for South Sudan is an all-volunteer 501(c)(3). Tax ID 82-5215402.",
 };
 
-const TIERS = [
-  { amount: 100, headline: "Books & supplies", body: "Books, notebooks, and supplies that get shared across a classroom for a term." },
-  { amount: 300, headline: "A year at Juba Primary", body: "A full year of school for one student at Juba Integrated Primary — tuition, uniform, books, meals." },
-  { amount: 500, headline: "A year at Gulu", body: "A full year of school for one student at Gulu Primary or Gulu Central High." },
-  { amount: 1000, headline: "Two students, one year", body: "Two students, one year of school — or one secondary student plus a chunk of supplies for the rest of the class." },
+type Tier = { amount: number; headline: string; body: string; featured?: boolean };
+const TIERS: Tier[] = [
+  { amount: 500, headline: "A year of school", body: "One child's full year — tuition, books, uniform, meals, transportation, and exam fees. The whole package.", featured: true },
+  { amount: 250, headline: "Tuition", body: "Tuition only for one student for a year." },
+  { amount: 100, headline: "Meals", body: "Daily meals for one student for the school year." },
+  { amount: 45, headline: "Books", body: "A year of textbooks and notebooks for one student." },
+  { amount: 35, headline: "School uniform", body: "A school uniform for one student." },
+  { amount: 30, headline: "Transportation", body: "A year of transportation to school for one student." },
+  { amount: 25, headline: "School supplies", body: "Pens, paper, and supplies for one student for a term." },
+  { amount: 15, headline: "National exam fee", body: "Fee to sit for the national exam — required to advance." },
 ];
-
-const QUICK = [25, 50, 75, 150];
 
 export default function Donate() {
   return (
@@ -81,40 +84,44 @@ export default function Donate() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {TIERS.map((t, i) => (
-              <article
-                key={t.amount}
-                className={`border-2 border-ink p-6 md:p-7 flex flex-col shadow-[6px_6px_0_var(--ink)] ${
-                  i === 1 ? "bg-purple text-paper" : "bg-paper"
-                }`}
-                style={{ transform: `rotate(${[-0.4, 0.5, -0.3, 0.4][i]}deg)` }}
-              >
-                <div
-                  className={`font-display uppercase tracking-[0.2em] text-xs mb-2 ${
-                    i === 1 ? "opacity-80" : "text-ink-muted"
+            {TIERS.map((t, i) => {
+              const tilts = [-0.4, 0.5, -0.3, 0.4, -0.5, 0.3, -0.4, 0.5];
+              const featured = t.featured === true;
+              return (
+                <article
+                  key={t.amount}
+                  className={`border-2 border-ink p-6 md:p-7 flex flex-col shadow-[6px_6px_0_var(--ink)] ${
+                    featured ? "bg-purple text-paper sm:col-span-2 lg:col-span-1" : "bg-paper"
                   }`}
+                  style={{ transform: `rotate(${tilts[i] ?? 0}deg)` }}
                 >
-                  {t.headline}
-                </div>
-                <div className="font-display text-6xl md:text-7xl leading-none mb-3">
-                  ${t.amount}
-                </div>
-                <p
-                  className={`text-[15px] leading-relaxed mb-6 ${
-                    i === 1 ? "opacity-95" : "text-ink-soft"
-                  }`}
-                >
-                  {t.body}
-                </p>
-                <div className="mt-auto">
-                  <PayPalDonate
-                    amount={t.amount}
-                    label={`Give $${t.amount}`}
-                    variant={i === 1 ? "secondary" : "primary"}
-                  />
-                </div>
-              </article>
-            ))}
+                  <div
+                    className={`font-display uppercase tracking-[0.2em] text-xs mb-2 ${
+                      featured ? "opacity-80" : "text-ink-muted"
+                    }`}
+                  >
+                    {t.headline}
+                  </div>
+                  <div className="font-display text-5xl md:text-6xl leading-none mb-3">
+                    ${t.amount}
+                  </div>
+                  <p
+                    className={`text-[14px] leading-relaxed mb-5 ${
+                      featured ? "opacity-95" : "text-ink-soft"
+                    }`}
+                  >
+                    {t.body}
+                  </p>
+                  <div className="mt-auto">
+                    <PayPalDonate
+                      amount={t.amount}
+                      label={`Give $${t.amount}`}
+                      variant={featured ? "secondary" : "primary"}
+                    />
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -128,20 +135,10 @@ export default function Donate() {
                 Or pick<br />your own amount.
               </h3>
               <p className="text-ink-soft mb-7 max-w-md">
-                Recurring monthly support is the most useful thing we can
-                receive — it lets us commit to families ahead of each
-                school year.
+                Want to give a different amount, or set up recurring monthly
+                support? Tap below — PayPal lets you pick any amount or set up
+                a monthly subscription.
               </p>
-              <div className="grid grid-cols-4 gap-3 mb-4">
-                {QUICK.map((a) => (
-                  <PayPalDonate
-                    key={a}
-                    amount={a}
-                    label={`$${a}`}
-                    variant="secondary"
-                  />
-                ))}
-              </div>
               <PayPalDonate label="Custom amount on PayPal →" variant="primary" />
             </div>
 
@@ -155,8 +152,11 @@ export default function Donate() {
               <ul className="space-y-4 text-[15px] text-ink-soft leading-relaxed">
                 <li>
                   <strong className="text-ink block">Check:</strong>
-                  Made out to <em>Helping Hands for South Sudan</em>.
-                  Email us for the mailing address.
+                  Made out to <em>Helping Hands for South Sudan</em>, mailed to:<br />
+                  <span className="font-mono text-[13px] text-ink mt-1 block">
+                    16575 Shannon Road<br />
+                    Los Gatos, CA 95032
+                  </span>
                 </li>
                 <li>
                   <strong className="text-ink block">Stock or DAF:</strong>

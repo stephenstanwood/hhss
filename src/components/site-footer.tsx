@@ -54,14 +54,21 @@ export function SiteFooter() {
             <h3 className="font-display uppercase tracking-wider text-sm text-ink-muted mb-4">
               Get in touch
             </h3>
-            <p className="text-[15px] text-ink-soft mb-4">
+            <div className="text-[15px] text-ink-soft mb-4 space-y-1">
               <a
                 href="mailto:helpinghandsforsouthsudan@gmail.com"
-                className="underline decoration-2 underline-offset-4 decoration-purple hover:text-purple"
+                className="underline decoration-2 underline-offset-4 decoration-purple hover:text-purple block"
               >
                 helpinghandsforsouthsudan@gmail.com
               </a>
-            </p>
+              <a href="tel:+14155399769" className="hover:text-purple block">
+                (415) 539-9769
+              </a>
+              <p className="text-[13px] text-ink-muted leading-snug pt-1">
+                16575 Shannon Road<br />
+                Los Gatos, CA 95032
+              </p>
+            </div>
             <div className="flex items-center gap-3 mb-5">
               <a
                 href="https://www.facebook.com/helpinghands4southsudan/"
