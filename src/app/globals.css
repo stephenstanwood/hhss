@@ -1,26 +1,151 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f5f1e8;
+  --paper-deep: #ebe5d3;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #7a7474;
+  --purple: #67156E;
+  --purple-deep: #4a0e54;
+  --purple-soft: #8b3d96;
+  --red: #C8102E;
+  --orange: #E87722;
+  --green: #4A7C2A;
+  --gold: #D4A841;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-purple: var(--purple);
+  --color-purple-deep: var(--purple-deep);
+  --color-purple-soft: var(--purple-soft);
+  --color-red: var(--red);
+  --color-orange: var(--orange);
+  --color-green: var(--green);
+  --color-gold: var(--gold);
+
+  --font-display: var(--font-fjalla), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-source), -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-hand: var(--font-caveat), "Bradley Hand", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--paper);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.018) 1px, transparent 1px),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.014) 1px, transparent 1px);
+  background-size: 4px 4px, 7px 7px;
+}
+
+::selection {
+  background: var(--purple);
+  color: var(--paper);
+}
+
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-hand { font-family: var(--font-hand); }
+
+/* Hand-drawn underline used as decorative accent */
+.scribble {
+  position: relative;
+  display: inline-block;
+}
+.scribble::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -8px;
+  height: 14px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 8 Q 30 2, 60 7 T 120 6 T 180 8 T 198 5' stroke='%23C8102E' stroke-width='3' fill='none' stroke-linecap='round'/></svg>") no-repeat center / 100% 100%;
+  pointer-events: none;
+}
+
+.scribble--purple::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 8 Q 30 2, 60 7 T 120 6 T 180 8 T 198 5' stroke='%2367156E' stroke-width='3' fill='none' stroke-linecap='round'/></svg>") no-repeat center / 100% 100%;
+}
+
+/* Stamp / sticker */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--paper);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+.tape {
+  position: absolute;
+  width: 100px;
+  height: 22px;
+  background: rgba(212, 168, 65, 0.6);
+  border-left: 1px dashed rgba(0,0,0,0.15);
+  border-right: 1px dashed rgba(0,0,0,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Photo frame, slight tilt */
+.polaroid {
+  background: white;
+  padding: 10px 10px 36px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+/* Ticker / marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+/* Ribbon/section number */
+.ribbon-num {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 14vw, 200px);
+  line-height: 0.85;
+  color: var(--purple);
+  -webkit-text-stroke: 2px var(--purple);
+  font-weight: 700;
+}
+
+/* Outline display style */
+.outline-text {
+  -webkit-text-stroke: 2px var(--ink);
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Dotted divider */
+.dotted-rule {
+  background-image: radial-gradient(circle, var(--ink) 1.2px, transparent 1.5px);
+  background-size: 12px 8px;
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 8px;
 }
