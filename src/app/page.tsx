@@ -5,7 +5,7 @@ import { Marquee } from "@/components/marquee";
 const STATS = [
   { num: "1,500", label: "Students in 2025" },
   { num: "6", label: "Partner schools" },
-  { num: "2", label: "Countries" },
+  { num: "~1%", label: "Operating overhead" },
   { num: "Est. 2018", label: "Volunteer-run" },
 ];
 
@@ -19,10 +19,10 @@ const SCHOOLS = [
 ];
 
 const RECENT = [
-  { src: "/photos/godaddy/gabriel-pointing.jpg", caption: "Home visit" },
+  { src: "/photos/field/children-group.jpg", caption: "At the camp" },
   { src: "/photos/godaddy/students-3.jpg", caption: "Schoolyard" },
-  { src: "/photos/godaddy/teens-lineup.jpg", caption: "After class" },
-  { src: "/photos/godaddy/camp-1.jpg", caption: "The camp" },
+  { src: "/photos/field/juba-classroom.jpg", caption: "Juba" },
+  { src: "/photos/field/gabriel-camp-sign.jpg", caption: "Kiryandongo" },
 ];
 
 export default function Home() {
@@ -107,7 +107,7 @@ export default function Home() {
             items={[
               "Improving lives through education",
               "Volunteer-run since 2018",
-              "Six schools, two countries",
+              "Six partner schools",
               "99% to the children",
             ]}
           />

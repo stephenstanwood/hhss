@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -48,9 +49,19 @@ const PRESS = [
   { outlet: "500 Words Magazine", note: "Listed among leading charities working in the Sudans.", color: "bg-green text-paper" },
 ];
 
+const FIELD_PHOTOS = [
+  { src: "/photos/field/gabriel-camp-sign.jpg", caption: "Kiryandongo Refugee Settlement", tilt: -1.4 },
+  { src: "/photos/field/children-group.jpg", caption: "Refugee camp", tilt: 1.0 },
+  { src: "/photos/field/family-selfie.jpg", caption: "With Mary Akio", tilt: -0.8 },
+  { src: "/photos/field/juba-classroom.jpg", caption: "Juba classroom", tilt: 0.6 },
+  { src: "/photos/field/students-feb23.jpg", caption: "Juba students", tilt: -1.2 },
+  { src: "/photos/field/cattle-road.jpg", caption: "On the road", tilt: 1.5 },
+];
+
 export default function Events() {
   return (
     <>
+      {/* HERO */}
       <section className="border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="font-display uppercase tracking-[0.3em] text-sm text-purple mb-6">
@@ -61,15 +72,89 @@ export default function Events() {
             <span className="scribble scribble--purple">community.</span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed">
-            Gabriel speaks regularly across the Bay Area and beyond. A few of
-            the more recent talks, and a couple of the press features that
-            put us on the map.
+            Gabriel speaks regularly across the Bay Area and beyond — schools,
+            churches, civic groups, panels. A few of the recent talks, the
+            press features that put us on the map, and a window into what the
+            work actually looks like on the ground.
           </p>
         </div>
       </section>
 
-      {/* TALKS — newspaper-listing style */}
+      {/* FEATURED VIDEO */}
+      <section className="bg-ink text-paper py-16 md:py-24 border-b-2 border-ink">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="font-display uppercase tracking-[0.2em] text-xs text-paper/60 mb-3">
+            Watch · Most recent
+          </div>
+          <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl leading-[0.95] mb-8">
+            Gabriel at PCLG, Nov 2025.
+          </h2>
+          <div className="aspect-video w-full bg-black border-2 border-paper/20 overflow-hidden">
+            <iframe
+              src="https://player.vimeo.com/video/1039833284?title=0&byline=0&portrait=0"
+              title="Gabriel speaking at Presbyterian Church of Los Gatos, November 2025"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+              className="w-full h-full"
+              loading="lazy"
+            />
+          </div>
+          <p className="mt-6 text-paper/70 max-w-2xl">
+            Gabriel updates the congregation on hundreds of children we're
+            supporting, how he personally confirms head counts before tuition
+            payments, and the rising costs from civil unrest in East Africa.
+          </p>
+        </div>
+      </section>
+
+      {/* FIELD PHOTO STRIP */}
       <section className="py-16 md:py-24 border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-12 gap-8 mb-12">
+            <div className="md:col-span-5">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                On the ground
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl leading-[0.95]">
+                What the work<br />
+                <span className="scribble">actually looks like.</span>
+              </h2>
+            </div>
+            <div className="md:col-span-7 self-end">
+              <p className="text-lg text-ink-soft max-w-xl leading-relaxed">
+                Photos from the camps, the classrooms, and the trips back. The
+                team has been making this journey since 2017 — every photo
+                here came from one of those trips.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+            {FIELD_PHOTOS.map((p) => (
+              <figure
+                key={p.src}
+                className="polaroid"
+                style={{ transform: `rotate(${p.tilt}deg)` }}
+              >
+                <div className="relative aspect-[4/3] bg-ink/10">
+                  <Image
+                    src={p.src}
+                    alt={p.caption}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="text-center font-hand text-base md:text-lg mt-1.5">
+                  {p.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TALKS */}
+      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {UPCOMING.length > 0 && (
             <div className="mb-12">
@@ -105,7 +190,7 @@ export default function Events() {
             {TALKS.map((t) => (
               <li
                 key={`${t.date}-${t.venue}`}
-                className="border-b border-ink/15 grid grid-cols-12 gap-4 py-5 items-baseline hover:bg-paper-deep/40 transition-colors"
+                className="border-b border-ink/15 grid grid-cols-12 gap-4 py-5 items-baseline hover:bg-paper/40 transition-colors"
               >
                 <div className="col-span-3 md:col-span-2 font-display uppercase tracking-[0.15em] text-xs md:text-sm text-purple">
                   {t.date}
@@ -124,7 +209,7 @@ export default function Events() {
               </li>
             ))}
           </ul>
-          <div className="mt-10 border-2 border-dashed border-ink/40 p-6 md:p-8 text-center bg-paper-deep/40">
+          <div className="mt-10 border-2 border-dashed border-ink/40 p-6 md:p-8 text-center bg-paper/60">
             <p className="font-hand text-2xl mb-3 text-ink">
               Want Gabriel at your group?
             </p>
@@ -142,7 +227,56 @@ export default function Events() {
         </div>
       </section>
 
-      {/* PRESS — bold cards */}
+      {/* MORE VIDEO */}
+      <section className="py-16 md:py-24 border-b-2 border-ink">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div>
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                Watch
+              </div>
+              <h3 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-[0.95] mb-5">
+                Gabriel tells<br />his story.
+              </h3>
+              <p className="text-ink-soft leading-relaxed mb-5">
+                An 8-minute presentation Gabriel gave at Presbyterian Church
+                of Los Gatos in 2018, walking through his journey out of South
+                Sudan and the start of HH4SS.
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=SPmvrtZbKGw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-display uppercase tracking-wider text-sm bg-ink text-paper px-6 py-3 border-2 border-ink shadow-[4px_4px_0_var(--purple)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--purple)] transition-all"
+              >
+                Watch on YouTube →
+              </a>
+            </div>
+            <div>
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                And then
+              </div>
+              <h3 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-[0.95] mb-5">
+                A trip set to<br />music.
+              </h3>
+              <p className="text-ink-soft leading-relaxed mb-5">
+                A short musical video from the team's February 2020 trip to
+                South Sudan and Uganda — the camps, the schools, the kids.
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=rcCg63zZJXs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-display uppercase tracking-wider text-sm bg-ink text-paper px-6 py-3 border-2 border-ink shadow-[4px_4px_0_var(--purple)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--purple)] transition-all"
+              >
+                Watch on YouTube →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRESS */}
       <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">

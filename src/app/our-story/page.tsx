@@ -5,10 +5,20 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Our Story",
   description:
-    "Founded by Lost Boy Gabriel Nyok. Helping Hands for South Sudan is a 501(c)(3) nonprofit with six partner schools across South Sudan and Uganda.",
+    "Founded in 2018 by Gabriel Nyok. Helping Hands for South Sudan is a 501(c)(3) nonprofit with six partner schools across South Sudan and Uganda.",
 };
 
-const TIMELINE = [
+type TimelineEntry = {
+  year: string;
+  title: string;
+  body: string;
+  img?: string;
+  imgAlt?: string;
+  imgCaption?: string;
+  tilt?: number;
+};
+
+const TIMELINE: TimelineEntry[] = [
   {
     year: "1983",
     title: "Born near the Nile.",
@@ -23,11 +33,19 @@ const TIMELINE = [
     year: "2006",
     title: "Resettled in California.",
     body: "After earning a UNICEF scholarship to attend school in Kenya — and then teaching at the camp himself — Gabriel is among the South Sudanese refugees brought to the U.S. by the U.S. government. He lands in the Bay Area and enrolls at De Anza College.",
+    img: "/photos/field/gabriel-arriving-usa.jpg",
+    imgAlt: "Gabriel and other South Sudanese young people on the day they arrived in the U.S., 2006",
+    imgCaption: "First day in the U.S., 2006",
+    tilt: -1.5,
   },
   {
     year: "2011",
     title: "First trip back to Africa.",
     body: "Gabriel visits South Sudanese refugee settlements in Uganda. Seeing children living the same way he had a few years earlier, he resolves to make a difference. He starts personally sending refugee children to school each year through his own donations.",
+    img: "/photos/field/gabriel-camp-sign.jpg",
+    imgAlt: "Gabriel at the entrance to Kiryandongo Refugee Settlement, Uganda",
+    imgCaption: "Kiryandongo, Uganda",
+    tilt: 1.2,
   },
   {
     year: "Feb 2018",
@@ -43,11 +61,19 @@ const TIMELINE = [
     year: "2023",
     title: "Two new schools in Juba.",
     body: "HHSS helps build the Juba Integrated Elementary School and the Juba Integrated High School. By 2024, the org is supporting roughly 750 children at the Juba schools alone.",
+    img: "/photos/field/juba-classroom.jpg",
+    imgAlt: "Students at the Juba Integrated School",
+    imgCaption: "Juba",
+    tilt: -1.0,
   },
   {
     year: "2025",
     title: "1,500 students at six schools.",
     body: "Across South Sudan and Uganda, HHSS sponsors 1,500 students at six partner schools. The board is still all volunteer. Gabriel still takes no income from donations.",
+    img: "/photos/field/students-feb23.jpg",
+    imgAlt: "Students at a partner school",
+    imgCaption: "Students at a partner school",
+    tilt: 1.4,
   },
 ];
 
@@ -167,9 +193,34 @@ export default function OurStory() {
                 <h3 className="font-display uppercase tracking-tight text-2xl md:text-3xl leading-tight mb-3">
                   {t.title}
                 </h3>
-                <p className="text-lg text-ink-soft leading-relaxed">
-                  {t.body}
-                </p>
+                <div className={t.img ? "grid md:grid-cols-12 gap-6 items-start" : ""}>
+                  <div className={t.img ? "md:col-span-7" : ""}>
+                    <p className="text-lg text-ink-soft leading-relaxed">
+                      {t.body}
+                    </p>
+                  </div>
+                  {t.img && (
+                    <figure
+                      className="md:col-span-5 polaroid max-w-xs"
+                      style={{ transform: `rotate(${t.tilt ?? -1}deg)` }}
+                    >
+                      <div className="relative aspect-[4/3] bg-ink/10">
+                        <Image
+                          src={t.img}
+                          alt={t.imgAlt ?? ""}
+                          fill
+                          sizes="320px"
+                          className="object-cover"
+                        />
+                      </div>
+                      {t.imgCaption && (
+                        <figcaption className="text-center font-hand text-sm mt-1.5">
+                          {t.imgCaption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  )}
+                </div>
               </li>
             ))}
           </ol>

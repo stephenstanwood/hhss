@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -39,18 +40,35 @@ export default function AboutSouthSudan() {
     <>
       <section className="border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="font-display uppercase tracking-[0.3em] text-sm text-purple mb-6">
-            Field guide
+          <div className="grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-7">
+              <div className="font-display uppercase tracking-[0.3em] text-sm text-purple mb-6">
+                Field guide
+              </div>
+              <h1 className="font-display uppercase tracking-tight leading-[0.85] text-[14vw] md:text-[10vw] lg:text-[8.5vw] text-ink">
+                South Sudan,<br />
+                <span className="scribble scribble--purple">in brief.</span>
+              </h1>
+              <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
+                Why this country, why these children, and why education is the
+                piece that compounds. Four things to know — and one decision at
+                the end of it.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative max-w-md mx-auto lg:ml-auto">
+                <div className="polaroid" style={{ transform: "rotate(2.5deg)" }}>
+                  <Image
+                    src="/photos/field/children-group.jpg"
+                    alt="Refugee children at a settlement in Uganda"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto block"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="font-display uppercase tracking-tight leading-[0.85] text-[14vw] md:text-[10vw] lg:text-[8.5vw] text-ink">
-            South Sudan,<br />
-            <span className="scribble scribble--purple">in brief.</span>
-          </h1>
-          <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed">
-            Why this country, why these children, and why education is the
-            piece that compounds. Four things to know — and one decision at
-            the end of it.
-          </p>
         </div>
       </section>
 
