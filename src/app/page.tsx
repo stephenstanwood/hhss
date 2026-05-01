@@ -91,15 +91,15 @@ export default function Home() {
                   >
                     <div className="relative aspect-square">
                       <Image
-                        src="/photos/field/gabriel-classroom.jpg"
-                        alt=""
+                        src="/photos/field/juba-students-1.jpg"
+                        alt="Students at Juba Integrated High"
                         fill
                         sizes="180px"
                         className="object-cover"
                       />
                     </div>
                     <div className="font-hand text-base text-ink text-center mt-1">
-                      Gabriel, on a school visit.
+                      Juba High, 2024
                     </div>
                   </div>
                   <div
