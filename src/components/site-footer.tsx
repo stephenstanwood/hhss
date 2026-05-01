@@ -25,7 +25,7 @@ export function SiteFooter() {
             <p className="text-ink-soft text-[15px] max-w-md">
               A volunteer-run 501(c)(3) funding primary and secondary education
               for refugee children across six partner schools in South Sudan
-              and Uganda. Founded by Lost Boy Gabriel Nyok.
+              and Uganda. Founded in 2018 by Gabriel Nyok.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-[13px] text-ink-muted">
               <span className="inline-block px-2.5 py-1 border border-ink-muted">

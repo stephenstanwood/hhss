@@ -189,7 +189,7 @@ export default function Donate() {
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 mt-10 text-left">
             {[
               { pct: "~99%", label: "Direct school costs", body: "Tuition, uniforms, books, meals — straight to the partner schools." },
-              { pct: "~1%", label: "Operating overhead", body: "Per the org's published flyer. We don't pay anyone a salary; the board is volunteer." },
+              { pct: "~1%", label: "Operating overhead", body: "We don't pay anyone a salary; the board is all volunteer." },
             ].map((c) => (
               <div key={c.label} className="border-2 border-paper p-6">
                 <div className="font-display text-5xl mb-1">{c.pct}</div>

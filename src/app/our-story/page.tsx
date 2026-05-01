@@ -46,7 +46,7 @@ export default function OurStory() {
                 Our story
               </div>
               <h1 className="font-display uppercase tracking-tight leading-[0.85] text-[14vw] md:text-[10vw] lg:text-[8.5vw] text-ink">
-                A Lost Boy<br />
+                Gabriel<br />
                 <span className="text-purple">went home,</span><br />
                 <span className="scribble">and got to work.</span>
               </h1>

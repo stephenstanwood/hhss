@@ -17,10 +17,10 @@ const SCHOOLS = [
 ];
 
 const RECENT = [
-  { src: "/photos/day_of_thanks_2024/01.jpg", caption: "Day of Thanks", year: "2024" },
-  { src: "/photos/day_of_thanks_2024/04.jpg", caption: "Juba", year: "Nov '24" },
-  { src: "/photos/day_of_thanks_2024/05.jpg", caption: "Classroom", year: "2024" },
-  { src: "/photos/day_of_thanks_2024/07.jpg", caption: "After school", year: "2024" },
+  { src: "/photos/day_of_thanks_2024/01.jpg", caption: "Juba" },
+  { src: "/photos/day_of_thanks_2024/04.jpg", caption: "Assembly" },
+  { src: "/photos/day_of_thanks_2024/05.jpg", caption: "Together" },
+  { src: "/photos/day_of_thanks_2024/07.jpg", caption: "South Sudan" },
 ];
 
 export default function Home() {
@@ -104,7 +104,7 @@ export default function Home() {
           <Marquee
             items={[
               "Improving lives through education",
-              "Founded by a Lost Boy",
+              "Volunteer-run since 2018",
               "Six schools, two countries",
               "99% to the children",
             ]}
@@ -264,13 +264,12 @@ export default function Home() {
             </div>
             <div className="md:col-span-8">
               <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-6">
-                Day of Thanks,<br />
-                <span className="text-orange">Juba 2024.</span>
+                On the<br />
+                <span className="text-orange">ground.</span>
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
-                Each year our partner schools host a celebration for the
-                families who make this work possible. Here are a few moments
-                from the most recent one.
+                A few moments from our partner schools — the kids, the
+                classrooms, and the days that make this work possible.
               </p>
             </div>
           </div>
@@ -292,7 +291,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-center font-hand text-base md:text-lg text-ink mt-1.5">
-                  {p.caption} · {p.year}
+                  {p.caption}
                 </div>
               </div>
             ))}

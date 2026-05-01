@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s · Helping Hands for South Sudan",
   },
   description:
-    "Helping Hands for South Sudan is a 501(c)(3) nonprofit that funds primary and secondary education for refugee children across six partner schools in South Sudan and Uganda. Founded by Lost Boy Gabriel Nyok.",
+    "Helping Hands for South Sudan is a 501(c)(3) nonprofit that funds primary and secondary education for refugee children across six partner schools in South Sudan and Uganda. Founded in 2018 by Gabriel Nyok.",
   keywords: [
     "South Sudan",
     "refugee education",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Helping Hands for South Sudan",
-    description: "Education for refugee children. Founded by a Lost Boy.",
+    description: "Education for refugee children. Volunteer-run 501(c)(3).",
   },
 };
 
