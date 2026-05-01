@@ -1,21 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Marquee } from "@/components/marquee";
+import { JubaClock } from "@/components/juba-clock";
+import { AnimatedCounter } from "@/components/animated-counter";
+import { SchoolsMap } from "@/components/schools-map";
+import { WallOfKids } from "@/components/wall-of-kids";
+import { GabrielSignature } from "@/components/signature";
+import { RecentPolaroids } from "@/components/recent-polaroids";
 
-const STATS = [
-  { num: "1,500", label: "Students in 2025" },
-  { num: "6", label: "Partner schools" },
-  { num: "~1%", label: "Operating overhead" },
-  { num: "Est. 2018", label: "Volunteer-run" },
-];
+type Stat =
+  | { kind: "num"; value: number; suffix?: string; prefix?: string; label: string }
+  | { kind: "text"; text: string; label: string };
 
-const SCHOOLS = [
-  { name: "Juba Integrated Primary", country: "South Sudan", img: "/photos/schools/juba.jpg" },
-  { name: "Juba Integrated High", country: "South Sudan", img: "/photos/schools/juba.jpg" },
-  { name: "Gulu Primary", country: "Uganda", img: "/photos/schools/gulu.jpg" },
-  { name: "Gulu Central High", country: "Uganda", img: "/photos/schools/gulu.jpg" },
-  { name: "Broader Vision School", country: "Uganda", img: "/photos/schools/broader-vision.jpg" },
-  { name: "St. Gracious Secondary", country: "Uganda", img: "/photos/schools/st-gracious.jpg" },
+const STATS: Stat[] = [
+  { kind: "num", value: 1500, label: "Students in 2025" },
+  { kind: "num", value: 6, label: "Partner schools" },
+  { kind: "num", value: 1, suffix: "%", prefix: "~", label: "Operating overhead" },
+  { kind: "text", text: "Est. 2018", label: "Volunteer-run" },
 ];
 
 const RECENT = [
@@ -38,9 +39,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 pb-10 md:pb-20 relative">
           <div className="grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-7">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-6 flex-wrap">
                 <span className="stamp text-xs">Est. 2018</span>
-                <span className="font-hand text-xl text-ink-soft">a volunteer-run nonprofit →</span>
+                <JubaClock />
               </div>
               <h1 className="font-display uppercase tracking-tight leading-[0.85] text-[14vw] md:text-[10vw] lg:text-[8.5vw] text-ink">
                 Every kid<br />
@@ -71,30 +72,42 @@ export default function Home() {
 
             <div className="lg:col-span-5 relative">
               <div className="relative max-w-md mx-auto lg:mx-0 lg:ml-auto">
-                <div className="polaroid relative" style={{ transform: "rotate(2.5deg)" }}>
-                  <div className="tape -top-3 left-10" />
-                  <Image
-                    src="/photos/godaddy/classroom-1.jpg"
-                    alt="Students at a partner school"
-                    width={960}
-                    height={540}
-                    className="w-full h-auto block"
-                  />
-                  <div className="absolute bottom-3 left-0 right-0 text-center font-hand text-xl text-ink">
-                    in class.
+                {/* Main photo — a classroom of kids */}
+                <div className="relative">
+                  <div className="absolute -inset-3 bg-orange/30 -rotate-2" aria-hidden="true" />
+                  <div className="relative aspect-[5/6] border-2 border-ink overflow-hidden">
+                    <Image
+                      src="/photos/field/classroom-red.jpg"
+                      alt="A classroom of students in red uniforms at one of our partner schools"
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 480px"
+                      priority
+                      className="object-cover"
+                    />
                   </div>
-                </div>
-                <div
-                  className="polaroid hidden md:block absolute -bottom-8 -left-12 w-44"
-                  style={{ transform: "rotate(-7deg)" }}
-                >
-                  <Image
-                    src="/photos/godaddy/grass-1.jpg"
-                    alt=""
-                    width={400}
-                    height={500}
-                    className="w-full h-auto block"
-                  />
+                  <div
+                    className="absolute -bottom-6 -left-10 hidden md:block bg-paper border-2 border-ink p-2.5 shadow-[6px_6px_0_var(--ink)] w-44"
+                    style={{ transform: "rotate(-4deg)" }}
+                  >
+                    <div className="relative aspect-square">
+                      <Image
+                        src="/photos/field/gabriel-classroom.jpg"
+                        alt=""
+                        fill
+                        sizes="180px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="font-hand text-base text-ink text-center mt-1">
+                      Gabriel, on a school visit.
+                    </div>
+                  </div>
+                  <div
+                    className="absolute -top-5 -right-5 hidden md:flex items-center justify-center bg-red text-paper border-2 border-ink w-28 h-28 rounded-full font-display uppercase tracking-tight text-center leading-tight text-sm shadow-[4px_4px_0_var(--ink)]"
+                    style={{ transform: "rotate(8deg)" }}
+                  >
+                    1,500<br />kids<br />in 2025
+                  </div>
                 </div>
               </div>
             </div>
@@ -126,7 +139,16 @@ export default function Home() {
                 } ${i < 2 ? "border-b-2 md:border-b-0" : ""} border-ink/15`}
               >
                 <div className="font-display text-6xl md:text-7xl text-purple leading-none">
-                  {s.num}
+                  {s.kind === "num" ? (
+                    <AnimatedCounter
+                      value={s.value}
+                      prefix={s.prefix}
+                      suffix={s.suffix}
+                      duration={1600}
+                    />
+                  ) : (
+                    s.text
+                  )}
                 </div>
                 <div className="mt-3 font-display uppercase tracking-[0.2em] text-xs text-ink-muted">
                   {s.label}
@@ -137,68 +159,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MISSION — three cards in a zine grid */}
-      <section className="py-20 md:py-28 border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* FOUNDER VOICE — replaces the 3-card "what we do" */}
+      <section className="py-20 md:py-28 border-b-2 border-ink relative overflow-hidden">
+        <div className="absolute -top-10 -right-20 w-[420px] h-[420px] rounded-full bg-orange/15 blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-12 gap-10 mb-14">
             <div className="md:col-span-4">
               <div className="ribbon-num">01</div>
             </div>
             <div className="md:col-span-8">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                Why we exist
+              </div>
               <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-6">
-                What we do <span className="text-orange">&amp;</span><br />
-                why it works.
+                Our founder<br />
+                <span className="text-purple">walked it</span> first.
               </h2>
-              <p className="text-lg text-ink-soft max-w-2xl">
-                South Sudan has the lowest literacy rate in the world.
-                Decades of war displaced millions of children, many of whom
-                never saw the inside of a classroom. We change that — one
-                child, one school year, at a time.
-              </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                kicker: "we fund",
-                title: "Tuition, uniforms, books",
-                body: "The full cost of school for one child runs about $500/year — tuition, uniform, books, transportation, exam fees, and meals.",
-                color: "bg-purple text-paper",
-              },
-              {
-                kicker: "we partner",
-                title: "Six schools, run locally",
-                body: "Headmasters and teachers on the ground know what their students need. We resource them; they educate.",
-                color: "bg-paper border-2 border-ink",
-              },
-              {
-                kicker: "we live there",
-                title: "Founder on the ground",
-                body: "Gabriel moved his family back to Kampala in 2022 to be closer to the work. He visits the schools regularly and personally confirms head counts for tuition.",
-                color: "bg-red text-paper",
-              },
-            ].map((card) => (
-              <article
-                key={card.title}
-                className={`p-7 md:p-9 ${card.color} border-2 border-ink shadow-[6px_6px_0_var(--ink)] relative`}
-              >
-                <div className="font-hand text-2xl mb-4 opacity-80">
-                  {card.kicker}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-5 lg:sticky lg:top-28">
+              <div className="relative max-w-sm mx-auto lg:mx-0">
+                <div className="absolute -inset-4 bg-purple -rotate-2" aria-hidden="true" />
+                <div className="relative aspect-[4/5] border-2 border-ink overflow-hidden">
+                  <Image
+                    src="/photos/gabriel/portrait.jpg"
+                    alt="Gabriel Nyok, founder"
+                    fill
+                    sizes="(max-width: 1024px) 80vw, 400px"
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="font-display uppercase tracking-tight text-3xl md:text-4xl leading-tight mb-4">
-                  {card.title}
-                </h3>
-                <p className="text-[15px] leading-relaxed opacity-95">
-                  {card.body}
+                <div className="relative mt-5 font-display uppercase tracking-tight text-xl text-ink leading-tight">
+                  Gabriel Akim Nyok
+                  <span className="block text-sm text-ink-muted tracking-[0.2em] font-normal mt-1">
+                    Founder &amp; Chairman
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-7 text-lg md:text-xl text-ink-soft leading-relaxed">
+              <p>
+                Gabriel was born in 1983 in a clinic near the Nile — rare
+                enough that his middle name <em>Akim</em>, "doctor" in Dinka,
+                came from it. He was two when civil war reached his village.
+              </p>
+              <p>
+                Red Cross volunteers carried him out of South Sudan to a UNHCR
+                camp in northern Kenya, where he grew up with his brother as
+                an orphan. He was one of the <strong className="text-ink">Lost Boys and
+                Girls of Sudan</strong> — over 20,000 children separated from their
+                families by the war.
+              </p>
+              <p>
+                In 2006, the U.S. government brought him to California. He
+                worked, went to school, became a citizen. In 2011 he went
+                back to visit the camps and saw children living the same life
+                he had — and started sending a few of them to school out of
+                his own paycheck.
+              </p>
+              <p>
+                <strong className="text-ink">Helping Hands for South Sudan</strong> is
+                that effort, formalized. He still doesn't take a salary. The
+                board is all volunteer. He returns to walk the schools and
+                personally confirm head counts before tuition is paid.
+              </p>
+
+              {/* Signature pull-quote */}
+              <div className="relative mt-8 pl-7 border-l-4 border-purple">
+                <p className="font-hand text-3xl md:text-4xl text-ink leading-snug">
+                  "I still don't take a salary.<br />
+                  These kids are why I went home."
                 </p>
-              </article>
-            ))}
+                <div className="mt-4 flex items-center gap-3">
+                  <GabrielSignature
+                    width={180}
+                    height={60}
+                    stroke="var(--purple)"
+                  />
+                  <span className="font-display uppercase tracking-[0.2em] text-[10px] text-ink-muted">
+                    Gabriel · Kampala, 2026
+                  </span>
+                </div>
+              </div>
+
+              <Link
+                href="/our-story"
+                className="inline-flex items-center font-display uppercase tracking-wider text-sm border-b-2 border-ink hover:text-purple hover:border-purple pb-1 mt-3"
+              >
+                Read the full story →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SCHOOLS PREVIEW */}
+      {/* SCHOOLS — INTERACTIVE MAP */}
       <section className="py-20 md:py-28 bg-paper-deep border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-10 mb-12">
@@ -212,38 +270,14 @@ export default function Home() {
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
                 Two in South Sudan. Four in Uganda — where many South Sudanese
-                refugee families have settled. Every one of them serves
-                children who would otherwise have no access to school.
+                refugee families have settled. Hover any pin to meet the
+                school.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
-            {SCHOOLS.map((s, i) => (
-              <article
-                key={s.name}
-                className="bg-paper border-2 border-ink overflow-hidden hover:translate-y-[-3px] transition-transform"
-                style={{ transform: `rotate(${i % 2 === 0 ? "-0.4deg" : "0.4deg"})` }}
-              >
-                <div className="aspect-[4/3] relative bg-ink/10">
-                  <Image
-                    src={s.img}
-                    alt={s.name}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <div className="font-display uppercase tracking-wide text-xs text-purple">
-                    {s.country}
-                  </div>
-                  <h3 className="font-display uppercase tracking-tight text-lg leading-tight mt-1">
-                    {s.name}
-                  </h3>
-                </div>
-              </article>
-            ))}
+          <div className="bg-paper border-2 border-ink p-4 md:p-8 shadow-[8px_8px_0_var(--ink)]">
+            <SchoolsMap />
           </div>
 
           <div className="mt-10 text-center">
@@ -257,43 +291,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GIRLS' EDUCATION FOCUS */}
-      <section className="py-20 md:py-28 border-b-2 border-ink relative overflow-hidden">
-        <div className="absolute -right-20 top-10 w-[420px] h-[420px] rounded-full bg-orange/10 blur-3xl pointer-events-none" />
+      {/* FULL-BLEED PHOTO BAND — visual breath between sections */}
+      <section className="relative h-[60vh] min-h-[420px] max-h-[640px] overflow-hidden border-b-2 border-ink">
+        <Image
+          src="/photos/field/juba-students-1.jpg"
+          alt="Children at a partner school in Juba"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/65" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 w-full">
+            <div className="font-display uppercase tracking-[0.2em] text-xs text-paper/80 mb-3">
+              We've lived it.
+            </div>
+            <h2 className="font-display uppercase tracking-tight text-paper text-5xl md:text-7xl leading-[0.9] max-w-3xl">
+              The founders<br />
+              were Lost Boys<br />
+              <span className="text-orange">themselves.</span>
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      {/* GIRLS' EDUCATION FOCUS — beefed up */}
+      <section className="py-20 md:py-28 border-b-2 border-ink bg-paper-deep relative overflow-hidden">
+        <div className="absolute -right-32 top-10 w-[520px] h-[520px] rounded-full bg-orange/15 blur-3xl pointer-events-none" />
+        <div className="absolute -left-32 bottom-0 w-[420px] h-[420px] rounded-full bg-purple/10 blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7">
-              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-4">
                 This year's focus
               </div>
-              <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-6">
+              <h2 className="font-display uppercase tracking-tight text-6xl md:text-8xl leading-[0.85] mb-7">
                 More girls<br />
                 <span className="text-purple">in school.</span>
               </h2>
-              <p className="text-lg text-ink-soft max-w-xl leading-relaxed mb-6">
+              <p className="text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed mb-8">
                 When a family in South Sudan can only send one kid to school,
-                they usually choose the boy. So girls are the most under-educated
-                group in the country. We're flipping that — sending more girls
-                than boys this year.
+                they almost always choose the boy. Girls are the most
+                under-educated group in the country. We're flipping that —
+                <strong className="text-ink"> sending more girls than boys this year.</strong>
               </p>
-              <blockquote className="border-l-4 border-purple pl-5 font-hand text-2xl md:text-3xl text-ink leading-snug italic">
-                "Educate a man, you educate an individual.<br />
-                Educate a woman, you educate a nation."
-                <span className="block font-body not-italic text-sm text-ink-muted mt-3 tracking-wider uppercase">
-                  — African proverb
-                </span>
+              <blockquote className="relative pl-7 mt-4">
+                <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-orange" aria-hidden="true" />
+                <p className="font-hand text-3xl md:text-4xl text-ink leading-snug">
+                  "Educate a man, you educate an individual.<br />
+                  Educate a woman, you educate a nation."
+                </p>
+                <footer className="font-display uppercase tracking-[0.2em] text-xs text-ink-muted mt-4">
+                  African proverb
+                </footer>
               </blockquote>
             </div>
-            <div className="lg:col-span-5">
-              <div className="relative max-w-sm mx-auto lg:ml-auto">
-                <div className="polaroid" style={{ transform: "rotate(-3deg)" }}>
-                  <div className="tape -top-3 right-10" />
+            <div className="lg:col-span-6">
+              <div className="relative h-full min-h-[500px]">
+                <div
+                  className="absolute top-0 right-0 w-[68%] aspect-[3/4] border-2 border-ink overflow-hidden shadow-[8px_8px_0_var(--ink)]"
+                  style={{ transform: "rotate(2deg)" }}
+                >
                   <Image
                     src="/photos/godaddy/singing.jpg"
-                    alt="Schoolchildren gathered for an assembly"
-                    width={960}
-                    height={540}
-                    className="w-full h-auto block"
+                    alt="Children gathered for an assembly"
+                    fill
+                    sizes="(max-width: 1024px) 60vw, 400px"
+                    className="object-cover"
+                  />
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 w-[55%] aspect-[3/4] border-2 border-ink overflow-hidden bg-paper shadow-[6px_6px_0_var(--ink)]"
+                  style={{ transform: "rotate(-3deg)" }}
+                >
+                  <Image
+                    src="/photos/schools/gulu-central.jpg"
+                    alt="A student at Gulu Central High"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 320px"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -302,77 +378,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RECENT MOMENTS — photo wall */}
+      {/* WALL OF KIDS — the 1,500, made visible */}
       <section className="py-20 md:py-28 border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-12 gap-10 mb-12">
+          <div className="grid md:grid-cols-12 gap-10 mb-10">
             <div className="md:col-span-4">
               <div className="ribbon-num">03</div>
             </div>
             <div className="md:col-span-8">
-              <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-6">
-                On the<br />
-                <span className="text-orange">ground.</span>
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                The 1,500
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-5">
+                Faces, not<br />
+                <span className="text-orange">a number.</span>
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
-                A few moments from our partner schools — the kids, the
-                classrooms, and the days that make this work possible.
+                A snapshot of recent days at our partner schools. Tap any
+                photo to enlarge — these are the kids your gift puts in a
+                desk.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-            {RECENT.map((p, i) => (
-              <div
-                key={p.src}
-                className="polaroid"
-                style={{ transform: `rotate(${[-2, 1.5, -1, 2.4][i]}deg)` }}
-              >
-                <div className="relative aspect-[3/4] bg-ink/10">
-                  <Image
-                    src={p.src}
-                    alt={p.caption}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-center font-hand text-base md:text-lg text-ink mt-1.5">
-                  {p.caption}
-                </div>
-              </div>
-            ))}
-          </div>
+          <WallOfKids />
+
+          <p className="font-hand text-2xl md:text-3xl text-ink mt-8 text-center">
+            ...and 1,470 more like them. ✦
+          </p>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* RECENT POLAROIDS — clickable lightbox */}
+      <section className="py-16 md:py-20 border-b-2 border-ink bg-paper-deep">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+            From the field
+          </div>
+          <h2 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-[0.95] mb-10 max-w-2xl">
+            A few favorites,<br />
+            <span className="scribble">pinned to the wall.</span>
+          </h2>
+
+          <RecentPolaroids photos={RECENT} />
+        </div>
+      </section>
+
+      {/* CTA — visceral price ladder */}
       <section className="relative py-24 md:py-32 bg-purple text-paper overflow-hidden">
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute inset-0 opacity-15 pointer-events-none">
           <Marquee
             items={["donate", "give", "support", "ayúdanos", "education", "future", "act"]}
             separator="○"
           />
         </div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="font-display uppercase tracking-tight text-6xl md:text-8xl leading-[0.85] mb-6">
-            $500 sends a child<br />
-            <span className="outline-text" style={{ WebkitTextStroke: "2px var(--paper)" }}>
-              to school
-            </span>{" "}
-            for a year.
-          </h2>
-          <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto mb-10">
-            That covers tuition, books, uniform, meals — the works. $35 covers
-            just a uniform. $25 covers a term of school supplies. Pick whatever
-            works for you. We're an all-volunteer 501(c)(3) with about 1% overhead.
-          </p>
-          <Link
-            href="/donate"
-            className="inline-flex items-center font-display uppercase tracking-wider text-lg bg-paper text-ink px-10 py-5 border-2 border-paper shadow-[6px_6px_0_var(--ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_var(--ink)] transition-all"
-          >
-            Donate now →
-          </Link>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-12">
+            <div className="font-display uppercase tracking-[0.3em] text-xs text-paper/70 mb-4">
+              Pick a number
+            </div>
+            <h2 className="font-display uppercase tracking-tight text-6xl md:text-8xl leading-[0.85] mb-6">
+              $500 sends a child<br />
+              <span className="outline-text" style={{ WebkitTextStroke: "2px var(--paper)" }}>
+                to school
+              </span>{" "}
+              for a year.
+            </h2>
+            <p className="text-lg md:text-xl opacity-85 max-w-2xl mx-auto">
+              Or pick something smaller. Every line below covers a real cost a real student is facing.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 max-w-4xl mx-auto">
+            {[
+              { n: "$15", l: "Exam fee" },
+              { n: "$35", l: "School uniform" },
+              { n: "$45", l: "A year of books" },
+              { n: "$100", l: "Meals" },
+            ].map((tier) => (
+              <li key={tier.l} className="border-2 border-paper/40 p-4 md:p-5 text-center">
+                <div className="font-display text-3xl md:text-5xl leading-none mb-1">
+                  {tier.n}
+                </div>
+                <div className="font-display uppercase tracking-[0.15em] text-[10px] md:text-xs opacity-80">
+                  {tier.l}
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div className="text-center">
+            <Link
+              href="/donate"
+              className="inline-flex items-center font-display uppercase tracking-wider text-lg bg-paper text-ink px-10 py-5 border-2 border-paper shadow-[6px_6px_0_var(--ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_var(--ink)] transition-all"
+            >
+              Donate now →
+            </Link>
+            <p className="text-paper/70 text-sm mt-5">
+              501(c)(3) · EIN 82-5215402 · Tax-deductible · ~1% overhead
+            </p>
+          </div>
         </div>
       </section>
     </>

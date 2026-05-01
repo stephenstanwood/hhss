@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PayPalDonate } from "@/components/paypal-donate";
+import { DonationReceipt } from "@/components/donation-receipt";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -67,6 +68,35 @@ export default function Donate() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RECEIPT — what a year of school actually costs */}
+      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div>
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                What $500 buys
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl leading-[0.95] mb-5">
+                One full year<br />
+                <span className="scribble">of school.</span>
+              </h2>
+              <p className="text-lg text-ink-soft leading-relaxed mb-5 max-w-md">
+                Itemized. Not "operating expenses" — actual things a student
+                walks home with: a uniform, a pair of shoes, books, three
+                meals a day, the bus there. Plus the teacher who teaches
+                them.
+              </p>
+              <p className="text-[14px] text-ink-muted leading-relaxed max-w-md">
+                Costs vary slightly by partner school and country. This is
+                the line-item breakdown we use for budgeting at the Juba
+                schools.
+              </p>
+            </div>
+            <DonationReceipt />
           </div>
         </div>
       </section>

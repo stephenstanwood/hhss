@@ -1,9 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export function SiteFooter() {
   return (
     <footer className="border-t-2 border-ink bg-paper-deep mt-24">
+      {/* Newsletter strip — full-width band above the standard footer */}
+      <div className="border-b-2 border-ink bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-2">
+                Stay in touch
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-4xl md:text-5xl leading-[0.95] mb-3">
+                Monthly notes<br />
+                <span className="text-purple">from the schools.</span>
+              </h2>
+              <p className="text-ink-soft text-[15px] max-w-md leading-relaxed">
+                One short email a month. Kid news, school updates, the
+                occasional ask — never spam.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <NewsletterSignup compact />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">

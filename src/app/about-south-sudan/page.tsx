@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { LostBoysStrip } from "@/components/lost-boys-strip";
 
 export const metadata: Metadata = {
   title: "About South Sudan",
@@ -99,6 +100,8 @@ export default function AboutSouthSudan() {
           ))}
         </div>
       </section>
+
+      <LostBoysStrip />
 
       {/* UNHCR explainer */}
       <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">

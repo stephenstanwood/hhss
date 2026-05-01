@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CinematicTimeline, type TimelineItem } from "@/components/cinematic-timeline";
+import { GabrielSignature } from "@/components/signature";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -8,26 +10,20 @@ export const metadata: Metadata = {
     "Founded in 2018 by Gabriel Nyok. Helping Hands for South Sudan is a 501(c)(3) nonprofit with six partner schools across South Sudan and Uganda.",
 };
 
-type TimelineEntry = {
-  year: string;
-  title: string;
-  body: string;
-  img?: string;
-  imgAlt?: string;
-  imgCaption?: string;
-  tilt?: number;
-};
-
-const TIMELINE: TimelineEntry[] = [
+const TIMELINE: TimelineItem[] = [
   {
     year: "1983",
     title: "Born near the Nile.",
     body: "Gabriel Akim Nyok is born in a clinic in South Sudan. The middle name Akim — \"doctor\" in Dinka — comes from the rarity of being born in a clinic at all.",
+    img: "/photos/gabriel/portrait.jpg",
+    imgAlt: "Gabriel Nyok, founder",
   },
   {
     year: "~1985",
     title: "Carried out of South Sudan.",
     body: "At two or three years old, Gabriel is among the Lost Boys and Girls of Sudan — over 20,000 children separated from their families by the civil war. Red Cross volunteers carry him from a displaced-persons camp in South Sudan to a UNHCR camp in Northern Kenya. He grows up there as an orphan with his brother.",
+    img: "/photos/field/children-group.jpg",
+    imgAlt: "Children at a refugee settlement",
   },
   {
     year: "2006",
@@ -35,8 +31,6 @@ const TIMELINE: TimelineEntry[] = [
     body: "After earning a UNICEF scholarship to attend school in Kenya — and then teaching at the camp himself — Gabriel is among the South Sudanese refugees brought to the U.S. by the U.S. government. He lands in the Bay Area and enrolls at De Anza College.",
     img: "/photos/field/gabriel-arriving-usa.jpg",
     imgAlt: "Gabriel and other South Sudanese young people on the day they arrived in the U.S., 2006",
-    imgCaption: "First day in the U.S., 2006",
-    tilt: -1.5,
   },
   {
     year: "2011",
@@ -44,18 +38,20 @@ const TIMELINE: TimelineEntry[] = [
     body: "Gabriel visits South Sudanese refugee settlements in Uganda. Seeing children living the same way he had a few years earlier, he resolves to make a difference. He starts personally sending refugee children to school each year through his own donations.",
     img: "/photos/field/gabriel-camp-sign.jpg",
     imgAlt: "Gabriel at the entrance to Kiryandongo Refugee Settlement, Uganda",
-    imgCaption: "Kiryandongo, Uganda",
-    tilt: 1.2,
   },
   {
     year: "Feb 2018",
     title: "Helping Hands is founded.",
     body: "Gabriel and a group of fellow former Lost Boys file for 501(c)(3) status. The IRS grants exemption with an effective date of February 26, 2018. The same year, Gabriel earns his BS from San Jose State — Justice Studies major, Human Rights minor.",
+    img: "/photos/gabriel/speaking.jpg",
+    imgAlt: "Gabriel speaking",
   },
   {
     year: "Sep 2022",
     title: "Family moves back to Africa.",
     body: "After 16 years in the U.S. and five children born in California, Gabriel and Roda move the family to Kampala, Uganda — closer to the schools, the camps, and the work. He returns to the U.S. periodically for speaking and fundraising.",
+    img: "/photos/field/family-selfie.jpg",
+    imgAlt: "Gabriel with family in East Africa",
   },
   {
     year: "2023",
@@ -63,17 +59,13 @@ const TIMELINE: TimelineEntry[] = [
     body: "HHSS helps build the Juba Integrated Elementary School and the Juba Integrated High School. By 2024, the org is supporting roughly 750 children at the Juba schools alone.",
     img: "/photos/field/juba-classroom.jpg",
     imgAlt: "Students at the Juba Integrated School",
-    imgCaption: "Juba",
-    tilt: -1.0,
   },
   {
     year: "2025",
     title: "1,500 students at six schools.",
     body: "Across South Sudan and Uganda, HHSS sponsors 1,500 students at six partner schools. The board is still all volunteer. Gabriel still takes no income from donations.",
-    img: "/photos/field/students-feb23.jpg",
-    imgAlt: "Students at a partner school",
-    imgCaption: "Students at a partner school",
-    tilt: 1.4,
+    img: "/photos/field/classroom-red.jpg",
+    imgAlt: "Classroom of students in red uniforms at a partner school",
   },
 ];
 
@@ -172,58 +164,32 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* TIMELINE */}
+      {/* TIMELINE — cinematic, sticky-image scroll storytelling */}
       <section className="py-16 md:py-24 border-b-2 border-ink">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
             How we got here
           </div>
-          <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-12">
+          <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-14">
             The walk, the<br />
             <span className="text-orange">return,</span> the work.
           </h2>
 
-          <ol className="relative border-l-2 border-ink/20 ml-3 space-y-12">
-            {TIMELINE.map((t) => (
-              <li key={t.year} className="relative pl-8">
-                <span className="absolute -left-[11px] top-2 w-5 h-5 bg-purple border-2 border-ink rounded-full" />
-                <div className="font-display uppercase tracking-[0.2em] text-xs text-purple mb-2">
-                  {t.year}
-                </div>
-                <h3 className="font-display uppercase tracking-tight text-2xl md:text-3xl leading-tight mb-3">
-                  {t.title}
-                </h3>
-                <div className={t.img ? "grid md:grid-cols-12 gap-6 items-start" : ""}>
-                  <div className={t.img ? "md:col-span-7" : ""}>
-                    <p className="text-lg text-ink-soft leading-relaxed">
-                      {t.body}
-                    </p>
-                  </div>
-                  {t.img && (
-                    <figure
-                      className="md:col-span-5 polaroid max-w-xs"
-                      style={{ transform: `rotate(${t.tilt ?? -1}deg)` }}
-                    >
-                      <div className="relative aspect-[4/3] bg-ink/10">
-                        <Image
-                          src={t.img}
-                          alt={t.imgAlt ?? ""}
-                          fill
-                          sizes="320px"
-                          className="object-cover"
-                        />
-                      </div>
-                      {t.imgCaption && (
-                        <figcaption className="text-center font-hand text-sm mt-1.5">
-                          {t.imgCaption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ol>
+          <CinematicTimeline items={TIMELINE} />
+
+          <div className="mt-20 max-w-3xl mx-auto text-center border-2 border-ink bg-paper-deep p-7 md:p-10 shadow-[6px_6px_0_var(--ink)]">
+            <p className="font-hand text-3xl md:text-4xl text-ink leading-snug">
+              "We can't end a war.<br />
+              We can keep one kid in school for one more year.<br />
+              Stack enough years, a country changes."
+            </p>
+            <div className="mt-5 flex items-center justify-center gap-3">
+              <GabrielSignature width={160} height={56} stroke="var(--purple)" />
+              <span className="font-display uppercase tracking-[0.2em] text-[10px] text-ink-muted">
+                Gabriel Nyok · Founder
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
