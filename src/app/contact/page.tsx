@@ -38,7 +38,33 @@ export default function Contact() {
                 >
                   helpinghandsforsouthsudan@gmail.com
                 </a>
+
                 <div className="dotted-rule my-5" />
+
+                <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                  Follow along
+                </div>
+                <div className="flex flex-col gap-2 text-[15px]">
+                  <a
+                    href="https://www.facebook.com/helpinghands4southsudan/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-purple"
+                  >
+                    facebook.com/helpinghands4southsudan
+                  </a>
+                  <a
+                    href="https://www.instagram.com/helpinghands4southsudan/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-purple"
+                  >
+                    instagram.com/helpinghands4southsudan
+                  </a>
+                </div>
+
+                <div className="dotted-rule my-5" />
+
                 <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-2">
                   Tax info
                 </div>
