@@ -124,10 +124,6 @@ export default function Events() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 font-hand text-lg text-ink-muted">
-            More on the way as we dig through the archive.
-          </p>
-
           <div className="mt-10 border-2 border-dashed border-ink/40 p-6 md:p-8 text-center bg-paper-deep/40">
             <p className="font-hand text-2xl mb-3 text-ink">
               Want Gabriel at your group?

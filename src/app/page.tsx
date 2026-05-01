@@ -19,10 +19,10 @@ const SCHOOLS = [
 ];
 
 const RECENT = [
-  { src: "/photos/day_of_thanks_2024/01.jpg", caption: "Juba" },
-  { src: "/photos/day_of_thanks_2024/04.jpg", caption: "Assembly" },
-  { src: "/photos/day_of_thanks_2024/05.jpg", caption: "Together" },
-  { src: "/photos/day_of_thanks_2024/07.jpg", caption: "South Sudan" },
+  { src: "/photos/godaddy/gabriel-pointing.jpg", caption: "Home visit" },
+  { src: "/photos/godaddy/students-3.jpg", caption: "Schoolyard" },
+  { src: "/photos/godaddy/teens-lineup.jpg", caption: "After class" },
+  { src: "/photos/godaddy/camp-1.jpg", caption: "The camp" },
 ];
 
 export default function Home() {
@@ -74,14 +74,14 @@ export default function Home() {
                 <div className="polaroid relative" style={{ transform: "rotate(2.5deg)" }}>
                   <div className="tape -top-3 left-10" />
                   <Image
-                    src="/photos/day_of_thanks_2024/02.jpg"
-                    alt="Students at a partner school in Juba"
-                    width={800}
-                    height={1000}
+                    src="/photos/godaddy/classroom-1.jpg"
+                    alt="Students at a partner school"
+                    width={960}
+                    height={540}
                     className="w-full h-auto block"
                   />
                   <div className="absolute bottom-3 left-0 right-0 text-center font-hand text-xl text-ink">
-                    Juba, November 2024
+                    in class.
                   </div>
                 </div>
                 <div
@@ -89,10 +89,10 @@ export default function Home() {
                   style={{ transform: "rotate(-7deg)" }}
                 >
                   <Image
-                    src="/photos/day_of_thanks_2024/06.jpg"
+                    src="/photos/godaddy/grass-1.jpg"
                     alt=""
-                    width={300}
-                    height={400}
+                    width={400}
+                    height={500}
                     className="w-full h-auto block"
                   />
                 </div>
@@ -289,10 +289,10 @@ export default function Home() {
                 <div className="polaroid" style={{ transform: "rotate(-3deg)" }}>
                   <div className="tape -top-3 right-10" />
                   <Image
-                    src="/photos/day_of_thanks_2024/03.jpg"
-                    alt="Students at a partner school"
-                    width={600}
-                    height={750}
+                    src="/photos/godaddy/singing.jpg"
+                    alt="Schoolchildren gathered for an assembly"
+                    width={960}
+                    height={540}
                     className="w-full h-auto block"
                   />
                 </div>
