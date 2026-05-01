@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 };
 
 const TIERS = [
-  { amount: 35, headline: "One month", body: "Tuition, uniform piece, and a daily meal for one student for a month." },
-  { amount: 100, headline: "Books for a class", body: "A stack of textbooks shared across one classroom for a full term." },
-  { amount: 250, headline: "Half a school year", body: "Half a year of full school costs for one child at a partner school." },
-  { amount: 500, headline: "A whole year", body: "A year of school for one child — tuition, uniform, books, meals." },
+  { amount: 100, headline: "Books & supplies", body: "Books, notebooks, and supplies that get shared across a classroom for a term." },
+  { amount: 300, headline: "A year at Juba Primary", body: "A full year of school for one student at Juba Integrated Primary — tuition, uniform, books, meals." },
+  { amount: 500, headline: "A year at Gulu", body: "A full year of school for one student at Gulu Primary or Gulu Central High." },
+  { amount: 1000, headline: "Two students, one year", body: "Two students, one year of school — or one secondary student plus a chunk of supplies for the rest of the class." },
 ];
 
-const QUICK = [15, 25, 30, 45];
+const QUICK = [25, 50, 75, 150];
 
 export default function Donate() {
   return (
@@ -32,9 +32,9 @@ export default function Donate() {
                 period.
               </h1>
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
-                We're an all-volunteer 501(c)(3). The other 1% covers the
-                processing fees PayPal can't refund. Every donation is
-                tax-deductible.
+                We're an all-volunteer 501(c)(3). Operating expenses run about
+                1% — the rest goes to tuition, uniforms, books, and meals.
+                Every donation is tax-deductible.
               </p>
             </div>
             <div className="lg:col-span-5">
@@ -186,11 +186,10 @@ export default function Donate() {
           <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl leading-[0.9] mb-6">
             Where your dollar goes.
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6 md:gap-8 mt-10 text-left">
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-8 mt-10 text-left">
             {[
-              { pct: "99%", label: "Direct school costs", body: "Tuition, uniforms, books, meals — straight to the partner schools." },
-              { pct: "1%", label: "Payment processing", body: "PayPal's processing fee. We don't pay anyone a salary." },
-              { pct: "0%", label: "Overhead", body: "No offices, no salaries, no admin. Volunteer board, period." },
+              { pct: "~99%", label: "Direct school costs", body: "Tuition, uniforms, books, meals — straight to the partner schools." },
+              { pct: "~1%", label: "Operating overhead", body: "Per the org's published flyer. We don't pay anyone a salary; the board is volunteer." },
             ].map((c) => (
               <div key={c.label} className="border-2 border-paper p-6">
                 <div className="font-display text-5xl mb-1">{c.pct}</div>

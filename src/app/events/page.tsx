@@ -8,35 +8,14 @@ export const metadata: Metadata = {
 };
 
 const TALKS = [
-  { date: "Nov 2025", venue: "Pacific Coast Lecture Group", location: "Bay Area, CA" },
-  { date: "May 2024", venue: "Rotary Club", location: "Walnut Creek, CA" },
-  { date: "Mar 2023", venue: "St. Andrew's Episcopal Church", location: "Saratoga, CA" },
-  { date: "Sep 2022", venue: "500 Words Magazine event", location: "Oakland, CA" },
-  { date: "Apr 2022", venue: "Lafayette Library", location: "Lafayette, CA" },
-  { date: "Nov 2019", venue: "Berkeley High School assembly", location: "Berkeley, CA" },
-  { date: "May 2019", venue: "First Presbyterian Church", location: "Concord, CA" },
-  { date: "Oct 2018", venue: "Diablo Magazine event", location: "Walnut Creek, CA" },
+  { date: "Feb 2023", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA", note: "Uganda / South Sudan mission trip recap" },
+  { date: "Mar 2019", venue: "Pacific Coast Lecture Group (PCLG)", location: "Bay Area, CA", note: null },
 ];
 
 const PRESS = [
-  {
-    outlet: "KRON 4",
-    headline: "Local nonprofit funds schools in South Sudan",
-    note: "Bay Area news segment featuring Gabriel and the schools.",
-    color: "bg-red text-paper",
-  },
-  {
-    outlet: "The Borgen Project",
-    headline: "Helping Hands for South Sudan",
-    note: "Coverage of the org's mission and Gabriel's story.",
-    color: "bg-orange text-paper",
-  },
-  {
-    outlet: "500 Words Magazine",
-    headline: "Lost Boys, found purpose",
-    note: "Long-form profile on Gabriel and the work.",
-    color: "bg-green text-paper",
-  },
+  { outlet: "KRON 4", color: "bg-red text-paper" },
+  { outlet: "The Borgen Project", color: "bg-orange text-paper" },
+  { outlet: "500 Words Magazine", color: "bg-green text-paper" },
 ];
 
 export default function Events() {
@@ -79,6 +58,11 @@ export default function Events() {
                 </div>
                 <div className="col-span-9 md:col-span-7 font-display uppercase tracking-tight text-lg md:text-2xl leading-tight">
                   {t.venue}
+                  {t.note && (
+                    <span className="block font-body normal-case tracking-normal text-sm text-ink-soft mt-1">
+                      {t.note}
+                    </span>
+                  )}
                 </div>
                 <div className="col-span-12 md:col-span-3 text-sm text-ink-soft md:text-right">
                   {t.location}
@@ -86,6 +70,9 @@ export default function Events() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 font-hand text-lg text-ink-muted">
+            More on the way as we dig through the archive.
+          </p>
 
           <div className="mt-10 border-2 border-dashed border-ink/40 p-6 md:p-8 text-center bg-paper-deep/40">
             <p className="font-hand text-2xl mb-3 text-ink">
@@ -118,21 +105,18 @@ export default function Events() {
             {PRESS.map((p, i) => (
               <article
                 key={p.outlet}
-                className={`${p.color} border-2 border-ink p-7 md:p-9 shadow-[6px_6px_0_var(--ink)]`}
+                className={`${p.color} border-2 border-ink p-8 md:p-10 shadow-[6px_6px_0_var(--ink)] flex items-center justify-center min-h-[180px]`}
                 style={{ transform: `rotate(${[-0.5, 0.4, -0.3][i]}deg)` }}
               >
-                <div className="font-display uppercase tracking-[0.2em] text-xs opacity-90 mb-4">
+                <div className="font-display uppercase tracking-[0.05em] text-3xl md:text-4xl text-center leading-tight">
                   {p.outlet}
                 </div>
-                <h3 className="font-display uppercase tracking-tight text-2xl md:text-3xl leading-tight mb-4">
-                  {p.headline}
-                </h3>
-                <p className="text-[15px] opacity-95 leading-relaxed">
-                  {p.note}
-                </p>
               </article>
             ))}
           </div>
+          <p className="mt-6 font-hand text-lg text-ink-muted">
+            Featured in. Links coming as we track them down.
+          </p>
         </div>
       </section>
 

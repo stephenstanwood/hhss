@@ -10,58 +10,29 @@ export const metadata: Metadata = {
 
 const TIMELINE = [
   {
-    year: "1987",
-    title: "Walking out of Sudan.",
-    body: "At seven years old, Gabriel Nyok fled the second Sudanese civil war on foot — one of an estimated 20,000 boys who became known as the Lost Boys of Sudan. The walk took years, crossed three countries, and ended in the Kakuma refugee camp in Kenya.",
+    year: "2013",
+    title: "A research trip changes everything.",
+    body: "Gabriel — a Lost Boy of Sudan and Justice Studies student at San Jose State — visits refugee camp settlements in Uganda as part of his research. He sees children living the same way he did as a refugee in Kenya, and recognizes a calling.",
   },
   {
-    year: "2001",
-    title: "Resettled in the U.S.",
-    body: "Gabriel was one of roughly 3,800 Lost Boys resettled in the United States. He eventually made his way to the Bay Area, learned English on the job, and went to work — putting himself through school, supporting family in South Sudan, and building a life from scratch.",
-  },
-  {
-    year: "2017",
-    title: "Going home.",
-    body: "Gabriel returned to South Sudan for the first time in three decades. He saw what war had taken — and what was still possible. The kids he met in Juba had nothing, but they wanted to be in school more than anything.",
-  },
-  {
-    year: "2018",
-    title: "Helping Hands begins.",
-    body: "Back in California, Gabriel filed for 501(c)(3) status with help from a small group of volunteers. The mission was simple: pay for school. No salaries, no overhead — just tuition, uniforms, books, and meals.",
-  },
-  {
-    year: "2020 – 2024",
-    title: "Six schools, two countries.",
-    body: "Word spread. Schools in Uganda — where many South Sudanese refugee families had settled — reached out. We added partners in Gulu, Entebbe, and Lira. Today we support six schools and a few hundred children every term.",
+    year: "Feb 2018",
+    title: "Helping Hands is founded.",
+    body: "Gabriel and a small group of fellow Lost Boys file for nonprofit status. The IRS grants 501(c)(3) exemption with an effective date of February 26, 2018. The mission: provide education scholarships to South Sudanese children living in exile.",
   },
   {
     year: "Today",
-    title: "Still volunteer-run.",
-    body: "Every dollar still has to fight for itself. We run on donations, board volunteer hours, and Gabriel's biennial trips home to walk the schools and check in with the kids.",
+    title: "Six schools, still volunteer-run.",
+    body: "We support six partner schools across South Sudan and Uganda. Operating expenses run about 1% — the rest of every donation funds tuition, uniforms, books, and meals. Gabriel still travels back to walk the schools and meet the kids.",
   },
 ];
 
 const BOARD = [
-  {
-    name: "Gabriel Nyok",
-    role: "Founder & Executive Director",
-    bio: "Lost Boy of Sudan. Resettled in the United States in 2001. Founded HH4SS in 2018 to fund education for refugee children in his home country.",
-  },
-  {
-    name: "Roda Nyok",
-    role: "Co-Founder",
-    bio: "Gabriel's wife and partner in the work. Leads day-to-day coordination with families and partner schools on the ground.",
-  },
-  {
-    name: "Connie Maurer",
-    role: "Board Member",
-    bio: "Long-time volunteer and community organizer. Drives donor outreach and event coordination across the Bay Area.",
-  },
-  {
-    name: "Dave Cleveland",
-    role: "Board Member",
-    bio: "Photographer and storyteller. Has accompanied Gabriel on multiple trips to South Sudan and Uganda.",
-  },
+  { name: "Gabriel Nyok", role: "Founder", img: "/photos/board/gabriel-nyok.jpg" },
+  { name: "Connie Maurer", role: "Board Member", img: "/photos/board/connie-maurer.jpg" },
+  { name: "Brenda Costanzo", role: "Board Member", img: "/photos/board/brenda-costanzo.webp" },
+  { name: "David Garang", role: "Board Member", img: "/photos/board/david-garang.jpg" },
+  { name: "Ron Dickel", role: "Board Member", img: "/photos/board/ron-dickel.jpg" },
+  { name: "Rev. David Watermulder", role: "Board Member", img: "/photos/board/david-watermulder.jpg" },
 ];
 
 export default function OurStory() {
@@ -183,24 +154,35 @@ export default function OurStory() {
           <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9] mb-12">
             All volunteers.
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BOARD.map((p, i) => (
-              <article
-                key={p.name}
-                className="bg-paper border-2 border-ink p-6 shadow-[5px_5px_0_var(--ink)] relative"
-                style={{ transform: `rotate(${[-0.6, 0.5, -0.4, 0.7][i]}deg)` }}
-              >
-                <div className="font-display uppercase tracking-tight text-2xl leading-tight mb-1">
-                  {p.name}
-                </div>
-                <div className="font-display uppercase tracking-[0.15em] text-xs text-purple mb-4">
-                  {p.role}
-                </div>
-                <p className="text-[15px] text-ink-soft leading-relaxed">
-                  {p.bio}
-                </p>
-              </article>
-            ))}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6">
+            {BOARD.map((p, i) => {
+              const tilt = [-1.2, 0.8, -0.6, 1.0, -0.8, 0.6][i] ?? 0;
+              return (
+                <article
+                  key={p.name}
+                  className="polaroid"
+                  style={{ transform: `rotate(${tilt}deg)` }}
+                >
+                  <div className="relative aspect-[4/5] bg-ink/10 overflow-hidden">
+                    <Image
+                      src={p.img}
+                      alt={p.name}
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="mt-1.5 text-center">
+                    <div className="font-display uppercase tracking-tight text-base leading-tight">
+                      {p.name}
+                    </div>
+                    <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple mt-0.5">
+                      {p.role}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

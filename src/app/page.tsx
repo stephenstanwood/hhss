@@ -4,9 +4,9 @@ import { Marquee } from "@/components/marquee";
 
 const STATS = [
   { num: "6", label: "Partner schools" },
-  { num: "650+", label: "Children supported" },
-  { num: "99%", label: "Reaches the kids" },
   { num: "2", label: "Countries" },
+  { num: "1%", label: "Operating overhead" },
+  { num: "2018", label: "Founded" },
 ];
 
 const SCHOOLS = [
@@ -161,7 +161,7 @@ export default function Home() {
               {
                 kicker: "we fund",
                 title: "Tuition, uniforms, books",
-                body: "The core costs that keep a child in class. Small amounts go far — a year of primary school for one student is under $200.",
+                body: "The core costs that keep a child in class. A year of primary school at our Juba partner runs about $300; a year of secondary at Gulu runs about $500.",
                 color: "bg-purple text-paper",
               },
               {
@@ -172,8 +172,8 @@ export default function Home() {
               },
               {
                 kicker: "we visit",
-                title: "Every two years",
-                body: "Founder Gabriel returns home regularly to walk the schools, meet the kids, and report back on what changed.",
+                title: "Trips every couple of years",
+                body: "Founder Gabriel returns to walk the schools, meet the kids, and bring back a real read on what's working.",
                 color: "bg-red text-paper",
               },
             ].map((card) => (
@@ -310,15 +310,15 @@ export default function Home() {
         </div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="font-display uppercase tracking-tight text-6xl md:text-8xl leading-[0.85] mb-6">
-            $35 sends a child<br />
+            $300 funds a year<br />
             <span className="outline-text" style={{ WebkitTextStroke: "2px var(--paper)" }}>
-              to school
-            </span>{" "}
-            for a month.
+              at Juba Primary.
+            </span>
           </h2>
           <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto mb-10">
-            We're a 501(c)(3) staffed entirely by volunteers. 99% of every
-            dollar you give goes to the children. The other 1% covers PayPal fees.
+            $500 covers a year at Gulu. We're a volunteer-run 501(c)(3) — our
+            operating expenses run about 1%, so the rest funds tuition,
+            uniforms, books, and meals.
           </p>
           <Link
             href="/donate"
