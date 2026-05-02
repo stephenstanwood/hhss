@@ -66,7 +66,7 @@ const TIMELINE: TimelineItem[] = [
   {
     year: "2025",
     title: "1,500 students at six schools.",
-    body: "Across South Sudan and Uganda, HHSS sponsors 1,500 students at six partner schools. The board is still all volunteer. Gabriel still takes no income from donations.",
+    body: "Across South Sudan and Uganda, HHSS sponsors 1,500 students at six partner schools. The board is still all-volunteer. Gabriel still takes no income from donations.",
     img: "/photos/field/classroom-red.jpg",
     imgAlt: "Classroom of students in red uniforms at a partner school",
   },
