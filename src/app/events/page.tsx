@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Events & Press",
   description:
-    "Speaking events, press coverage, and recent appearances. Helping Hands for South Sudan founder Gabriel Nyok speaks regularly across the Bay Area.",
+    "Talks, videos, and press coverage. Helping Hands for South Sudan founder Gabriel Nyok speaks regularly to Bay Area groups when in California.",
 };
 
 type Talk = { date: string; venue: string; location: string; note?: string };
@@ -18,34 +18,55 @@ const UPCOMING: Talk[] = [
   },
 ];
 
-const TALKS: Talk[] = [
-  { date: "Nov 23, 2025", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA", note: "Gabriel updates the congregation on hundreds of children supported and rising costs." },
-  { date: "Dec 22, 2024", venue: "Gilroy Presbyterian Church", location: "Gilroy, CA" },
-  { date: "Dec 15, 2024", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA", note: "Discussion of food scarcity + needs for windows, doors, and dormitory bunk beds at the new schools." },
-  { date: "Dec 10, 2023", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA" },
-  { date: "Nov 26, 2023", venue: "Kiwanis Club of San Carlos", location: "San Carlos, CA" },
-  { date: "Feb 2023", venue: "Board members visit East Africa", location: "Uganda + South Sudan", note: "Ron Dickel, Marion Dickel, and Pastor David Watermulder visit Gulu Primary, Gulu Central High, Juba Integrated Primary, and Panyndli Refugee Camp." },
-  { date: "Feb 26, 2023", venue: "San Martin Presbyterian Church", location: "San Martin, CA" },
-  { date: "Feb 26, 2023", venue: "Gilroy Presbyterian Church", location: "Gilroy, CA", note: "Q&A with Pastor Trevor Van Laar during worship." },
-  { date: "Feb 19, 2023", venue: "WestGate Church, Saratoga Campus", location: "San Jose, CA" },
+const TALK_HIGHLIGHTS: Talk[] = [
+  { date: "Nov 23, 2025", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA", note: "Update on hundreds of children sponsored, head-count audits before tuition payments, and rising costs from civil unrest." },
+  { date: "Dec 15, 2024", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA", note: "Food scarcity and immediate needs — windows, doors, dormitory bunk beds — at the new Juba schools." },
+  { date: "Feb 2023", venue: "Board members visit East Africa", location: "Uganda + South Sudan", note: "Ron Dickel, Marion Dickel, and Rev. David Watermulder visit Gulu Primary, Gulu Central High, Juba Integrated Primary, and Panyndli Refugee Camp." },
   { date: "Jan 2023", venue: "Los Altos Christian School", location: "Los Altos, CA", note: "Students raised $2,000 in a fundraiser after Gabriel's visit." },
-  { date: "Sep 2022", venue: "The Big Move", location: "Kampala, Uganda", note: "After 16 years in the U.S., Gabriel and Roda move the family back to East Africa." },
-  { date: "Sep 19, 2022", venue: "Burlingame High School", location: "Burlingame, CA" },
-  { date: "Sep 15, 2022", venue: "Lucille M. Nixon Elementary", location: "Stanford, CA", note: "The school Gabriel's own children attended." },
-  { date: "Aug 28, 2022", venue: "Venture Christian Church", location: "Los Gatos, CA", note: "Led to sponsorship of education for six refugee children." },
-  { date: "Jan 30, 2022", venue: "WestGate Church, South Hills Campus", location: "San Jose, CA" },
-  { date: "Dec 9, 2018", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA" },
-  { date: "Dec 20, 2018", venue: "Kiwanis Club of Redwood City", location: "Redwood City, CA" },
-  { date: "Jun 20, 2018", venue: "UNHCR World Refugee Day panel", location: "SF Veterans War Memorial", note: "Part of the 70th anniversary of the Universal Declaration of Human Rights." },
-  { date: "Oct 11, 2017", venue: "World Affairs Council panel", location: "San Francisco, CA", note: "Moderated by Jane Wales (CEO of World Affairs and Global Philanthropy Forum)." },
-  { date: "Aug 9, 2017", venue: "ENGAGE: The South Sudan Migration Story", location: "Union Square, SF", note: "Panel with Diana Essex-Lettieri (Asylum Access) and Valentino Achak Deng." },
-  { date: "Jan 3, 2015", venue: "Presbyterian Church of Los Gatos", location: "Los Gatos, CA" },
+  { date: "Aug 28, 2022", venue: "Venture Christian Church", location: "Los Gatos, CA", note: "Talk led to sponsorship of education for six refugee children." },
+  { date: "Oct 11, 2017", venue: "World Affairs Council panel", location: "San Francisco, CA", note: "Moderated by Jane Wales, CEO of World Affairs and the Global Philanthropy Forum." },
+];
+
+const VIDEOS = [
+  {
+    id: "SPmvrtZbKGw",
+    eyebrow: "PCLG · 2018",
+    title: "Gabriel tells his story.",
+    note: "An 8-minute talk at Presbyterian Church of Los Gatos — Gabriel's journey out of South Sudan and the start of HH4SS, in his own words.",
+  },
+  {
+    id: "rcCg63zZJXs",
+    eyebrow: "Trip · Feb 2020",
+    title: "A trip set to music.",
+    note: "Short musical video from the team's February 2020 trip to South Sudan and Uganda — the camps, the schools, the kids.",
+  },
 ];
 
 const PRESS = [
-  { outlet: "KRON 4", note: "Bay Area news segment featuring Pastor Dave Watermulder.", color: "bg-red text-paper" },
-  { outlet: "The Borgen Project", note: "Featured in \"Five Charities Operating in South Sudan\".", color: "bg-orange text-paper" },
-  { outlet: "500 Words Magazine", note: "Listed among leading charities working in the Sudans.", color: "bg-green text-paper" },
+  {
+    outlet: "KRON 4",
+    title: "Bay Area Sudanese community calls for end to violence",
+    note: "Local news segment featuring Rev. David Watermulder responding to escalating conflict in South Sudan.",
+    href: "https://www.kron4.com/news/bay-area/bay-area-sudanese-community-calls-for-end-to-violence/",
+    color: "bg-red text-paper",
+    shadow: "var(--ink)",
+  },
+  {
+    outlet: "The Borgen Project",
+    title: "5 Charities Operating in South Sudan",
+    note: "HHSS featured among the leading charities working in South Sudan, alongside national-scale operations like Action Against Hunger and Save the Children.",
+    href: "https://borgenproject.org/charities-operating-in-south-sudan/",
+    color: "bg-orange text-ink",
+    shadow: "var(--ink)",
+  },
+  {
+    outlet: "500 Words Magazine",
+    title: "The Helping Hands of Sudan",
+    note: "Listed among local and international charities profiled by the leading magazine on the two Sudans.",
+    href: "https://500wordsmag.com/suda-lists/the-helping-hands-of-sudan/",
+    color: "bg-green text-paper",
+    shadow: "var(--ink)",
+  },
 ];
 
 export default function Events() {
@@ -69,8 +90,85 @@ export default function Events() {
         </div>
       </section>
 
-      {/* TALKS */}
+      {/* WATCH — embedded videos */}
+      <section className="bg-ink text-paper py-16 md:py-24 border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="font-display uppercase tracking-[0.2em] text-xs text-paper/60 mb-3">
+            Watch
+          </div>
+          <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl leading-[0.95] mb-10 md:mb-14">
+            Gabriel and the work,<br />
+            <span className="text-orange">on video.</span>
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+            {VIDEOS.map((v) => (
+              <article key={v.id}>
+                <div className="aspect-video w-full bg-black border-2 border-paper/20 overflow-hidden">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}`}
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mt-5">
+                  <div className="font-display uppercase tracking-[0.15em] text-[11px] text-paper/60 mb-2">
+                    {v.eyebrow}
+                  </div>
+                  <h3 className="font-display uppercase tracking-tight text-2xl md:text-3xl leading-tight mb-2">
+                    {v.title}
+                  </h3>
+                  <p className="text-paper/75 leading-relaxed text-[15px]">
+                    {v.note}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRESS */}
       <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+            In the news
+          </div>
+          <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl mb-12">
+            Press &amp; features.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {PRESS.map((p, i) => (
+              <a
+                key={p.outlet}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${p.color} border-2 border-ink p-7 md:p-8 shadow-[6px_6px_0_var(--ink)] flex flex-col h-full hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_var(--ink)] transition-all`}
+                style={{ transform: `rotate(${[-0.5, 0.4, -0.3][i]}deg)` }}
+              >
+                <div className="font-display uppercase tracking-[0.05em] text-2xl md:text-3xl leading-tight mb-2">
+                  {p.outlet}
+                </div>
+                <div className="font-display uppercase tracking-tight text-base md:text-lg leading-snug mb-3 opacity-95">
+                  {p.title}
+                </div>
+                <p className="text-[14px] opacity-90 leading-relaxed flex-1">
+                  {p.note}
+                </p>
+                <div className="font-display uppercase tracking-[0.15em] text-[11px] mt-5 opacity-80">
+                  Read →
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TALKS */}
+      <section className="py-16 md:py-24 border-b-2 border-ink">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {UPCOMING.length > 0 && (
             <div className="mb-12">
@@ -98,15 +196,15 @@ export default function Events() {
 
           <div className="flex items-baseline justify-between mb-6">
             <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl">
-              Past talks
+              Recent talks
             </h2>
-            <span className="font-hand text-xl text-ink-muted">2015 → today</span>
+            <span className="font-hand text-xl text-ink-muted">a few highlights</span>
           </div>
           <ul className="border-t-2 border-ink">
-            {TALKS.map((t) => (
+            {TALK_HIGHLIGHTS.map((t) => (
               <li
                 key={`${t.date}-${t.venue}`}
-                className="border-b border-ink/15 grid grid-cols-12 gap-4 py-5 items-baseline hover:bg-paper/40 transition-colors"
+                className="border-b border-ink/15 grid grid-cols-12 gap-4 py-5 items-baseline"
               >
                 <div className="col-span-3 md:col-span-2 font-display uppercase tracking-[0.15em] text-xs md:text-sm text-purple">
                   {t.date}
@@ -128,83 +226,6 @@ export default function Events() {
         </div>
       </section>
 
-      {/* MORE VIDEO */}
-      <section className="py-16 md:py-24 border-b-2 border-ink">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div>
-              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-                Watch
-              </div>
-              <h3 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-[0.95] mb-5">
-                Gabriel tells<br />his story.
-              </h3>
-              <p className="text-ink-soft leading-relaxed mb-5">
-                An 8-minute talk Gabriel gave at Presbyterian Church of Los
-                Gatos in 2018 — his journey out of South Sudan and the start
-                of HH4SS, in his own words.
-              </p>
-              <a
-                href="https://www.youtube.com/watch?v=SPmvrtZbKGw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-display uppercase tracking-wider text-sm bg-ink text-paper px-6 py-3 border-2 border-ink shadow-[4px_4px_0_var(--purple)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--purple)] transition-all"
-              >
-                Watch on YouTube →
-              </a>
-            </div>
-            <div>
-              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-                And then
-              </div>
-              <h3 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-[0.95] mb-5">
-                A trip set to<br />music.
-              </h3>
-              <p className="text-ink-soft leading-relaxed mb-5">
-                A short musical video from the team's February 2020 trip to
-                South Sudan and Uganda — the camps, the schools, the kids.
-              </p>
-              <a
-                href="https://www.youtube.com/watch?v=rcCg63zZJXs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-display uppercase tracking-wider text-sm bg-ink text-paper px-6 py-3 border-2 border-ink shadow-[4px_4px_0_var(--purple)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--purple)] transition-all"
-              >
-                Watch on YouTube →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRESS */}
-      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-            In the news
-          </div>
-          <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl mb-12">
-            Press &amp; features.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {PRESS.map((p, i) => (
-              <article
-                key={p.outlet}
-                className={`${p.color} border-2 border-ink p-7 md:p-9 shadow-[6px_6px_0_var(--ink)]`}
-                style={{ transform: `rotate(${[-0.5, 0.4, -0.3][i]}deg)` }}
-              >
-                <div className="font-display uppercase tracking-[0.05em] text-2xl md:text-3xl leading-tight mb-3">
-                  {p.outlet}
-                </div>
-                <p className="text-[14px] opacity-95 leading-relaxed">
-                  {p.note}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-20 md:py-28 bg-ink text-paper">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -213,8 +234,8 @@ export default function Events() {
             <span className="text-orange">word out.</span>
           </h2>
           <p className="text-lg md:text-xl opacity-80 max-w-2xl mx-auto mb-9">
-            Know a group that should hear Gabriel speak? Or a journalist
-            who'd be interested in the story? Tell them. Or tell us.
+            Know a journalist or a group that should hear about the work?
+            Send them this page. Or tell us.
           </p>
           <Link
             href="/contact"
