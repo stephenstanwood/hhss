@@ -56,7 +56,6 @@ const PRESS = [
     note: "Local news segment featuring Rev. David Watermulder responding to escalating conflict in South Sudan.",
     href: "https://www.kron4.com/news/bay-area/bay-area-sudanese-community-calls-for-end-to-violence/",
     color: "bg-red text-paper",
-    shadow: "var(--ink)",
   },
   {
     outlet: "The Borgen Project",
@@ -64,15 +63,6 @@ const PRESS = [
     note: "HHSS featured among the leading charities working in South Sudan, alongside national-scale operations like Action Against Hunger and Save the Children.",
     href: "https://borgenproject.org/charities-operating-in-south-sudan/",
     color: "bg-orange text-ink",
-    shadow: "var(--ink)",
-  },
-  {
-    outlet: "500 Words Magazine",
-    title: "The Helping Hands of Sudan",
-    note: "Listed among local and international charities profiled by the leading magazine on the two Sudans.",
-    href: "https://500wordsmag.com/suda-lists/the-helping-hands-of-sudan/",
-    color: "bg-green text-paper",
-    shadow: "var(--ink)",
   },
 ];
 
@@ -146,7 +136,7 @@ export default function Events() {
           <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl mb-12">
             Press &amp; features.
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl">
             {PRESS.map((p, i) => (
               <a
                 key={p.outlet}
@@ -154,7 +144,7 @@ export default function Events() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${p.color} border-2 border-ink p-7 md:p-8 shadow-[6px_6px_0_var(--ink)] flex flex-col h-full hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_var(--ink)] transition-all`}
-                style={{ transform: `rotate(${[-0.5, 0.4, -0.3][i]}deg)` }}
+                style={{ transform: `rotate(${[-0.5, 0.6][i]}deg)` }}
               >
                 <div className="font-display uppercase tracking-[0.05em] text-2xl md:text-3xl leading-tight mb-2">
                   {p.outlet}
