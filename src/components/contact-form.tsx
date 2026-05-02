@@ -53,8 +53,8 @@ export function ContactForm() {
           We'll reply from{" "}
           <span className="font-mono text-ink">
             helpinghandsforsouthsudan@gmail.com
-          </span>{" "}
-          — usually within a couple of days.
+          </span>
+          , usually within a couple of days.
         </p>
       </div>
     );

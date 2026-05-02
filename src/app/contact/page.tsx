@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Helping Hands for South Sudan. Speaking inquiries, donations, partnerships, or just questions — we read every message.",
+    "Get in touch with Helping Hands for South Sudan. Speaking inquiries, donations, partnerships, or just questions; we read every message.",
 };
 
 export default function Contact() {
@@ -24,7 +24,7 @@ export default function Contact() {
               </h1>
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
                 Speaking inquiries, donations, partnerships, school referrals,
-                or just a question — drop us a line and we'll write back.
+                or just a question, drop us a line and we'll write back.
               </p>
             </div>
             <div className="lg:col-span-5">

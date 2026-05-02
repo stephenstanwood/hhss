@@ -18,7 +18,7 @@ const TIERS: Tier[] = [
   { amount: 35, headline: "School uniform", body: "A school uniform for one student." },
   { amount: 30, headline: "Transportation", body: "A year of transportation to school for one student." },
   { amount: 25, headline: "School supplies", body: "Pens, paper, and supplies for one student for a term." },
-  { amount: 15, headline: "National exam fee", body: "Fee to sit for the national exam — required to advance." },
+  { amount: 15, headline: "National exam fee", body: "Fee to sit for the national exam, required to advance." },
 ];
 
 export default function Donate() {
@@ -38,7 +38,7 @@ export default function Donate() {
               </h1>
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
                 We're an all-volunteer 501(c)(3). Operating expenses run about
-                1% — the rest goes to tuition, uniforms, books, and meals.
+                1%. The rest goes to tuition, uniforms, books, and meals.
                 Every donation is tax-deductible.
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function Donate() {
                 <span className="scribble">of school.</span>
               </h2>
               <p className="text-lg text-ink-soft leading-relaxed mb-5 max-w-md">
-                Itemized. Not "operating expenses" — actual things a student
+                Itemized. Not "operating expenses." Actual things a student
                 walks home with: a uniform, a pair of shoes, books, three
                 meals a day, the bus there. Plus the teacher who teaches
                 them.
@@ -185,7 +185,7 @@ export default function Donate() {
               </h3>
               <p className="text-ink-soft mb-7 max-w-md">
                 Want to give a different amount, or set up recurring monthly
-                support? Tap below — PayPal lets you pick any amount or set up
+                support? Tap below. PayPal lets you pick any amount or set up
                 a monthly subscription.
               </p>
               <PayPalDonate label="Custom amount on PayPal →" variant="primary" />
@@ -237,7 +237,7 @@ export default function Donate() {
           </h2>
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 mt-10 text-left">
             {[
-              { pct: "~99%", label: "Direct school costs", body: "Tuition, uniforms, books, meals — straight to the partner schools." },
+              { pct: "~99%", label: "Direct school costs", body: "Tuition, uniforms, books, meals, straight to the partner schools." },
               { pct: "~1%", label: "Operating overhead", body: "We don't pay anyone a salary; the board is all volunteer." },
             ].map((c) => (
               <div key={c.label} className="border-2 border-paper p-6">

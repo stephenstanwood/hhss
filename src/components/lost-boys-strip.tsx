@@ -16,13 +16,13 @@ const FACTS = [
     n: 1000,
     suffix: "+ mi",
     label: "On foot",
-    body: "Many walked across South Sudan into Ethiopia and on to Kakuma in northern Kenya — over a thousand miles, mostly at night.",
+    body: "Many walked across South Sudan into Ethiopia and on to Kakuma in northern Kenya, over a thousand miles, mostly at night.",
   },
   {
     n: 50,
     suffix: "%",
     label: "Didn't reach the camp",
-    body: "Roughly half of the children died on the walk — to dehydration, starvation, attacks, or river crossings.",
+    body: "Roughly half of the children died on the walk: dehydration, starvation, attacks, or river crossings.",
   },
   {
     n: 3800,

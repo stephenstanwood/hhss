@@ -199,14 +199,14 @@ export default function Home() {
                 Red Cross volunteers carried him out of South Sudan to a UNHCR
                 camp in northern Kenya, where he grew up with his brother as
                 an orphan. He was one of the <strong className="text-ink">Lost Boys and
-                Girls of Sudan</strong> — over 20,000 children separated from their
+                Girls of Sudan</strong>, over 20,000 children separated from their
                 families by the war.
               </p>
               <p>
                 In 2006, the U.S. government brought him to California. He
                 worked, went to school, and became a citizen. In 2011 he went
                 back to visit the camps and saw children living the same life
-                he had — and started sending a few of them to school out of
+                he had, and started sending a few of them to school out of
                 his own paycheck.
               </p>
               <p>
@@ -240,7 +240,7 @@ export default function Home() {
                 <span className="scribble scribble--purple">schools.</span>
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
-                Two in South Sudan. Four in Uganda — where many South Sudanese
+                Two in South Sudan. Four in Uganda, where many South Sudanese
                 refugee families have settled. Every one of them serves
                 children who would otherwise have no access to school.
               </p>
@@ -353,7 +353,7 @@ export default function Home() {
                 <span className="text-orange">a number.</span>
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
-                A snapshot of recent days at our partner schools — real kids,
+                A snapshot of recent days at our partner schools. Real kids,
                 real classrooms.
               </p>
             </div>
@@ -407,7 +407,7 @@ export default function Home() {
               for a year.
             </h2>
             <p className="text-lg md:text-xl opacity-85 max-w-2xl mx-auto">
-              Or pick something smaller — every line is a real cost a real student is facing.
+              Or pick something smaller. Every line is a real cost a real student is facing.
             </p>
           </div>
 

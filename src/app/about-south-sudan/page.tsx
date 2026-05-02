@@ -20,7 +20,7 @@ const FACTS = [
     n: "02",
     label: "Years of conflict",
     title: "Africa's largest refugee crisis.",
-    body: "Civil war and ethnic violence have driven powerful groups to fight for control of the country and its resources — from oil to grazing land. Nearly 4 million people have been forced to flee their homes. It's the largest refugee crisis on the continent and a full humanitarian emergency.",
+    body: "Civil war and ethnic violence have driven powerful groups to fight for control of the country and its resources, from oil to grazing land. Nearly 4 million people have been forced to flee their homes. It's the largest refugee crisis on the continent and a full humanitarian emergency.",
   },
   {
     n: "03",
@@ -121,7 +121,7 @@ export default function AboutSouthSudan() {
               are stretched thin.
             </p>
             <p className="text-lg text-ink-soft leading-relaxed">
-              That's why four of our six partner schools are in Uganda —
+              That's why four of our six partner schools are in Uganda,
               serving the displaced South Sudanese families who landed there
               and the local Ugandan communities that took them in.
             </p>

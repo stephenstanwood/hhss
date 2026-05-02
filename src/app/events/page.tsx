@@ -27,42 +27,31 @@ const TALK_HIGHLIGHTS: Talk[] = [
   { date: "Oct 11, 2017", venue: "World Affairs Council panel", location: "San Francisco, CA", note: "Moderated by Jane Wales, CEO of World Affairs and the Global Philanthropy Forum." },
 ];
 
-const VIDEOS = [
+type Video = {
+  embed: string;
+  eyebrow: string;
+  title: string;
+  note: string;
+};
+
+const VIDEOS: Video[] = [
   {
-    id: "FKVRHtWJimQ",
-    start: 1,
-    eyebrow: "PCLG · Nov 2025",
-    title: "Gabriel updates the congregation.",
-    note: "Hundreds of children sponsored, head-count audits before tuition payments, and rising costs from civil unrest in East Africa.",
-  },
-  {
-    id: "SPmvrtZbKGw",
+    embed: "https://www.youtube.com/embed/SPmvrtZbKGw?rel=0&modestbranding=1&vq=hd1080",
     eyebrow: "PCLG · 2018",
     title: "Gabriel tells his story.",
     note: "An 8-minute talk at Presbyterian Church of Los Gatos: Gabriel's journey out of South Sudan and the start of HH4SS, in his own words.",
   },
   {
-    id: "rcCg63zZJXs",
+    embed: "https://www.youtube.com/embed/FKVRHtWJimQ?start=1&rel=0&modestbranding=1&vq=hd1080",
     eyebrow: "Trip · Feb 2020",
     title: "A trip set to music.",
     note: "Short musical video from the team's February 2020 trip to South Sudan and Uganda: the camps, the schools, the kids.",
   },
-];
-
-const PRESS = [
   {
-    outlet: "KRON 4",
-    title: "Bay Area Sudanese community calls for end to violence",
-    note: "Local news segment featuring Rev. David Watermulder responding to escalating conflict in South Sudan.",
-    href: "https://www.kron4.com/news/bay-area/bay-area-sudanese-community-calls-for-end-to-violence/",
-    color: "bg-red text-paper",
-  },
-  {
-    outlet: "The Borgen Project",
-    title: "5 Charities Operating in South Sudan",
-    note: "HHSS featured among the leading charities working in South Sudan, alongside national-scale operations like Action Against Hunger and Save the Children.",
-    href: "https://borgenproject.org/charities-operating-in-south-sudan/",
-    color: "bg-orange text-ink",
+    embed: "https://redir1.kron4.com/nxs-video/vid-anvato-8589370,11755670,11755149,11755143,11755070,11754536,11754261,11754118,11754112,11754103,11753075,11752756,11751864/embed/?injected_via=embed&post_id=2486624",
+    eyebrow: "KRON 4 · News",
+    title: "Sudanese Americans call for end to violence.",
+    note: "Bay Area news segment featuring Rev. David Watermulder responding to escalating conflict in South Sudan.",
   },
 ];
 
@@ -102,7 +91,7 @@ export default function Events() {
               <article key={v.id}>
                 <div className="aspect-video w-full bg-black border-2 border-paper/20 overflow-hidden">
                   <iframe
-                    src={`https://www.youtube.com/embed/${v.id}${v.start ? `?start=${v.start}` : ""}`}
+                    src={v.embed}
                     title={v.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -122,43 +111,6 @@ export default function Events() {
                   </p>
                 </div>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRESS */}
-      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-            In the news
-          </div>
-          <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl mb-12">
-            Press &amp; features.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl">
-            {PRESS.map((p, i) => (
-              <a
-                key={p.outlet}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${p.color} border-2 border-ink p-7 md:p-8 shadow-[6px_6px_0_var(--ink)] flex flex-col h-full hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_var(--ink)] transition-all`}
-                style={{ transform: `rotate(${[-0.5, 0.6][i]}deg)` }}
-              >
-                <div className="font-display uppercase tracking-[0.05em] text-2xl md:text-3xl leading-tight mb-2">
-                  {p.outlet}
-                </div>
-                <div className="font-display uppercase tracking-tight text-base md:text-lg leading-snug mb-3 opacity-95">
-                  {p.title}
-                </div>
-                <p className="text-[14px] opacity-90 leading-relaxed flex-1">
-                  {p.note}
-                </p>
-                <div className="font-display uppercase tracking-[0.15em] text-[11px] mt-5 opacity-80">
-                  Read →
-                </div>
-              </a>
             ))}
           </div>
         </div>
