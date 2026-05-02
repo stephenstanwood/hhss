@@ -299,8 +299,8 @@ export default function Home() {
               </h2>
               <p className="text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed mb-8">
                 When a family in South Sudan can only send one kid to school,
-                they almost always choose the boy. Girls are the most
-                under-educated group in the country. We're flipping that —
+                they almost always choose the boy. As a result, girls are the
+                most under-educated group in the country. We're flipping that —
                 <strong className="text-ink"> sending more girls than boys this year.</strong>
               </p>
               <blockquote className="relative pl-7 mt-4">
