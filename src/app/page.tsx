@@ -169,9 +169,8 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5 lg:sticky lg:top-28">
-              <div className="relative max-w-sm mx-auto lg:mx-0">
-                <div className="absolute inset-0 -translate-x-3 -translate-y-3 bg-purple -z-10" aria-hidden="true" />
-                <div className="relative aspect-[4/5] border-2 border-ink overflow-hidden">
+              <div className="max-w-sm mx-auto lg:mx-0">
+                <div className="relative aspect-[4/5] border-2 border-ink overflow-hidden shadow-[6px_6px_0_var(--purple)]">
                   <Image
                     src="/photos/gabriel/portrait.jpg"
                     alt="Gabriel Nyok, founder"
