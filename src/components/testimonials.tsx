@@ -53,12 +53,6 @@ const RULE_CLASSES: Record<Testimonial["bg"], string> = {
   orange: "border-paper/40",
 };
 
-const QUOTE_COLOR: Record<Testimonial["bg"], string> = {
-  paper: "text-red",
-  purple: "text-gold",
-  orange: "text-paper",
-};
-
 export function Testimonials() {
   return (
     <section className="py-20 md:py-28 border-b-2 border-ink bg-paper-deep">
@@ -86,22 +80,15 @@ export function Testimonials() {
           {QUOTES.map((t) => (
             <figure
               key={t.author}
-              className={`relative ${BG_CLASSES[t.bg]} border-2 border-ink pt-12 pb-8 px-8 md:pt-14 md:pb-10 md:px-12 shadow-[6px_6px_0_var(--ink)]`}
+              className={`${BG_CLASSES[t.bg]} border-2 border-ink p-8 md:p-10 shadow-[6px_6px_0_var(--ink)]`}
               style={{ transform: `rotate(${t.tilt}deg)` }}
             >
-              <span
-                aria-hidden="true"
-                className={`absolute top-2 left-6 md:top-3 md:left-8 font-display leading-none select-none ${QUOTE_COLOR[t.bg]}`}
-                style={{ fontFamily: "Georgia, serif", fontSize: "9rem" }}
-              >
-                &ldquo;
-              </span>
-              <blockquote className="relative text-lg md:text-xl leading-relaxed">
-                {t.quote}
+              <blockquote className="text-lg md:text-xl leading-relaxed">
+                &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className={`mt-6 pt-5 border-t ${RULE_CLASSES[t.bg]}`}>
                 <div className="font-display uppercase tracking-wide text-xl md:text-2xl leading-tight">
-                  {t.author}
+                  — {t.author}
                 </div>
                 {t.context && (
                   <div className="font-display uppercase tracking-[0.18em] text-xs opacity-80 mt-1.5">

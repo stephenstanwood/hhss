@@ -354,7 +354,7 @@ export default function Home() {
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
                 A snapshot of recent days at our partner schools — real kids,
-                real classrooms. Tap any photo to enlarge.
+                real classrooms.
               </p>
             </div>
           </div>

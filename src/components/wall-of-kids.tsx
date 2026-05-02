@@ -3,10 +3,9 @@
 import Image from "next/image";
 import { Lightbox } from "@/components/lightbox";
 
-// Curated face-shots and group-shots, ordered so uniform colors alternate
-// (blue → pink → blue → white → red → ...). Stephen specifically called out:
-// no buildings, no backs-of-groups, no distant crowd shots — only photos
-// where you can read the kids' faces.
+// Curated face / group shots from across the partner schools and the
+// Day of Thanks events. Stephen's rule: no buildings, no backs of heads,
+// no distant crowds — only photos where the kids' faces read.
 const PHOTOS = [
   { src: "/photos/wall/jubahigh-01.jpg", caption: "Juba High" },
   { src: "/photos/field/students-feb23.jpg", caption: "Schoolmate" },
@@ -24,33 +23,49 @@ const PHOTOS = [
   { src: "/photos/wall/schools-05.jpg", caption: "Assembly" },
   { src: "/photos/wall/thanks-05-30-57_1.jpg", caption: "Day of Thanks" },
   { src: "/photos/wall/thanks-05-30-58.jpg", caption: "Day of Thanks" },
+  { src: "/photos/wall/jubahigh-04.jpg", caption: "Juba High" },
+  { src: "/photos/godaddy/students-2.jpg", caption: "Students" },
+  { src: "/photos/wall/thanks-05-31-00.jpg", caption: "Day of Thanks" },
+  { src: "/photos/field/juba-students-1.jpg", caption: "Juba" },
+  { src: "/photos/wall/jubahigh-05.jpg", caption: "Juba High" },
+  { src: "/photos/wall/thanks-05-30-58_1.jpg", caption: "Day of Thanks" },
+  { src: "/photos/godaddy/classroom-2.jpg", caption: "Classroom" },
+  { src: "/photos/wall/jubahigh-06.jpg", caption: "Juba High" },
+  { src: "/photos/wall/thanks-05-30-59.jpg", caption: "Day of Thanks" },
+  { src: "/photos/field/students-feb23-2.jpg", caption: "Schoolmate" },
+  { src: "/photos/wall/jubahigh-07.jpg", caption: "Juba High" },
+  { src: "/photos/wall/thanks-05-31-01_1.jpg", caption: "Day of Thanks" },
+  { src: "/photos/wall/bvs-girls.jpg", caption: "BVS girls" },
+  { src: "/photos/wall/jubahigh-08.jpg", caption: "Juba High" },
+  { src: "/photos/wall/thanks-05-30-58_2.jpg", caption: "Day of Thanks" },
+  { src: "/photos/wall/thanks-05-31-04_1.jpg", caption: "Day of Thanks" },
 ];
 
 export function WallOfKids() {
   return (
     <Lightbox photos={PHOTOS}>
       {(open) => (
-        <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
-          {/* Edge fades — hint at scrollable content */}
+        <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden">
+          {/* Edge fades */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-0 top-0 bottom-4 w-8 md:w-12 z-10 bg-gradient-to-r from-paper to-transparent"
+            className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 md:w-16 z-10 bg-gradient-to-r from-paper to-transparent"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-0 top-0 bottom-4 w-8 md:w-12 z-10 bg-gradient-to-l from-paper to-transparent"
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 md:w-16 z-10 bg-gradient-to-l from-paper to-transparent"
           />
 
           <div
-            className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-4 sm:px-6 lg:px-8 scroll-smooth"
-            style={{ scrollbarWidth: "thin" }}
+            className="marquee-track gap-3 md:gap-4 py-2 hover:[animation-play-state:paused]"
+            style={{ animationDuration: "180s" }}
           >
-            {PHOTOS.map((p, i) => (
+            {[...PHOTOS, ...PHOTOS].map((p, i) => (
               <button
-                key={p.src}
+                key={`${p.src}-${i}`}
                 type="button"
-                onClick={() => open(i)}
-                className="shrink-0 snap-start group focus:outline-none focus:ring-2 focus:ring-purple"
+                onClick={() => open(i % PHOTOS.length)}
+                className="shrink-0 group focus:outline-none focus:ring-2 focus:ring-purple"
                 aria-label={`Open photo: ${p.caption}`}
               >
                 <div className="relative w-56 sm:w-64 md:w-72 lg:w-80 aspect-square overflow-hidden border-2 border-ink shadow-[4px_4px_0_var(--ink)] group-hover:shadow-[6px_6px_0_var(--purple)] group-hover:-translate-y-0.5 transition-all">
@@ -59,16 +74,11 @@ export function WallOfKids() {
                     alt={p.caption}
                     fill
                     sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover object-top"
                   />
                 </div>
               </button>
             ))}
-          </div>
-
-          {/* Scroll hint */}
-          <div className="text-center mt-2 font-display uppercase tracking-[0.25em] text-[10px] text-ink-muted">
-            ← swipe →
           </div>
         </div>
       )}

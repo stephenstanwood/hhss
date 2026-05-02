@@ -52,8 +52,7 @@ export default function AboutSouthSudan() {
               </h1>
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
                 Why this country, why these children, and why education is the
-                piece that compounds. Four things to know — and one decision at
-                the end of it.
+                piece that compounds.
               </p>
             </div>
             <div className="lg:col-span-5">
