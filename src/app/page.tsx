@@ -274,9 +274,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/65" />
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 w-full">
-            <div className="font-display uppercase tracking-[0.2em] text-xs text-paper/80 mb-3">
-              We've lived it.
-            </div>
             <h2 className="font-display uppercase tracking-tight text-paper text-5xl md:text-7xl leading-[0.9] max-w-3xl">
               The founder<br />
               was a Lost Boy<br />
