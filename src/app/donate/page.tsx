@@ -202,7 +202,7 @@ export default function Donate() {
                 <li>
                   <strong className="text-ink block">Check:</strong>
                   Made out to <em>Helping Hands for South Sudan</em>, mailed to:<br />
-                  <span className="font-mono text-[13px] text-ink mt-1 block">
+                  <span className="text-ink mt-1 block">
                     16575 Shannon Road<br />
                     Los Gatos, CA 95032
                   </span>
