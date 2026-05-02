@@ -93,24 +93,6 @@ const BOARD = [
   },
 ];
 
-const ADVISORS = [
-  {
-    name: "Rev. Dr. David G. Watermulder",
-    role: "Advisor",
-    img: "/photos/board/david-watermulder.jpg",
-    bio: "Pastor & Head of Staff at Presbyterian Church of Los Gatos. Peace Corps West Africa. Princeton Theological Seminary, Doctorate from Portland Seminary. Has traveled to Africa with the team multiple times.",
-  },
-  {
-    name: "David Anyieth",
-    role: "Advisor",
-    img: "/photos/board/david-garang.jpg",
-    bio: "Former Lost Boy of Sudan.",
-  },
-  { name: "Garang Bol", role: "Advisor", bio: "Former Lost Boy of Sudan." },
-  { name: "Paul Kuai", role: "Advisor", bio: "Former Lost Boy of Sudan." },
-  { name: "Sri Narasimhan", role: "Advisor", bio: "Former Lost Boy of Sudan." },
-];
-
 const SS_VOLUNTEERS = [
   "Isaiah Mayen",
   "Michael Kui",
@@ -258,62 +240,6 @@ export default function OurStory() {
                 </article>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ADVISORS */}
-      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-12 gap-10">
-            <div className="md:col-span-4">
-              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-                Advisors
-              </div>
-              <h2 className="font-display uppercase tracking-tight text-4xl md:text-5xl leading-[0.95] mb-5">
-                People keeping us honest.
-              </h2>
-              <p className="text-ink-soft leading-relaxed">
-                Several of our advisors are themselves former Lost Boys and
-                Girls of Sudan — they made it out, made lives in the U.S., and
-                turned around to help the next generation.
-              </p>
-            </div>
-            <div className="md:col-span-8 grid sm:grid-cols-2 gap-5">
-              {ADVISORS.map((a) => (
-                <article
-                  key={a.name}
-                  className="bg-paper border-2 border-ink p-5 flex gap-4"
-                >
-                  {a.img ? (
-                    <div className="relative w-16 h-16 shrink-0 bg-ink/10">
-                      <Image
-                        src={a.img}
-                        alt={a.name}
-                        fill
-                        sizes="64px"
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-16 h-16 shrink-0 bg-ink/10 flex items-center justify-center font-display uppercase text-xl text-ink-muted">
-                      {a.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-                    </div>
-                  )}
-                  <div>
-                    <div className="font-display uppercase tracking-tight text-base leading-tight">
-                      {a.name}
-                    </div>
-                    <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple mt-0.5 mb-1.5">
-                      {a.role}
-                    </div>
-                    <p className="text-[13px] text-ink-soft leading-relaxed">
-                      {a.bio}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </div>
       </section>
