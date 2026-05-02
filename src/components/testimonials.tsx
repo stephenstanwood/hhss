@@ -27,17 +27,17 @@ const QUOTES: Testimonial[] = [
   },
   {
     quote:
-      "Many thanks to Helping Hands for educating thousands of students across East Africa and South Sudan. Your continued support has transformed many lives and our nation's future is bright.",
-    author: "Achuony Atem Akuak",
-    tilt: -0.6,
-    bg: "paper",
-  },
-  {
-    quote:
       "A huge THANK YOU to Helping Hands South Sudan for the incredible work they're doing! Your support is truly changing lives and shaping the future of South Sudanese youth through education.",
     author: "Mayen Aguto Agot",
     tilt: 1.4,
     bg: "orange",
+  },
+  {
+    quote:
+      "Many thanks to Helping Hands for educating thousands of students across East Africa and South Sudan. Your continued support has transformed many lives and our nation's future is bright.",
+    author: "Achuony Atem Akuak",
+    tilt: -0.6,
+    bg: "paper",
   },
 ];
 
@@ -45,6 +45,18 @@ const BG_CLASSES: Record<Testimonial["bg"], string> = {
   paper: "bg-paper text-ink",
   purple: "bg-purple text-paper",
   orange: "bg-orange text-paper",
+};
+
+const RULE_CLASSES: Record<Testimonial["bg"], string> = {
+  paper: "border-ink/20",
+  purple: "border-paper/30",
+  orange: "border-paper/40",
+};
+
+const QUOTE_COLOR: Record<Testimonial["bg"], string> = {
+  paper: "text-red",
+  purple: "text-gold",
+  orange: "text-paper",
 };
 
 export function Testimonials() {
@@ -70,29 +82,29 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 md:gap-7">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10">
           {QUOTES.map((t) => (
             <figure
               key={t.author}
-              className={`relative ${BG_CLASSES[t.bg]} border-2 border-ink p-7 md:p-9 shadow-[6px_6px_0_var(--ink)]`}
+              className={`relative ${BG_CLASSES[t.bg]} border-2 border-ink pt-12 pb-8 px-8 md:pt-14 md:pb-10 md:px-12 shadow-[6px_6px_0_var(--ink)]`}
               style={{ transform: `rotate(${t.tilt}deg)` }}
             >
               <span
                 aria-hidden="true"
-                className="absolute -top-3 left-7 font-display text-7xl leading-none text-red select-none"
-                style={{ fontFamily: "Georgia, serif" }}
+                className={`absolute top-2 left-6 md:top-3 md:left-8 font-display leading-none select-none ${QUOTE_COLOR[t.bg]}`}
+                style={{ fontFamily: "Georgia, serif", fontSize: "9rem" }}
               >
                 &ldquo;
               </span>
-              <blockquote className="text-lg md:text-xl leading-relaxed pt-2">
+              <blockquote className="relative text-lg md:text-xl leading-relaxed">
                 {t.quote}
               </blockquote>
-              <figcaption className="mt-5 pt-5 border-t border-current/30">
-                <div className="font-display uppercase tracking-tight text-base">
+              <figcaption className={`mt-6 pt-5 border-t ${RULE_CLASSES[t.bg]}`}>
+                <div className="font-display uppercase tracking-wide text-xl md:text-2xl leading-tight">
                   {t.author}
                 </div>
                 {t.context && (
-                  <div className="font-display uppercase tracking-[0.2em] text-[10px] opacity-75 mt-1">
+                  <div className="font-display uppercase tracking-[0.18em] text-xs opacity-80 mt-1.5">
                     {t.context}
                   </div>
                 )}

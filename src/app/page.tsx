@@ -416,7 +416,7 @@ export default function Home() {
               for a year.
             </h2>
             <p className="text-lg md:text-xl opacity-85 max-w-2xl mx-auto">
-              Or pick something smaller. Every line below covers a real cost a real student is facing.
+              Or pick something smaller — every line is a real cost a real student is facing.
             </p>
           </div>
 

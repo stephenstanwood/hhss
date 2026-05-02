@@ -14,21 +14,19 @@ const TIMELINE: TimelineItem[] = [
   {
     year: "1983",
     title: "Born near the Nile.",
-    body: "Gabriel Akim Nyok is born in a clinic in South Sudan. The middle name Akim — \"doctor\" in Dinka — comes from the rarity of being born in a clinic at all.",
-    img: "/photos/gabriel/portrait.jpg",
-    imgAlt: "Gabriel Nyok, founder",
+    body: "Gabriel Akim Nyok is born in a clinic in South Sudan. The middle name Akim, \"doctor\" in Dinka, comes from the rarity of being born in a clinic at all.",
   },
   {
     year: "~1985",
     title: "Carried out of South Sudan.",
-    body: "At two or three years old, Gabriel is among the Lost Boys and Girls of Sudan — over 20,000 children separated from their families by the civil war. Red Cross volunteers carry him from a displaced-persons camp in South Sudan to a UNHCR camp in Northern Kenya. He grows up there as an orphan with his brother.",
-    img: "/photos/field/children-group.jpg",
-    imgAlt: "Children at a refugee settlement",
+    body: "At two or three years old, Gabriel is among the Lost Boys and Girls of Sudan, over 20,000 children separated from their families by the civil war. Red Cross volunteers carry him from a displaced-persons camp in South Sudan to a UNHCR camp in Northern Kenya. He grows up there as an orphan with his brother.",
+    img: "/photos/field/camps-2019-1.jpg",
+    imgAlt: "A South Sudanese settlement, similar to the camps where Gabriel grew up",
   },
   {
     year: "2006",
     title: "Resettled in California.",
-    body: "After earning a UNICEF scholarship to attend school in Kenya — and then teaching at the camp himself — Gabriel is among the South Sudanese refugees brought to the U.S. by the U.S. government. He lands in the Bay Area and enrolls at De Anza College.",
+    body: "After earning a UNICEF scholarship to attend school in Kenya, and then teaching at the camp himself, Gabriel is among the South Sudanese refugees brought to the U.S. by the U.S. government. He lands in the Bay Area and enrolls at De Anza College.",
     img: "/photos/field/gabriel-arriving-usa.jpg",
     imgAlt: "Gabriel and other South Sudanese young people on the day they arrived in the U.S., 2006",
   },
@@ -42,14 +40,14 @@ const TIMELINE: TimelineItem[] = [
   {
     year: "Feb 2018",
     title: "Helping Hands is founded.",
-    body: "Gabriel and a group of fellow former Lost Boys file for 501(c)(3) status. The IRS grants exemption with an effective date of February 26, 2018. The same year, Gabriel earns his BS from San Jose State — Justice Studies major, Human Rights minor.",
+    body: "Gabriel and a group of fellow former Lost Boys file for 501(c)(3) status. The IRS grants exemption with an effective date of February 26, 2018. The same year, Gabriel earns his BS from San Jose State, with a Justice Studies major and Human Rights minor.",
     img: "/photos/gabriel/speaking.jpg",
     imgAlt: "Gabriel speaking",
   },
   {
     year: "Sep 2022",
     title: "Family moves back to Africa.",
-    body: "After 16 years in the U.S. and five children born in California, Gabriel and Roda move the family to Kampala, Uganda — closer to the schools, the camps, and the work. He returns to the U.S. periodically for speaking and fundraising.",
+    body: "After 16 years in the U.S. and five children born in California, Gabriel and Roda move the family to Kampala, Uganda, closer to the schools, the camps, and the work. He returns to the U.S. periodically for speaking and fundraising.",
     img: "/photos/field/family-selfie.jpg",
     imgAlt: "Gabriel with family in East Africa",
   },
@@ -133,7 +131,7 @@ export default function OurStory() {
               </div>
               <h1 className="font-display uppercase tracking-tight leading-[0.85] text-[14vw] md:text-[10vw] lg:text-[8.5vw] text-ink">
                 Gabriel<br />
-                <span className="text-purple">went home,</span><br />
+                <span className="text-purple">went home</span><br />
                 <span className="scribble">and got to work.</span>
               </h1>
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
@@ -199,7 +197,7 @@ export default function OurStory() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
             <div className="polaroid max-w-md mx-auto md:mx-0" style={{ transform: "rotate(2deg)" }}>
               <Image
-                src="/photos/gabriel/speaking.jpg"
+                src="/photos/gabriel/speaking-mic.jpg"
                 alt="Gabriel speaking at a Bay Area event"
                 width={800}
                 height={600}
