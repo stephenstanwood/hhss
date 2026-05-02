@@ -91,9 +91,6 @@ export default function Home() {
                         className="object-cover"
                       />
                     </div>
-                    <div className="font-hand text-base text-ink text-center mt-1">
-                      Juba High
-                    </div>
                   </div>
                   <div
                     className="absolute -top-5 -right-5 hidden md:flex items-center justify-center bg-red text-paper border-2 border-ink w-28 h-28 rounded-full font-display uppercase tracking-tight text-center leading-tight text-sm shadow-[4px_4px_0_var(--ink)]"
