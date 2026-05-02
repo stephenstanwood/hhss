@@ -61,9 +61,6 @@ export function SiteFooter() {
               >
                 helpinghandsforsouthsudan@gmail.com
               </a>
-              <a href="tel:+14155399769" className="hover:text-purple block">
-                (415) 539-9769
-              </a>
               <p className="text-[13px] text-ink-muted leading-snug pt-1">
                 16575 Shannon Road<br />
                 Los Gatos, CA 95032

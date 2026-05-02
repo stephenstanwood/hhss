@@ -38,12 +38,6 @@ export default function Contact() {
                 >
                   helpinghandsforsouthsudan@gmail.com
                 </a>
-                <a
-                  href="tel:+14155399769"
-                  className="font-display uppercase tracking-tight text-base md:text-lg leading-tight hover:text-purple block mt-1"
-                >
-                  (415) 539-9769
-                </a>
 
                 <div className="dotted-rule my-5" />
 
