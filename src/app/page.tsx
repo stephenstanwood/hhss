@@ -12,7 +12,7 @@ type Stat =
   | { kind: "text"; text: string; label: string };
 
 const STATS: Stat[] = [
-  { kind: "num", value: 1500, label: "Students in school" },
+  { kind: "num", value: 1500, label: "Supported last year" },
   { kind: "num", value: 6, label: "Partner schools" },
   { kind: "num", value: 1, suffix: "%", prefix: "~", label: "Operating overhead" },
   { kind: "text", text: "Est. 2018", label: "Volunteer-run" },
@@ -95,7 +95,7 @@ export default function Home() {
                     className="absolute -top-5 -right-5 hidden md:flex items-center justify-center bg-red text-paper border-2 border-ink w-28 h-28 rounded-full font-display uppercase tracking-tight text-center leading-tight text-sm shadow-[4px_4px_0_var(--ink)]"
                     style={{ transform: "rotate(8deg)" }}
                   >
-                    1,500<br />kids<br />in school
+                    1,500<br />kids<br />supported<br />last year
                   </div>
                 </div>
               </div>
