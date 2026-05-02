@@ -13,7 +13,7 @@ type Stat =
   | { kind: "text"; text: string; label: string };
 
 const STATS: Stat[] = [
-  { kind: "num", value: 1500, label: "Students in 2025" },
+  { kind: "num", value: 1500, label: "Students in school" },
   { kind: "num", value: 6, label: "Partner schools" },
   { kind: "num", value: 1, suffix: "%", prefix: "~", label: "Operating overhead" },
   { kind: "text", text: "Est. 2018", label: "Volunteer-run" },
@@ -99,14 +99,14 @@ export default function Home() {
                       />
                     </div>
                     <div className="font-hand text-base text-ink text-center mt-1">
-                      Juba High, 2024
+                      Juba High
                     </div>
                   </div>
                   <div
                     className="absolute -top-5 -right-5 hidden md:flex items-center justify-center bg-red text-paper border-2 border-ink w-28 h-28 rounded-full font-display uppercase tracking-tight text-center leading-tight text-sm shadow-[4px_4px_0_var(--ink)]"
                     style={{ transform: "rotate(8deg)" }}
                   >
-                    1,500<br />kids<br />in 2025
+                    1,500<br />kids<br />in school
                   </div>
                 </div>
               </div>
@@ -240,7 +240,7 @@ export default function Home() {
                     stroke="var(--purple)"
                   />
                   <span className="font-display uppercase tracking-[0.2em] text-[10px] text-ink-muted">
-                    Gabriel · Kampala, 2026
+                    Gabriel · Kampala
                   </span>
                 </div>
               </div>
