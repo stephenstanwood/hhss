@@ -104,10 +104,9 @@ export default function Donate() {
                 <span className="scribble">of school.</span>
               </h2>
               <p className="text-lg text-ink-soft leading-relaxed mb-5 max-w-md">
-                Itemized. Not "operating expenses." Actual things a student
-                walks home with: a uniform, a pair of shoes, books, three
-                meals a day, the bus there. Plus the teacher who teaches
-                them.
+                Itemized. Not "operating expenses." Actual things a kid needs
+                to be in school: a uniform, books, daily meals, a way to get
+                there. Plus the teacher who teaches them.
               </p>
               <p className="text-[14px] text-ink-muted leading-relaxed max-w-md">
                 Costs vary slightly by partner school and country. This is
@@ -238,7 +237,7 @@ export default function Donate() {
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 mt-10 text-left">
             {[
               { pct: "~99%", label: "Direct school costs", body: "Tuition, uniforms, books, meals, straight to the partner schools." },
-              { pct: "~1%", label: "Operating overhead", body: "We don't pay anyone a salary; the board is all volunteer." },
+              { pct: "~1%", label: "Operating overhead", body: "We don't pay anyone a salary; the board is all-volunteer." },
             ].map((c) => (
               <div key={c.label} className="border-2 border-paper p-6">
                 <div className="font-display text-5xl mb-1">{c.pct}</div>

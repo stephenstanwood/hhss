@@ -24,7 +24,7 @@ export default function Contact() {
               </h1>
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
                 Speaking inquiries, donations, partnerships, school referrals,
-                or just a question, drop us a line and we'll write back.
+                or just a question. Drop us a line and we'll write back.
               </p>
             </div>
             <div className="lg:col-span-5">
