@@ -99,13 +99,6 @@ const BOARD = [
   },
 ];
 
-const SS_VOLUNTEERS = [
-  "Isaiah Mayen",
-  "Michael Kui",
-  "Taban Agau",
-  "Samuel Ayuen",
-];
-
 export default function OurStory() {
   return (
     <>
@@ -256,55 +249,6 @@ export default function OurStory() {
               </figure>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* SOUTH SUDANESE VOLUNTEERS */}
-      <section className="py-16 md:py-20 border-b-2 border-ink">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start mb-10">
-            <div className="md:col-span-7">
-              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-                On the ground
-              </div>
-              <h2 className="font-display uppercase tracking-tight text-4xl md:text-5xl leading-[0.95] mb-6">
-                South Sudanese volunteers.
-              </h2>
-              <p className="text-lg text-ink-soft max-w-2xl leading-relaxed">
-                We're based in California, so it matters to have feet on the ground
-                in the communities we're trying to help. These volunteers handle
-                day-to-day coordination — and we're grateful for them.
-              </p>
-            </div>
-            <div className="md:col-span-5">
-              <figure
-                className="polaroid max-w-xs mx-auto md:ml-auto"
-                style={{ transform: "rotate(2deg)" }}
-              >
-                <Image
-                  src="/photos/brand/local-staff.jpg"
-                  alt="Three South Sudanese volunteers in HHSS purple t-shirts"
-                  width={540}
-                  height={720}
-                  className="w-full h-auto block"
-                />
-                <figcaption className="text-center font-hand text-base mt-1.5">
-                  Our local team in HHSS shirts
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {SS_VOLUNTEERS.map((name, i) => (
-              <li
-                key={name}
-                className="bg-paper border-2 border-ink p-5 font-display uppercase tracking-tight text-lg leading-tight"
-                style={{ transform: `rotate(${[-0.5, 0.4, -0.3, 0.5][i]}deg)` }}
-              >
-                {name}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
