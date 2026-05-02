@@ -210,8 +210,8 @@ export default function Home() {
               </p>
               <p>
                 <strong className="text-ink">Helping Hands for South Sudan</strong> is
-                that effort, formalized. He still doesn't take a salary. The
-                board is all volunteer. He returns to walk the schools and
+                that same effort, formalized. He still doesn't take a salary.
+                The board is all-volunteer. He returns to walk the schools and
                 personally confirm head counts before tuition is paid.
               </p>
 
