@@ -88,7 +88,7 @@ export default function Events() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {VIDEOS.map((v) => (
-              <article key={v.id}>
+              <article key={v.embed}>
                 <div className="aspect-video w-full bg-black border-2 border-paper/20 overflow-hidden">
                   <iframe
                     src={v.embed}
