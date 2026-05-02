@@ -324,8 +324,8 @@ export default function Home() {
                   style={{ transform: "rotate(2deg)" }}
                 >
                   <Image
-                    src="/photos/wall/schools-08.jpg"
-                    alt="Six girls in Juba Integrated High uniforms standing on a hillside above the city"
+                    src="/photos/wall/bvs-girls.jpg"
+                    alt="Five girls in Broader Vision School green and checkered uniforms"
                     fill
                     sizes="(max-width: 1024px) 60vw, 400px"
                     className="object-cover"
@@ -337,7 +337,7 @@ export default function Home() {
                 >
                   <Image
                     src="/photos/wall/schools-03.jpg"
-                    alt="A girl in Juba Integrated High uniform smiling"
+                    alt="A girl in Juba Integrated High blue uniform smiling"
                     fill
                     sizes="(max-width: 1024px) 50vw, 320px"
                     className="object-cover"
