@@ -44,10 +44,10 @@ export function SchoolsMap() {
     <div>
       <div className="relative max-w-2xl mx-auto">
         <Image
-          src="/photos/schools/africa-countries.png"
-          alt="Map of Africa with South Sudan, Uganda, and Kenya highlighted"
-          width={950}
-          height={1020}
+          src="/photos/schools/SS-Uganda-Map.png"
+          alt="Map of Africa highlighting South Sudan and Uganda"
+          width={1209}
+          height={1300}
           priority
           className="w-full h-auto block"
         />
