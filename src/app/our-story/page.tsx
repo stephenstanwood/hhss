@@ -220,9 +220,9 @@ export default function OurStory() {
               </p>
               <p className="text-lg text-ink-soft leading-relaxed mb-5">
                 But our earliest backers were Bay Area faith communities, and
-                they're still showing up. Presbyterian Church of Los Gatos
-                especially — multiple board members come out of that
-                congregation, and it remains one of our steadiest partners.
+                they're still showing up. Multiple board members belong to the
+                Presbyterian Church of Los Gatos specifically, and that
+                congregation remains one of our steadiest partners.
               </p>
               <p className="text-lg text-ink-soft leading-relaxed">
                 Rev. Dr. David Watermulder, PCLG's Pastor & Head of Staff, is
