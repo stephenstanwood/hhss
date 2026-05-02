@@ -362,9 +362,8 @@ export default function Home() {
                 <span className="text-orange">a number.</span>
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
-                A snapshot of recent days at our partner schools. Tap any
-                photo to enlarge — these are the kids your gift puts in a
-                desk.
+                A snapshot of recent days at our partner schools — real kids,
+                real classrooms. Tap any photo to enlarge.
               </p>
             </div>
           </div>
