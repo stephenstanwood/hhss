@@ -9,35 +9,30 @@ type Testimonial = {
   bg: "paper" | "purple" | "orange";
 };
 
+// Real Facebook comments from the HHSS page (Stephen-supplied screenshots).
+// Lightly trimmed for length; meaning + voice preserved. Do not invent or
+// reword without a source.
 const QUOTES: Testimonial[] = [
   {
     quote:
-      "This initiative deserves credit for my success currently in university pursuing a Bachelor of Software Engineering.",
-    author: "Dengtiel Junior Mayen",
-    context: "former student",
+      "A huge THANK YOU to Helping Hands South Sudan. Your support is changing lives and shaping the future of South Sudanese youth through education.",
+    author: "Mayen Aguto Agot",
     tilt: -1.2,
     bg: "paper",
   },
   {
     quote:
-      "It healed most of the refugee children who had no access to education and now they stand firm and proud of the level of education they have acquired. May the almighty father keep blessing the founder and the support staff to accomplish their mission.",
-    author: "Jooh Riak Alier-Aguek",
+      "Many thanks to Helping Hands for educating thousands of students across East Africa and South Sudan. Your support has transformed many lives, and our nation's future is bright.",
+    author: "Achuony Atem Akuak",
     tilt: 0.8,
     bg: "purple",
   },
   {
     quote:
-      "A huge THANK YOU to Helping Hands South Sudan for the incredible work they're doing! Your support is truly changing lives and shaping the future of South Sudanese youth through education.",
-    author: "Mayen Aguto Agot",
+      "It healed most of the refugee children who had no access to education. Now they stand firm and proud of the education they have acquired.",
+    author: "Jooh Riak Alier-Aguek",
     tilt: 1.4,
     bg: "orange",
-  },
-  {
-    quote:
-      "Many thanks to Helping Hands for educating thousands of students across East Africa and South Sudan. Your continued support has transformed many lives and our nation's future is bright.",
-    author: "Achuony Atem Akuak",
-    tilt: -0.6,
-    bg: "paper",
   },
 ];
 

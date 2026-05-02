@@ -29,16 +29,23 @@ const TALK_HIGHLIGHTS: Talk[] = [
 
 const VIDEOS = [
   {
+    id: "FKVRHtWJimQ",
+    start: 1,
+    eyebrow: "PCLG · Nov 2025",
+    title: "Gabriel updates the congregation.",
+    note: "Hundreds of children sponsored, head-count audits before tuition payments, and rising costs from civil unrest in East Africa.",
+  },
+  {
     id: "SPmvrtZbKGw",
     eyebrow: "PCLG · 2018",
     title: "Gabriel tells his story.",
-    note: "An 8-minute talk at Presbyterian Church of Los Gatos — Gabriel's journey out of South Sudan and the start of HH4SS, in his own words.",
+    note: "An 8-minute talk at Presbyterian Church of Los Gatos: Gabriel's journey out of South Sudan and the start of HH4SS, in his own words.",
   },
   {
     id: "rcCg63zZJXs",
     eyebrow: "Trip · Feb 2020",
     title: "A trip set to music.",
-    note: "Short musical video from the team's February 2020 trip to South Sudan and Uganda — the camps, the schools, the kids.",
+    note: "Short musical video from the team's February 2020 trip to South Sudan and Uganda: the camps, the schools, the kids.",
   },
 ];
 
@@ -100,12 +107,12 @@ export default function Events() {
             Gabriel and the work,<br />
             <span className="text-orange">on video.</span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {VIDEOS.map((v) => (
               <article key={v.id}>
                 <div className="aspect-video w-full bg-black border-2 border-paper/20 overflow-hidden">
                   <iframe
-                    src={`https://www.youtube.com/embed/${v.id}`}
+                    src={`https://www.youtube.com/embed/${v.id}${v.start ? `?start=${v.start}` : ""}`}
                     title={v.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
