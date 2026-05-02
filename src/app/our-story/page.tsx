@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CinematicTimeline, type TimelineItem } from "@/components/cinematic-timeline";
-import { GabrielSignature } from "@/components/signature";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -174,20 +173,6 @@ export default function OurStory() {
           </h2>
 
           <CinematicTimeline items={TIMELINE} />
-
-          <div className="mt-20 max-w-3xl mx-auto text-center border-2 border-ink bg-paper-deep p-7 md:p-10 shadow-[6px_6px_0_var(--ink)]">
-            <p className="font-hand text-3xl md:text-4xl text-ink leading-snug">
-              "We can't end a war.<br />
-              We can keep one kid in school for one more year.<br />
-              Stack enough years, a country changes."
-            </p>
-            <div className="mt-5 flex items-center justify-center gap-3">
-              <GabrielSignature width={160} height={56} stroke="var(--purple)" />
-              <span className="font-display uppercase tracking-[0.2em] text-[10px] text-ink-muted">
-                Gabriel Nyok · Founder
-              </span>
-            </div>
-          </div>
         </div>
       </section>
 
