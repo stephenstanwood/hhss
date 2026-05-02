@@ -300,9 +300,9 @@ export default function Home() {
               We've lived it.
             </div>
             <h2 className="font-display uppercase tracking-tight text-paper text-5xl md:text-7xl leading-[0.9] max-w-3xl">
-              The founders<br />
-              were Lost Boys<br />
-              <span className="text-orange">themselves.</span>
+              The founder<br />
+              was a Lost Boy<br />
+              <span className="text-orange">himself.</span>
             </h2>
           </div>
         </div>
