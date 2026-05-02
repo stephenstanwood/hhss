@@ -250,15 +250,6 @@ export default function Home() {
           <div className="bg-paper border-2 border-ink p-4 md:p-8 shadow-[8px_8px_0_var(--ink)]">
             <SchoolsMap />
           </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              href="/our-story"
-              className="inline-flex items-center font-display uppercase tracking-wider text-sm border-b-2 border-ink hover:text-purple hover:border-purple pb-1"
-            >
-              Meet the schools and the people behind them →
-            </Link>
-          </div>
         </div>
       </section>
 
