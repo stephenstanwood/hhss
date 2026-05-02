@@ -9,6 +9,7 @@ export type TimelineItem = {
   body: string;
   img?: string;
   imgAlt?: string;
+  credit?: { text: string; href?: string };
 };
 
 // Sticky-image scroll storytelling. The image column sticks while the right
@@ -65,6 +66,22 @@ export function CinematicTimeline({ items }: { items: TimelineItem[] }) {
           <div className="font-display uppercase tracking-[0.2em] text-xs text-ink-muted mt-4 text-center">
             {items[active]?.year}
           </div>
+          {items[active]?.credit && (
+            <div className="text-[10px] text-ink-muted/70 mt-1 text-center leading-tight">
+              {items[active]?.credit?.href ? (
+                <a
+                  href={items[active]!.credit!.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-ink-soft underline decoration-dotted underline-offset-2"
+                >
+                  {items[active]?.credit?.text}
+                </a>
+              ) : (
+                items[active]?.credit?.text
+              )}
+            </div>
+          )}
         </div>
       </div>
 

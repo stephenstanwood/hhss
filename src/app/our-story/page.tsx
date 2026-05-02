@@ -14,6 +14,12 @@ const TIMELINE: TimelineItem[] = [
     year: "1983",
     title: "Born near the Nile.",
     body: "Gabriel Akim Nyok is born in a clinic in South Sudan. The middle name Akim, \"doctor\" in Dinka, comes from the rarity of being born in a clinic at all.",
+    img: "/photos/field/nile-terekeka.jpg",
+    imgAlt: "The River Nile in Terekeka county, South Sudan",
+    credit: {
+      text: "Photo: Mandenya Samuel Francis · CC BY-SA 4.0",
+      href: "https://commons.wikimedia.org/wiki/File:The_River_Nile.jpg",
+    },
   },
   {
     year: "~1985",
@@ -88,7 +94,7 @@ const BOARD = [
   {
     name: "Brenda Costanzo",
     role: "Board Member",
-    img: "/photos/board/brenda-costanzo.webp",
+    img: "/photos/board/brenda-costanzo.jpg",
     bio: "Retired engineering director from Lockheed Martin. 2020 Silicon Valley Business Journal Woman of Influence. Tutors math; chairs Adult Ed at PCLG.",
   },
 ];
@@ -219,11 +225,7 @@ export default function OurStory() {
                       alt={p.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className={
-                        p.img.includes("brenda")
-                          ? "object-cover object-left"
-                          : "object-cover object-top"
-                      }
+                      className="object-cover object-top"
                     />
                   </div>
                   <div className="p-4">
@@ -240,6 +242,56 @@ export default function OurStory() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* FAITH PARTNERS */}
+      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-start">
+            <div className="md:col-span-7">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
+                Faith partners
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-4xl md:text-5xl leading-[0.95] mb-6">
+                Not a religious org.<br />
+                <span className="text-purple">Plenty of religious support.</span>
+              </h2>
+              <p className="text-lg text-ink-soft leading-relaxed mb-5">
+                HHSS is a secular 501(c)(3). We sponsor any kid who needs
+                school, no questions asked about what they believe.
+              </p>
+              <p className="text-lg text-ink-soft leading-relaxed mb-5">
+                But our earliest backers were Bay Area faith communities, and
+                they're still showing up. Presbyterian Church of Los Gatos
+                especially — multiple board members come out of that
+                congregation, and it remains one of our steadiest partners.
+              </p>
+              <p className="text-lg text-ink-soft leading-relaxed">
+                Rev. Dr. David Watermulder, PCLG's Pastor & Head of Staff, is
+                the human bridge — he introduced Gabriel to the community that
+                became HHSS's earliest support base, and he's traveled to East
+                Africa with the team multiple times.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <figure
+                className="polaroid max-w-sm mx-auto md:ml-auto"
+                style={{ transform: "rotate(-1.5deg)" }}
+              >
+                <Image
+                  src="/photos/board/gabriel-roda-dave.jpg"
+                  alt="Gabriel and Roda Nyok with Rev. Dave Watermulder at PCLG"
+                  width={500}
+                  height={287}
+                  className="w-full h-auto block"
+                />
+                <figcaption className="text-center font-hand text-base mt-1.5">
+                  Gabriel & Roda with Rev. Dave at PCLG
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
