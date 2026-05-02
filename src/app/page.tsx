@@ -204,7 +204,7 @@ export default function Home() {
               </p>
               <p>
                 In 2006, the U.S. government brought him to California. He
-                worked, went to school, became a citizen. In 2011 he went
+                worked, went to school, and became a citizen. In 2011 he went
                 back to visit the camps and saw children living the same life
                 he had — and started sending a few of them to school out of
                 his own paycheck.
