@@ -63,7 +63,7 @@ export function CinematicTimeline({ items }: { items: TimelineItem[] }) {
             })}
           </div>
           <div className="font-display uppercase tracking-[0.2em] text-xs text-ink-muted mt-4 text-center">
-            {items[active]?.year} · scroll →
+            {items[active]?.year}
           </div>
         </div>
       </div>
