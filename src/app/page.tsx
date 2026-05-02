@@ -5,7 +5,6 @@ import { JubaClock } from "@/components/juba-clock";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { SchoolsMap } from "@/components/schools-map";
 import { WallOfKids } from "@/components/wall-of-kids";
-import { GabrielSignature } from "@/components/signature";
 import { Testimonials } from "@/components/testimonials";
 
 type Stat =
@@ -171,7 +170,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5 lg:sticky lg:top-28">
               <div className="relative max-w-sm mx-auto lg:mx-0">
-                <div className="absolute -inset-4 bg-purple -rotate-2" aria-hidden="true" />
+                <div className="absolute inset-0 -translate-x-3 -translate-y-3 bg-purple -z-10" aria-hidden="true" />
                 <div className="relative aspect-[4/5] border-2 border-ink overflow-hidden">
                   <Image
                     src="/photos/gabriel/portrait.jpg"
@@ -181,7 +180,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="relative mt-5 font-display uppercase tracking-tight text-xl text-ink leading-tight">
+                <div className="mt-6 font-display uppercase tracking-tight text-xl text-ink leading-tight text-center lg:text-left">
                   Gabriel Akim Nyok
                   <span className="block text-sm text-ink-muted tracking-[0.2em] font-normal mt-1">
                     Founder &amp; Chairman
@@ -216,24 +215,6 @@ export default function Home() {
                 board is all volunteer. He returns to walk the schools and
                 personally confirm head counts before tuition is paid.
               </p>
-
-              {/* Signature pull-quote */}
-              <div className="relative mt-8 pl-7 border-l-4 border-purple">
-                <p className="font-hand text-3xl md:text-4xl text-ink leading-snug">
-                  "I still don't take a salary.<br />
-                  These kids are why I went home."
-                </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <GabrielSignature
-                    width={180}
-                    height={60}
-                    stroke="var(--purple)"
-                  />
-                  <span className="font-display uppercase tracking-[0.2em] text-[10px] text-ink-muted">
-                    Gabriel · Kampala
-                  </span>
-                </div>
-              </div>
 
               <Link
                 href="/our-story"

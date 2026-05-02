@@ -254,7 +254,11 @@ export default function OurStory() {
                       alt={p.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover"
+                      className={
+                        p.img.includes("brenda")
+                          ? "object-cover object-left"
+                          : "object-cover object-top"
+                      }
                     />
                   </div>
                   <div className="p-4">
