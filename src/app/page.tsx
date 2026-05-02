@@ -240,8 +240,8 @@ export default function Home() {
               </h2>
               <p className="text-lg text-ink-soft max-w-2xl">
                 Two in South Sudan. Four in Uganda — where many South Sudanese
-                refugee families have settled. Hover any pin to meet the
-                school.
+                refugee families have settled. Every one of them serves
+                children who would otherwise have no access to school.
               </p>
             </div>
           </div>
