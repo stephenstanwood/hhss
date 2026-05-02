@@ -6,6 +6,7 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { SchoolsMap } from "@/components/schools-map";
 import { WallOfKids } from "@/components/wall-of-kids";
 import { GabrielSignature } from "@/components/signature";
+import { Testimonials } from "@/components/testimonials";
 
 type Stat =
   | { kind: "num"; value: number; suffix?: string; prefix?: string; label: string }
@@ -345,8 +346,8 @@ export default function Home() {
                   style={{ transform: "rotate(2deg)" }}
                 >
                   <Image
-                    src="/photos/godaddy/teens-lineup.jpg"
-                    alt="Students lined up at a partner school"
+                    src="/photos/wall/schools-08.jpg"
+                    alt="Six girls in Juba Integrated High uniforms standing on a hillside above the city"
                     fill
                     sizes="(max-width: 1024px) 60vw, 400px"
                     className="object-cover"
@@ -357,8 +358,8 @@ export default function Home() {
                   style={{ transform: "rotate(-3deg)" }}
                 >
                   <Image
-                    src="/photos/field/students-feb23.jpg"
-                    alt="Students at a partner school"
+                    src="/photos/wall/schools-03.jpg"
+                    alt="A girl in Juba Integrated High uniform smiling"
                     fill
                     sizes="(max-width: 1024px) 50vw, 320px"
                     className="object-cover"
@@ -401,6 +402,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TESTIMONIALS — real Facebook comments from former students */}
+      <Testimonials />
+
+      {/* MANDELA QUOTE BAND — brand asset */}
+      <section className="bg-purple py-12 md:py-16 border-b-2 border-ink">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border-2 border-paper/20 p-3 md:p-4 bg-paper">
+            <Image
+              src="/photos/brand/mandela.jpg"
+              alt="Nelson Mandela quote: It is not beyond our power to create a world in which all children have access to good education."
+              width={664}
+              height={664}
+              sizes="(max-width: 768px) 90vw, 600px"
+              className="w-full h-auto block"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* CTA — visceral price ladder */}
       <section className="relative py-24 md:py-32 bg-purple text-paper overflow-hidden">

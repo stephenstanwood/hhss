@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PayPalDonate } from "@/components/paypal-donate";
 import { DonationReceipt } from "@/components/donation-receipt";
 
@@ -69,6 +70,24 @@ export default function Donate() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 99% BRAND BAND — kid faces + the headline number */}
+      <section className="relative bg-ink border-b-2 border-ink">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] max-h-[60vh] overflow-hidden">
+          <Image
+            src="/photos/brand/99-percent.jpg"
+            alt="Two children's faces with 99% overlaid — 99% of every donation reaches the kids"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="bg-paper py-5 border-y-2 border-ink">
+          <p className="font-display uppercase tracking-[0.25em] text-center text-xs md:text-sm text-ink-muted">
+            99% of every donation · directly to the children
+          </p>
         </div>
       </section>
 
