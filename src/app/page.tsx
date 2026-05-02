@@ -375,7 +375,7 @@ export default function Home() {
           <WallOfKids />
 
           <p className="font-hand text-2xl md:text-3xl text-ink mt-8 text-center">
-            ...and 1,470 more like them. ✦
+            ...and hundreds more like them. ✦
           </p>
         </div>
       </section>
