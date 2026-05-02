@@ -244,7 +244,7 @@ export default function OurStory() {
                   className="w-full h-auto block"
                 />
                 <figcaption className="text-center font-hand text-base mt-1.5">
-                  Gabriel & Roda with Rev. Dave at PCLG
+                  Gabriel & Roda with Rev. Dr. David Watermulder at PCLG
                 </figcaption>
               </figure>
             </div>
