@@ -14,7 +14,7 @@ const FACTS = [
     n: "01",
     label: "An impoverished nation",
     title: "Independent since 2011.",
-    body: "South Sudan broke away from Sudan in 2011 — the world's newest country. Population is around 12 million; the majority are Christian. Most villages don't have electricity, running water, or paved roads.",
+    body: "South Sudan declared independence from Sudan in 2011 — the world's newest country. Population is around 12 million; the majority are Christian. Most villages don't have electricity, running water, or paved roads.",
   },
   {
     n: "02",

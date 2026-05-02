@@ -14,11 +14,11 @@ const TIMELINE: TimelineItem[] = [
     year: "1983",
     title: "Born near the Nile.",
     body: "Gabriel Akim Nyok is born in a clinic in South Sudan. The middle name Akim, \"doctor\" in Dinka, comes from the rarity of being born in a clinic at all.",
-    img: "/photos/field/nile-terekeka.jpg",
-    imgAlt: "The River Nile in Terekeka county, South Sudan",
+    img: "/photos/field/nile-juba.jpg",
+    imgAlt: "The White Nile in Juba, South Sudan",
     credit: {
-      text: "Photo: Mandenya Samuel Francis · CC BY-SA 4.0",
-      href: "https://commons.wikimedia.org/wiki/File:The_River_Nile.jpg",
+      text: "Photo: Rejoice Martin Kubaya · CC BY-SA 4.0",
+      href: "https://commons.wikimedia.org/wiki/File:White_River_Nile.jpg",
     },
   },
   {
@@ -161,43 +161,6 @@ export default function OurStory() {
           </h2>
 
           <CinematicTimeline items={TIMELINE} />
-        </div>
-      </section>
-
-      {/* SPEAKER STRIP */}
-      <section className="py-16 md:py-20 bg-paper-deep border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
-            <div className="polaroid max-w-md mx-auto md:mx-0" style={{ transform: "rotate(2deg)" }}>
-              <Image
-                src="/photos/gabriel/speaking-mic.jpg"
-                alt="Gabriel speaking at a Bay Area event"
-                width={800}
-                height={600}
-                className="w-full h-auto block"
-              />
-              <div className="text-center font-hand text-lg mt-1">
-                Speaking at PCLG, 2025
-              </div>
-            </div>
-            <div>
-              <h3 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-tight mb-5">
-                Bring Gabriel<br />to your group.
-              </h3>
-              <p className="text-lg text-ink-soft mb-6 leading-relaxed">
-                Gabriel speaks regularly to schools, churches, civic groups,
-                and book clubs across the Bay Area and beyond — sharing his
-                story, the history of the Lost Boys, and the work happening
-                today in South Sudan and Uganda.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center font-display uppercase tracking-wider text-sm bg-ink text-paper px-6 py-3 border-2 border-ink shadow-[4px_4px_0_var(--purple)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--purple)] transition-all"
-              >
-                Request a talk →
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 
