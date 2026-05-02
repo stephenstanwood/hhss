@@ -190,9 +190,10 @@ export default function Home() {
 
             <div className="lg:col-span-7 space-y-7 text-lg md:text-xl text-ink-soft leading-relaxed">
               <p>
-                Gabriel was born in 1983 in a clinic near the Nile — rare
-                enough that his middle name <em>Akim</em>, "doctor" in Dinka,
-                came from it. He was two when civil war reached his village.
+                Gabriel was born in 1983 near the Nile. Being born in a
+                clinic was rare enough back then that his middle name{" "}
+                <em>Akim</em> — "doctor" in Dinka — came from it. He was
+                two when civil war reached his village.
               </p>
               <p>
                 Red Cross volunteers carried him out of South Sudan to a UNHCR
