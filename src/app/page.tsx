@@ -6,7 +6,6 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { SchoolsMap } from "@/components/schools-map";
 import { WallOfKids } from "@/components/wall-of-kids";
 import { GabrielSignature } from "@/components/signature";
-import { RecentPolaroids } from "@/components/recent-polaroids";
 
 type Stat =
   | { kind: "num"; value: number; suffix?: string; prefix?: string; label: string }
@@ -17,13 +16,6 @@ const STATS: Stat[] = [
   { kind: "num", value: 6, label: "Partner schools" },
   { kind: "num", value: 1, suffix: "%", prefix: "~", label: "Operating overhead" },
   { kind: "text", text: "Est. 2018", label: "Volunteer-run" },
-];
-
-const RECENT = [
-  { src: "/photos/field/children-group.jpg", caption: "At the camp" },
-  { src: "/photos/godaddy/students-3.jpg", caption: "Schoolyard" },
-  { src: "/photos/field/juba-classroom.jpg", caption: "Juba" },
-  { src: "/photos/field/gabriel-camp-sign.jpg", caption: "Kiryandongo" },
 ];
 
 export default function Home() {
@@ -52,7 +44,7 @@ export default function Home() {
                 We fund primary and secondary education for refugee
                 children across <strong className="text-ink">six partner schools</strong> in
                 South Sudan and Uganda. No salaries. No overhead. Just tuition,
-                uniforms, books, and one good meal a day.
+                uniforms, books, and meals.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Link
@@ -353,8 +345,8 @@ export default function Home() {
                   style={{ transform: "rotate(2deg)" }}
                 >
                   <Image
-                    src="/photos/godaddy/singing.jpg"
-                    alt="Children gathered for an assembly"
+                    src="/photos/godaddy/teens-lineup.jpg"
+                    alt="Students lined up at a partner school"
                     fill
                     sizes="(max-width: 1024px) 60vw, 400px"
                     className="object-cover"
@@ -365,8 +357,8 @@ export default function Home() {
                   style={{ transform: "rotate(-3deg)" }}
                 >
                   <Image
-                    src="/photos/schools/gulu-central.jpg"
-                    alt="A student at Gulu Central High"
+                    src="/photos/field/students-feb23.jpg"
+                    alt="Students at a partner school"
                     fill
                     sizes="(max-width: 1024px) 50vw, 320px"
                     className="object-cover"
@@ -409,20 +401,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RECENT POLAROIDS — clickable lightbox */}
-      <section className="py-16 md:py-20 border-b-2 border-ink bg-paper-deep">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="font-display uppercase tracking-[0.2em] text-xs text-red mb-3">
-            From the field
-          </div>
-          <h2 className="font-display uppercase tracking-tight text-3xl md:text-5xl leading-[0.95] mb-10 max-w-2xl">
-            A few favorites,<br />
-            <span className="scribble">pinned to the wall.</span>
-          </h2>
-
-          <RecentPolaroids photos={RECENT} />
-        </div>
-      </section>
 
       {/* CTA — visceral price ladder */}
       <section className="relative py-24 md:py-32 bg-purple text-paper overflow-hidden">

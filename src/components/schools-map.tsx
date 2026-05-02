@@ -214,7 +214,7 @@ export function SchoolsMap() {
                 alt={s.name}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div className="p-3">
