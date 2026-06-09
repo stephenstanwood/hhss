@@ -169,8 +169,8 @@ export default function Home() {
                   South Sudan just released the results of the{" "}
                   <strong className="text-ink">
                     Certificate of Secondary Education
-                  </strong>{" "}
-                  — the national exam that 45,776 students sat last December
+                  </strong>
+                  , the national exam that 45,776 students sat last December
                   at 521 schools across the country.
                 </p>
                 <p>
@@ -182,7 +182,7 @@ export default function Home() {
                 </p>
               </div>
               <p className="font-hand text-3xl md:text-4xl text-ink mt-8">
-                Congratulations, Kenyi — we are so proud. ✦
+                Congratulations, Kenyi. We are so proud. ✦
               </p>
             </div>
             <div className="lg:col-span-6">
