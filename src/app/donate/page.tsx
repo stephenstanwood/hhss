@@ -177,6 +177,41 @@ export default function Donate() {
         </div>
       </section>
 
+      {/* MONTHLY — the compounding option */}
+      <section className="py-16 md:py-24 bg-ink text-paper border-b-2 border-ink relative overflow-hidden">
+        <div className="absolute -right-24 -top-24 w-[420px] h-[420px] rounded-full bg-purple/30 blur-3xl pointer-events-none" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-8">
+              <div className="font-display uppercase tracking-[0.2em] text-xs text-orange mb-3">
+                The steadiest way to help
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-4xl md:text-6xl leading-[0.95] mb-5">
+                $42 a month is<br />
+                <span className="text-orange">a year of school.</span>
+              </h2>
+              <p className="text-lg text-paper/85 leading-relaxed max-w-2xl mb-3">
+                One child&apos;s full year — tuition, books, uniform, meals,
+                transport, exam fees — runs about $500. Spread over twelve
+                months, that&apos;s $42. Monthly donors are how we promise a
+                school we&apos;ll still be there next term.
+              </p>
+              <p className="text-[14px] text-paper/60 leading-relaxed max-w-2xl">
+                On the PayPal page, tick{" "}
+                <em>&ldquo;Make this a monthly donation&rdquo;</em> before you
+                confirm.
+              </p>
+            </div>
+            <div className="md:col-span-4">
+              <PayPalDonate amount={42} label="Give $42 / month →" variant="primary" />
+              <p className="text-center text-[13px] text-paper/60 mt-3">
+                or any amount, monthly — every bit compounds
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* QUICK + CUSTOM */}
       <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -252,6 +287,35 @@ export default function Donate() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 border-t border-paper/25 pt-8 text-left">
+            <div className="font-display uppercase tracking-[0.2em] text-xs opacity-70 mb-3">
+              Don&apos;t take our word for it
+            </div>
+            <p className="text-[15px] opacity-90 leading-relaxed max-w-2xl">
+              Our IRS filings are public record. Look us up by EIN{" "}
+              <span className="font-mono">82-5215402</span> on{" "}
+              <a
+                href="https://projects.propublica.org/nonprofits/organizations/825215402"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-2 underline-offset-4 hover:opacity-75"
+              >
+                ProPublica&apos;s Nonprofit Explorer
+              </a>{" "}
+              — full Form 990s, revenue, and expenses, straight from the
+              IRS — or in the{" "}
+              <a
+                href="https://apps.irs.gov/app/eos/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-2 underline-offset-4 hover:opacity-75"
+              >
+                IRS Tax-Exempt Organization Search
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
