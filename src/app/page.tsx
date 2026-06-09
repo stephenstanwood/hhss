@@ -149,7 +149,10 @@ export default function Home() {
       </section>
 
       {/* NEWS — Kenyi Lado Lawon, 3rd nationwide on the 2025 CSE */}
-      <section className="py-16 md:py-24 border-b-2 border-ink bg-paper-deep relative overflow-hidden">
+      <section
+        id="news"
+        className="py-16 md:py-24 border-b-2 border-ink bg-paper-deep relative overflow-hidden scroll-mt-24"
+      >
         <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-red/10 blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
