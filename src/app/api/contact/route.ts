@@ -25,7 +25,8 @@ export async function POST(req: Request) {
   const name = (body.name || "").trim();
   const email = (body.email || "").trim();
   const message = (body.message || "").trim();
-  const subject = (body.subject || "").trim() || "Message from website";
+  const subject =
+    ((body.subject || "").trim() || "Message from website").slice(0, 200);
 
   if (!name || !email || !message) {
     return NextResponse.json(

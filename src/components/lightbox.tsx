@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
 type Photo = { src: string; caption?: string; alt?: string };
 
@@ -13,6 +13,8 @@ type Props = {
 
 export function Lightbox({ photos, className = "", children }: Props) {
   const [index, setIndex] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   const close = useCallback(() => setIndex(null), []);
   const next = useCallback(
@@ -42,12 +44,27 @@ export function Lightbox({ photos, className = "", children }: Props) {
     };
   }, [index, close, next, prev]);
 
+  const isOpen = index !== null;
+  useEffect(() => {
+    if (!isOpen) return;
+    dialogRef.current?.focus();
+    return () => openerRef.current?.focus();
+  }, [isOpen]);
+
   return (
     <div className={className}>
-      {children((i) => setIndex(i))}
+      {children((i) => {
+        openerRef.current =
+          document.activeElement instanceof HTMLElement
+            ? document.activeElement
+            : null;
+        setIndex(i);
+      })}
       {index !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-ink/92 backdrop-blur-sm flex items-center justify-center p-4"
+          ref={dialogRef}
+          tabIndex={-1}
+          className="fixed inset-0 z-[100] bg-ink/92 backdrop-blur-sm flex items-center justify-center p-4 focus:outline-none"
           onClick={close}
           role="dialog"
           aria-modal="true"

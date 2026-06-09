@@ -43,7 +43,7 @@ export default function Home() {
               <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
                 We fund primary and secondary education for refugee
                 children across <strong className="text-ink">six partner schools</strong> in
-                South Sudan and Uganda. No salaries. No overhead. Just tuition,
+                South Sudan and Uganda. No salaries. No offices. Just tuition,
                 uniforms, books, and meals.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -144,6 +144,67 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEWS — Kenyi Lado Lawon, 3rd nationwide on the 2025 CSE */}
+      <section className="py-16 md:py-24 border-b-2 border-ink bg-paper-deep relative overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-red/10 blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-6">
+              <div className="flex items-center gap-3 mb-5 flex-wrap">
+                <span className="stamp text-xs">News</span>
+                <span className="font-display uppercase tracking-[0.2em] text-xs text-red">
+                  June 2026
+                </span>
+              </div>
+              <h2 className="font-display uppercase tracking-tight text-6xl md:text-8xl leading-[0.85] mb-7">
+                Third in<br />
+                <span className="scribble">the nation.</span>
+              </h2>
+              <div className="space-y-5 text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl">
+                <p>
+                  South Sudan just released the results of the{" "}
+                  <strong className="text-ink">
+                    Certificate of Secondary Education
+                  </strong>{" "}
+                  — the national exam that 45,776 students sat last December
+                  at 521 schools across the country.
+                </p>
+                <p>
+                  Kenyi Lado Lawon, a student at{" "}
+                  <strong className="text-ink">Juba Integrated High</strong>,
+                  one of our six partner schools, placed third in the entire
+                  nation with 88.3% in the science section. Only two students
+                  in the country scored higher.
+                </p>
+              </div>
+              <p className="font-hand text-3xl md:text-4xl text-ink mt-8">
+                Congratulations, Kenyi — we are so proud. ✦
+              </p>
+            </div>
+            <div className="lg:col-span-6">
+              <div className="relative max-w-xl mx-auto lg:mx-0 lg:ml-auto">
+                <div className="absolute -inset-3 bg-orange/30 rotate-2" aria-hidden="true" />
+                <div className="relative aspect-[4/3] border-2 border-ink overflow-hidden">
+                  <Image
+                    src="/photos/field/juba-assembly-2026.jpg"
+                    alt="The student body assembled in the courtyard at Juba Integrated High School"
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 560px"
+                    className="object-cover"
+                  />
+                </div>
+                <div
+                  className="absolute -top-6 -right-5 hidden md:flex items-center justify-center bg-red text-paper border-2 border-ink w-28 h-28 rounded-full font-display uppercase tracking-tight text-center leading-tight text-sm shadow-[4px_4px_0_var(--ink)]"
+                  style={{ transform: "rotate(7deg)" }}
+                >
+                  3rd of<br />45,776<br />students
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -388,7 +449,7 @@ export default function Home() {
 
       {/* CTA — visceral price ladder */}
       <section className="relative py-24 md:py-32 bg-purple text-paper overflow-hidden">
-        <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <div className="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
           <Marquee
             items={["donate", "give", "support", "ayúdanos", "education", "future", "act"]}
             separator="○"

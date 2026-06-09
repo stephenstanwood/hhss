@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "About South Sudan",
   description:
     "South Sudan has the lowest literacy rate in the world and one of the largest displaced populations. Learn about the country, the conflict, and why education is the long way out.",
+  alternates: {
+    canonical: "/about-south-sudan",
+  },
 };
 
 const FACTS = [

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Our Story",
   description:
     "Founded in 2018 by Gabriel Nyok. Helping Hands for South Sudan is a 501(c)(3) nonprofit with six partner schools across South Sudan and Uganda.",
+  alternates: {
+    canonical: "/our-story",
+  },
 };
 
 const TIMELINE: TimelineItem[] = [

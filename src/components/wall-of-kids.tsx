@@ -67,6 +67,9 @@ export function WallOfKids() {
                 onClick={() => open(i % PHOTOS.length)}
                 className="shrink-0 group focus:outline-none focus:ring-2 focus:ring-purple"
                 aria-label={`Open photo: ${p.caption}`}
+                // second copy exists only to make the loop seamless
+                aria-hidden={i >= PHOTOS.length || undefined}
+                tabIndex={i >= PHOTOS.length ? -1 : undefined}
               >
                 <div className="relative w-56 sm:w-64 md:w-72 lg:w-80 aspect-square overflow-hidden border-2 border-ink shadow-[4px_4px_0_var(--ink)] group-hover:shadow-[6px_6px_0_var(--purple)] group-hover:-translate-y-0.5 transition-all">
                   <Image

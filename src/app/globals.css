@@ -124,6 +124,12 @@ body {
   animation: marquee 32s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Ribbon/section number */
 .ribbon-num {
   font-family: var(--font-display);

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Events & Press",
   description:
     "Talks, videos, and press coverage. Helping Hands for South Sudan founder Gabriel Nyok speaks regularly to Bay Area groups when in California.",
+  alternates: {
+    canonical: "/events",
+  },
 };
 
 type Talk = { date: string; venue: string; location: string; note?: string };
@@ -36,22 +39,16 @@ type Video = {
 
 const VIDEOS: Video[] = [
   {
-    embed: "https://www.youtube.com/embed/SPmvrtZbKGw?rel=0&modestbranding=1&vq=hd1080",
+    embed: "https://www.youtube-nocookie.com/embed/SPmvrtZbKGw?rel=0&modestbranding=1&vq=hd1080",
     eyebrow: "PCLG · 2018",
     title: "Gabriel tells his story.",
     note: "An 8-minute talk at Presbyterian Church of Los Gatos: Gabriel's journey out of South Sudan and the start of HH4SS, in his own words.",
   },
   {
-    embed: "https://www.youtube.com/embed/FKVRHtWJimQ?start=1&rel=0&modestbranding=1&vq=hd1080",
+    embed: "https://www.youtube-nocookie.com/embed/FKVRHtWJimQ?start=1&rel=0&modestbranding=1&vq=hd1080",
     eyebrow: "Trip · Feb 2020",
     title: "A trip set to music.",
     note: "Short musical video from the team's February 2020 trip to South Sudan and Uganda: the camps, the schools, the kids.",
-  },
-  {
-    embed: "https://redir1.kron4.com/nxs-video/vid-anvato-8589370,11755670,11755149,11755143,11755070,11754536,11754261,11754118,11754112,11754103,11753075,11752756,11751864/embed/?injected_via=embed&post_id=2486624",
-    eyebrow: "KRON 4 · News",
-    title: "Sudanese Americans call for end to violence.",
-    note: "Bay Area news segment featuring Rev. David Watermulder responding to escalating conflict in South Sudan.",
   },
 ];
 
@@ -71,7 +68,7 @@ export default function Events() {
           <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed">
             Gabriel lives in Uganda now and the work is mostly there, but he
             still comes back to California a few times a year for talks and
-            updates. Recent talks, videos, and press below.
+            updates. Recent talks and videos below.
           </p>
         </div>
       </section>
@@ -86,7 +83,7 @@ export default function Events() {
             Gabriel and the work,<br />
             <span className="text-orange">on video.</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
             {VIDEOS.map((v) => (
               <article key={v.embed}>
                 <div className="aspect-video w-full bg-black border-2 border-paper/20 overflow-hidden">

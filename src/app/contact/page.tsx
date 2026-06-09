@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Helping Hands for South Sudan. Speaking inquiries, donations, partnerships, or just questions; we read every message.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function Contact() {

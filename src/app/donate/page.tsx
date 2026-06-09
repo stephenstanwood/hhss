@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Donate",
   description:
     "99% of every donation reaches the children. Helping Hands for South Sudan is an all-volunteer 501(c)(3). Tax ID 82-5215402.",
+  alternates: {
+    canonical: "/donate",
+  },
 };
 
 type Tier = { amount: number; headline: string; body: string; featured?: boolean };
