@@ -5,7 +5,8 @@ type Props = {
   className?: string;
 };
 
-const BUSINESS_EMAIL = "helpinghandsforsouthsudan@gmail.com";
+export const PAYPAL_BUSINESS_EMAIL = "helpinghandsforsouthsudan@gmail.com";
+const BUSINESS_EMAIL = PAYPAL_BUSINESS_EMAIL;
 
 export function PayPalDonate({
   amount,

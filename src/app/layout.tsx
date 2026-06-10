@@ -114,6 +114,10 @@ export default function RootLayout({
       className={`${fjalla.variable} ${source.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="bg-paper text-ink min-h-full flex flex-col">
+        {/* if JS never runs, scroll-reveal content must still be visible */}
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;transform:none !important;filter:none !important;clip-path:none !important}`}</style>
+        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:bg-purple focus:text-paper focus:px-4 focus:py-2 focus:border-2 focus:border-ink font-display uppercase tracking-wider text-sm"

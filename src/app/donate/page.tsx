@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PayPalDonate } from "@/components/paypal-donate";
 import { DonationReceipt } from "@/components/donation-receipt";
+import { Reveal } from "@/components/reveal";
+import { TornEdge } from "@/components/torn-edge";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -117,7 +119,9 @@ export default function Donate() {
                 schools.
               </p>
             </div>
-            <DonationReceipt />
+            <Reveal variant="stamp">
+              <DonationReceipt />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -213,7 +217,7 @@ export default function Donate() {
       </section>
 
       {/* QUICK + CUSTOM */}
-      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
+      <section className="py-16 md:py-24 bg-paper-deep">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-14">
             <div>
@@ -265,6 +269,8 @@ export default function Donate() {
           </div>
         </div>
       </section>
+
+      <TornEdge from="var(--paper-deep)" to="var(--purple)" />
 
       {/* TRANSPARENCY */}
       <section className="py-20 md:py-24 bg-purple text-paper">

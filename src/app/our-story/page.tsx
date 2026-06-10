@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CinematicTimeline, type TimelineItem } from "@/components/cinematic-timeline";
+import { Reveal } from "@/components/reveal";
+import { TornEdge } from "@/components/torn-edge";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -126,19 +128,21 @@ export default function OurStory() {
             </div>
             <div className="lg:col-span-5">
               <div className="relative max-w-sm mx-auto lg:ml-auto">
-                <div className="polaroid" style={{ transform: "rotate(-3deg)" }}>
-                  <div className="tape -top-3 left-12" />
-                  <Image
-                    src="/photos/gabriel/portrait.jpg"
-                    alt="Gabriel Nyok, founder"
-                    width={600}
-                    height={750}
-                    className="w-full h-auto block"
-                  />
-                  <div className="text-center font-hand text-xl mt-1">
-                    Gabriel Nyok, founder
+                <Reveal variant="develop">
+                  <div className="polaroid" style={{ transform: "rotate(-3deg)" }}>
+                    <div className="tape -top-3 left-12" />
+                    <Image
+                      src="/photos/gabriel/portrait.jpg"
+                      alt="Gabriel Nyok, founder"
+                      width={600}
+                      height={750}
+                      className="w-full h-auto block"
+                    />
+                    <div className="text-center font-hand text-xl mt-1">
+                      Gabriel Nyok, founder
+                    </div>
                   </div>
-                </div>
+                </Reveal>
               </div>
             </div>
           </div>
@@ -206,7 +210,7 @@ export default function OurStory() {
       </section>
 
       {/* FAITH PARTNERS */}
-      <section className="py-16 md:py-24 bg-paper-deep border-b-2 border-ink">
+      <section className="py-16 md:py-24 bg-paper-deep">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-start">
             <div className="md:col-span-7">
@@ -254,6 +258,8 @@ export default function OurStory() {
           </div>
         </div>
       </section>
+
+      <TornEdge from="var(--paper-deep)" to="var(--purple)" />
 
       {/* CTA */}
       <section className="py-20 md:py-28 bg-purple text-paper">

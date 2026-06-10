@@ -1,6 +1,8 @@
 // Real comments from HHSS's Facebook page, collected for the marketing
 // folder. Light styling — quotes feel pinned to the wall, not corporate.
 
+import { Reveal } from "@/components/reveal";
+
 type Testimonial = {
   quote: string;
   author: string;
@@ -50,7 +52,7 @@ const RULE_CLASSES: Record<Testimonial["bg"], string> = {
 
 export function Testimonials() {
   return (
-    <section className="py-20 md:py-28 border-b-2 border-ink bg-paper-deep">
+    <section className="py-20 md:py-28 bg-paper-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           <div className="md:col-span-4">
@@ -72,26 +74,27 @@ export function Testimonials() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-10">
-          {QUOTES.map((t) => (
-            <figure
-              key={t.author}
-              className={`${BG_CLASSES[t.bg]} border-2 border-ink p-8 md:p-10 shadow-[6px_6px_0_var(--ink)]`}
-              style={{ transform: `rotate(${t.tilt}deg)` }}
-            >
-              <blockquote className="text-lg md:text-xl leading-relaxed">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className={`mt-6 pt-5 border-t ${RULE_CLASSES[t.bg]}`}>
-                <div className="font-display uppercase tracking-wide text-xl md:text-2xl leading-tight">
-                  — {t.author}
-                </div>
-                {t.context && (
-                  <div className="font-display uppercase tracking-[0.18em] text-xs opacity-80 mt-1.5">
-                    {t.context}
+          {QUOTES.map((t, i) => (
+            <Reveal key={t.author} variant="stamp" delay={i * 110}>
+              <figure
+                className={`${BG_CLASSES[t.bg]} border-2 border-ink p-8 md:p-10 shadow-[6px_6px_0_var(--ink)] h-full`}
+                style={{ transform: `rotate(${t.tilt}deg)` }}
+              >
+                <blockquote className="text-lg md:text-xl leading-relaxed">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className={`mt-6 pt-5 border-t ${RULE_CLASSES[t.bg]}`}>
+                  <div className="font-display uppercase tracking-wide text-xl md:text-2xl leading-tight">
+                    — {t.author}
                   </div>
-                )}
-              </figcaption>
-            </figure>
+                  {t.context && (
+                    <div className="font-display uppercase tracking-[0.18em] text-xs opacity-80 mt-1.5">
+                      {t.context}
+                    </div>
+                  )}
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </div>

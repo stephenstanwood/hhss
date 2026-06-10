@@ -2,17 +2,11 @@
 // thermal-printed school store receipt. Highlights what each tier actually
 // pays for and totals out to a real year of school.
 
-const ITEMS = [
-  { qty: 1, label: "Tuition (1 year)", amount: 250 },
-  { qty: 1, label: "School uniform", amount: 35 },
-  { qty: 1, label: "Books + notebooks (1 yr)", amount: 45 },
-  { qty: 1, label: "Daily meals", amount: 100 },
-  { qty: 1, label: "Transportation", amount: 30 },
-  { qty: 1, label: "Supplies", amount: 25 },
-  { qty: 1, label: "National exam fee", amount: 15 },
-];
+import { SCHOOL_YEAR_ITEMS, SCHOOL_YEAR_TOTAL } from "@/lib/school-year";
 
-const SUBTOTAL = ITEMS.reduce((acc, i) => acc + i.amount, 0);
+const ITEMS = SCHOOL_YEAR_ITEMS.map((i) => ({ qty: 1, ...i }));
+
+const SUBTOTAL = SCHOOL_YEAR_TOTAL;
 
 export function DonationReceipt() {
   return (

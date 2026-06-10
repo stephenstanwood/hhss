@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/reveal";
 
 const SCHOOLS = [
   {
@@ -54,29 +55,28 @@ export function SchoolsMap() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-10">
-        {SCHOOLS.map((s) => (
-          <article
-            key={s.key}
-            className="bg-paper border-2 border-ink shadow-[3px_3px_0_var(--ink)] overflow-hidden hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--purple)] transition-all"
-          >
-            <div className="relative aspect-[4/3] bg-ink/10">
-              <Image
-                src={s.img}
-                alt={s.name}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover object-top"
-              />
-            </div>
-            <div className="p-3">
-              <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple">
-                {s.country}
+        {SCHOOLS.map((s, i) => (
+          <Reveal key={s.key} variant="rise" delay={i * 70}>
+            <article className="bg-paper border-2 border-ink shadow-[3px_3px_0_var(--ink)] overflow-hidden hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--purple)] transition-all h-full">
+              <div className="relative aspect-[4/3] bg-ink/10">
+                <Image
+                  src={s.img}
+                  alt={s.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover object-top"
+                />
               </div>
-              <div className="font-display uppercase tracking-tight text-sm leading-tight mt-0.5">
-                {s.name}
+              <div className="p-3">
+                <div className="font-display uppercase tracking-[0.15em] text-[10px] text-purple">
+                  {s.country}
+                </div>
+                <div className="font-display uppercase tracking-tight text-sm leading-tight mt-0.5">
+                  {s.name}
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </Reveal>
         ))}
       </div>
     </div>

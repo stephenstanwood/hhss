@@ -41,6 +41,57 @@ const PHOTOS = [
   { src: "/photos/wall/thanks-05-31-04_1.jpg", caption: "Day of Thanks" },
 ];
 
+const SPLIT = Math.ceil(PHOTOS.length / 2);
+const ROW_A = PHOTOS.slice(0, SPLIT);
+const ROW_B = PHOTOS.slice(SPLIT);
+
+type RowPhoto = (typeof PHOTOS)[number];
+
+function Row({
+  photos,
+  open,
+  baseIndex,
+  reverse,
+}: {
+  photos: RowPhoto[];
+  open: (i: number) => void;
+  baseIndex: number;
+  reverse?: boolean;
+}) {
+  return (
+    <div
+      className="marquee-track gap-3 md:gap-4 py-1.5 md:py-2 hover:[animation-play-state:paused]"
+      style={{
+        animationDuration: reverse ? "170s" : "150s",
+        animationDirection: reverse ? "reverse" : undefined,
+      }}
+    >
+      {[...photos, ...photos].map((p, i) => (
+        <button
+          key={`${p.src}-${i}`}
+          type="button"
+          onClick={() => open(baseIndex + (i % photos.length))}
+          className="shrink-0 group focus:outline-none focus:ring-2 focus:ring-purple"
+          aria-label={`Open photo: ${p.caption}`}
+          // second copy exists only to make the loop seamless
+          aria-hidden={i >= photos.length || undefined}
+          tabIndex={i >= photos.length ? -1 : undefined}
+        >
+          <div className="relative w-40 sm:w-48 md:w-56 lg:w-60 aspect-square overflow-hidden border-2 border-ink shadow-[4px_4px_0_var(--ink)] group-hover:shadow-[6px_6px_0_var(--purple)] group-hover:-translate-y-0.5 transition-all">
+            <Image
+              src={p.src}
+              alt={p.caption}
+              fill
+              sizes="(max-width: 640px) 160px, (max-width: 1024px) 224px, 240px"
+              className="object-cover object-top"
+            />
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export function WallOfKids() {
   return (
     <Lightbox photos={PHOTOS}>
@@ -49,39 +100,33 @@ export function WallOfKids() {
           {/* Edge fades */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 md:w-16 z-10 bg-gradient-to-r from-paper to-transparent"
+            className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 md:w-16 z-20 bg-gradient-to-r from-paper to-transparent"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 md:w-16 z-10 bg-gradient-to-l from-paper to-transparent"
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 md:w-16 z-20 bg-gradient-to-l from-paper to-transparent"
           />
 
+          {/* two rows drifting opposite directions: a crowd, not a strip */}
+          <Row photos={ROW_A} open={open} baseIndex={0} />
+          <Row photos={ROW_B} open={open} baseIndex={SPLIT} reverse />
+
+          {/* the number, stamped over the crowd */}
           <div
-            className="marquee-track gap-3 md:gap-4 py-2 hover:[animation-play-state:paused]"
-            style={{ animationDuration: "180s" }}
+            className="pointer-events-none absolute inset-0 z-10 hidden md:flex items-center justify-center"
+            aria-hidden="true"
           >
-            {[...PHOTOS, ...PHOTOS].map((p, i) => (
-              <button
-                key={`${p.src}-${i}`}
-                type="button"
-                onClick={() => open(i % PHOTOS.length)}
-                className="shrink-0 group focus:outline-none focus:ring-2 focus:ring-purple"
-                aria-label={`Open photo: ${p.caption}`}
-                // second copy exists only to make the loop seamless
-                aria-hidden={i >= PHOTOS.length || undefined}
-                tabIndex={i >= PHOTOS.length ? -1 : undefined}
-              >
-                <div className="relative w-56 sm:w-64 md:w-72 lg:w-80 aspect-square overflow-hidden border-2 border-ink shadow-[4px_4px_0_var(--ink)] group-hover:shadow-[6px_6px_0_var(--purple)] group-hover:-translate-y-0.5 transition-all">
-                  <Image
-                    src={p.src}
-                    alt={p.caption}
-                    fill
-                    sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px"
-                    className="object-cover object-top"
-                  />
-                </div>
-              </button>
-            ))}
+            <div
+              className="bg-red text-paper border-2 border-ink shadow-[6px_6px_0_var(--ink)] px-8 py-4 text-center"
+              style={{ transform: "rotate(-3deg)" }}
+            >
+              <div className="font-display leading-none text-7xl lg:text-8xl tracking-tight">
+                1,500
+              </div>
+              <div className="font-display uppercase tracking-[0.3em] text-xs mt-2">
+                kids · last year
+              </div>
+            </div>
           </div>
         </div>
       )}
