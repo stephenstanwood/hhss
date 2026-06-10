@@ -584,12 +584,12 @@ export default function Home() {
 
           <div className="text-center mt-14">
             <p className="text-paper/85">
-              Prefer the simple way?{" "}
+              Monthly giving, checks, stock, employer matching —{" "}
               <Link
                 href="/donate"
                 className="underline decoration-2 underline-offset-4 hover:opacity-80 font-display uppercase tracking-wider text-sm"
               >
-                See every way to give →
+                see every way to give →
               </Link>
             </p>
             <p className="text-paper/70 text-sm mt-4">
