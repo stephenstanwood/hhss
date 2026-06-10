@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SignupBand } from "@/components/signup-band";
 
 export function SiteFooter() {
   return (
     <footer className="border-t-2 border-ink bg-paper-deep mt-24">
-      <SignupBand />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
