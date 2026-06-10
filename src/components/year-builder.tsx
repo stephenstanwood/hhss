@@ -5,7 +5,11 @@ import {
   SCHOOL_YEAR_ITEMS,
   SCHOOL_YEAR_TOTAL,
 } from "@/lib/school-year";
-import { PAYPAL_BUSINESS_EMAIL } from "@/components/paypal-donate";
+import {
+  PAYPAL_BUSINESS_EMAIL,
+  DONATE_RETURN_URL,
+  DONATE_CANCEL_URL,
+} from "@/lib/paypal";
 
 // Interactive donate moment: the visitor assembles one student's real
 // school year line by line. Every amount is the actual Juba budget line.
@@ -217,6 +221,8 @@ export function YearBuilder() {
             value="Helping Hands for South Sudan"
           />
           <input type="hidden" name="currency_code" value="USD" />
+          <input type="hidden" name="return" value={DONATE_RETURN_URL} />
+          <input type="hidden" name="cancel_return" value={DONATE_CANCEL_URL} />
           {total > 0 && <input type="hidden" name="amount" value={String(total)} />}
           <button
             type="submit"

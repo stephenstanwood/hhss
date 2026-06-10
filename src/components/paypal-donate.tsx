@@ -5,7 +5,12 @@ type Props = {
   className?: string;
 };
 
-export const PAYPAL_BUSINESS_EMAIL = "helpinghandsforsouthsudan@gmail.com";
+import {
+  PAYPAL_BUSINESS_EMAIL,
+  DONATE_RETURN_URL,
+  DONATE_CANCEL_URL,
+} from "@/lib/paypal";
+
 const BUSINESS_EMAIL = PAYPAL_BUSINESS_EMAIL;
 
 export function PayPalDonate({
@@ -33,6 +38,8 @@ export function PayPalDonate({
       <input type="hidden" name="cmd" value="_donations" />
       <input type="hidden" name="item_name" value="Helping Hands for South Sudan" />
       <input type="hidden" name="currency_code" value="USD" />
+      <input type="hidden" name="return" value={DONATE_RETURN_URL} />
+      <input type="hidden" name="cancel_return" value={DONATE_CANCEL_URL} />
       {amount !== undefined && (
         <input type="hidden" name="amount" value={amount.toString()} />
       )}

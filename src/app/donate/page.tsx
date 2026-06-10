@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PayPalDonate } from "@/components/paypal-donate";
+import { PayPalOverlay } from "@/components/paypal-overlay";
 import { DonationReceipt } from "@/components/donation-receipt";
 import { Reveal } from "@/components/reveal";
 import { TornEdge } from "@/components/torn-edge";
@@ -207,9 +208,10 @@ export default function Donate() {
               </p>
             </div>
             <div className="md:col-span-4">
-              <PayPalDonate amount={42} label="Give $42 / month →" variant="primary" />
+              <PayPalOverlay label="Give monthly →" variant="primary" />
               <p className="text-center text-[13px] text-paper/60 mt-3">
-                or any amount, monthly — every bit compounds
+                $42 is preset in the PayPal window. Pick monthly, or any
+                amount and rhythm you like.
               </p>
             </div>
           </div>
@@ -225,11 +227,10 @@ export default function Donate() {
                 Or pick<br />your own amount.
               </h3>
               <p className="text-ink-soft mb-7 max-w-md">
-                Want to give a different amount, or set up recurring monthly
-                support? Tap below. PayPal lets you pick any amount or set up
-                a monthly subscription.
+                Any amount, one-time or recurring. The PayPal window opens
+                right here and the site waits underneath.
               </p>
-              <PayPalDonate label="Custom amount on PayPal →" variant="primary" />
+              <PayPalOverlay label="Pick your amount →" variant="primary" />
             </div>
 
             <div className="bg-paper border-2 border-ink p-7 md:p-8 shadow-[6px_6px_0_var(--ink)]">
