@@ -209,6 +209,11 @@ body {
   opacity: 1;
   transform: none;
   filter: none;
+}
+
+/* write's open end state stays scoped to the variant — a shared clip-path
+   crops rotated children (price tag, stamps) that overhang the wrapper box */
+.reveal--write.is-in {
   clip-path: inset(-8% -4% -12% -4%);
 }
 
