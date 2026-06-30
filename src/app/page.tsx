@@ -4,6 +4,7 @@ import { Marquee } from "@/components/marquee";
 import { JubaClock } from "@/components/juba-clock";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { SchoolsMap } from "@/components/schools-map";
+import { FieldDispatch } from "@/components/field-dispatch";
 import { WallOfKids } from "@/components/wall-of-kids";
 import { Testimonials } from "@/components/testimonials";
 import { Reveal } from "@/components/reveal";
@@ -399,6 +400,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FIELD DISPATCH — fresh June 2026 photos from Gulu + Juba High */}
+      <FieldDispatch />
 
       {/* FULL-BLEED PHOTO BAND — visual breath between sections */}
       <section className="relative h-[60vh] min-h-[420px] max-h-[640px] overflow-hidden border-b-2 border-ink">

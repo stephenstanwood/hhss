@@ -12,7 +12,7 @@ const SCHOOLS = [
     key: "juba-high",
     name: "Juba Integrated High",
     country: "South Sudan",
-    img: "/photos/schools/juba-2.jpg",
+    img: "/photos/schools/juba-high-2026.jpg",
   },
   {
     key: "broader-vision",
@@ -24,13 +24,13 @@ const SCHOOLS = [
     key: "gulu",
     name: "Gulu Primary",
     country: "Uganda",
-    img: "/photos/schools/gulu.jpg",
+    img: "/photos/schools/gulu-2026.jpg",
   },
   {
     key: "gulu-central",
     name: "Gulu Central High",
     country: "Uganda",
-    img: "/photos/schools/gulu-central.jpg",
+    img: "/photos/schools/gulu-central-2026.jpg",
   },
   {
     key: "st-gracious",

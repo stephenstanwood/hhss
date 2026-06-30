@@ -7,8 +7,11 @@ import { Lightbox } from "@/components/lightbox";
 // Day of Thanks events. Stephen's rule: no buildings, no backs of heads,
 // no distant crowds — only photos where the kids' faces read.
 const PHOTOS = [
+  { src: "/photos/june2026/gulu-girls-walking.jpg", caption: "Gulu Primary · June 2026" },
+  { src: "/photos/june2026/gulu-boy-grin.jpg", caption: "Gulu · June 2026" },
   { src: "/photos/wall/jubahigh-01.jpg", caption: "Juba High" },
   { src: "/photos/field/students-feb23.jpg", caption: "Schoolmate" },
+  { src: "/photos/june2026/juba-girls-reading.jpg", caption: "Juba High · June 2026" },
   { src: "/photos/wall/schools-07.jpg", caption: "Juba Integrated" },
   { src: "/photos/godaddy/students-3.jpg", caption: "Three of ours" },
   { src: "/photos/wall/thanks-05-31-04_2.jpg", caption: "Day of Thanks" },
@@ -20,6 +23,9 @@ const PHOTOS = [
   { src: "/photos/wall/thanks-05-31-04.jpg", caption: "Day of Thanks" },
   { src: "/photos/wall/thanks-05-30-56.jpg", caption: "Day of Thanks" },
   { src: "/photos/field/juba-students-2.jpg", caption: "Juba" },
+  { src: "/photos/june2026/gulu-boys-tarp.jpg", caption: "Gulu · June 2026" },
+  { src: "/photos/june2026/gulu-girls-group.jpg", caption: "Gulu Primary · June 2026" },
+  { src: "/photos/schools/gulu-central-2026.jpg", caption: "Gulu High · June 2026" },
   { src: "/photos/wall/schools-05.jpg", caption: "Assembly" },
   { src: "/photos/wall/thanks-05-30-57_1.jpg", caption: "Day of Thanks" },
   { src: "/photos/wall/thanks-05-30-58.jpg", caption: "Day of Thanks" },
