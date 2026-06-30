@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Lightbox } from "@/components/lightbox";
 import { Reveal } from "@/components/reveal";
 
-// Photos that landed by WhatsApp from the partner schools in June 2026 —
+// Photos from founder Gabriel's phone, June 2026 — the partner schools in
 // Gulu (Uganda) and Juba Integrated High (South Sudan). Captions are
 // location/scene only (no names), per the org's consent rule.
 type Shot = {
@@ -82,7 +82,7 @@ export function FieldDispatch() {
           <span className="stamp text-xs">Just in</span>
           <span className="font-display uppercase tracking-[0.2em] text-[11px] text-ink-muted">
             <span className="text-red" aria-hidden="true">✦ </span>
-            Forwarded from the field · June 2026
+            From Gabriel's phone · June 2026
           </span>
         </div>
 
@@ -90,17 +90,17 @@ export function FieldDispatch() {
           <div className="lg:col-span-8">
             <Reveal variant="rise">
               <h2 className="font-display uppercase tracking-tight text-5xl md:text-7xl leading-[0.9]">
-                Straight from<br />
-                the <span className="scribble scribble--purple">group chat.</span>
+                The latest<br />
+                from <span className="scribble scribble--purple">Gabriel.</span>
               </h2>
             </Reveal>
           </div>
           <div className="lg:col-span-4">
             <p className="text-lg text-ink-soft leading-relaxed">
-              No photographer, no press kit — just a phone passed around the
-              schoolyard and a WhatsApp thread. Here's what landed from{" "}
+              Photos straight from our founder Gabriel's phone — the schools in{" "}
               <strong className="text-ink">Gulu</strong> and{" "}
-              <strong className="text-ink">Juba High</strong> this month.
+              <strong className="text-ink">Juba High</strong> this month. No
+              studio, no stock: just the kids your gift keeps in class.
             </p>
           </div>
         </div>
